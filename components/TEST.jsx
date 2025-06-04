@@ -14,13 +14,14 @@ export default function TEST() {
 
     return (
         <>
-            <p>Dark Mode: {darkMode ? 'ON' : 'OFF'}</p>
+            <h1>CONTEXT DATA</h1>
             <p>Window Width: {windowWidth}px</p>
             <p>Device Type: {deviceType}</p>
-
+            <p>Dark Mode: {darkMode ? 'ON' : 'OFF'}</p>
             <button className="debug" onClick={switchMode}>
                 Switch Mode
             </button>
+
         </>
     );
 }

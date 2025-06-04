@@ -12,6 +12,8 @@ import { MainContextProvider } from "../../contexts/MainContext.jsx";
 
 
 // COMPONENTS
+import TEST from "../../components/TEST";
+import CSS_Layer from "../../layouts/CSS_Layer";
 
 
 // COMPONENT EXPORT
@@ -32,7 +34,11 @@ export default function RootLayout({ children }) {
         {/* CONTEXT */}
         <MainContextProvider>
 
+          <CSS_Layer>
 
+            <TEST />
+
+          </CSS_Layer>
 
         </MainContextProvider>
 

@@ -47,13 +47,11 @@ export const MainContextProvider = ({ children }) => {
         updateDeviceType(width);
 
         // debug
-        let device = 'mobile';
-        if (width > 768) device = 'desktop';
-        else if (width > 576) device = 'tablet';
-        console.log('WINDOW Pixels:', width, '| DEVICE Type:', device);
+        // let device = 'mobile';
+        // if (width > 768) device = 'desktop';
+        // else if (width > 576) device = 'tablet';
+        // console.log('WINDOW Pixels:', width, '| DEVICE Type:', device);
     };
-
-    // USE-EFFECT
 
     // INIT USE-EFFECT
     useEffect(() => {

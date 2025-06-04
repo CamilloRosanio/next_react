@@ -1,5 +1,4 @@
-// CLIENT SIDE ON
-// Permette di utilizzare gli HOOKS, COMPONENTS e CONTEXT di React lato Client, allineando React Js a Next Js.
+// READY FOR CLIENT SIDE
 "use client";
 
 // CONTEXTS

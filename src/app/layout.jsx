@@ -13,6 +13,7 @@ import { MainContextProvider } from "../../contexts/MainContext.jsx";
 // COMPONENTS
 import CSS_Layer from "../../layouts/CSS_Layer";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 // debug
 import TEST from "../../components/TEST";
@@ -31,23 +32,25 @@ export default function RootLayout({ children }) {
         <title>Project Name</title>
       </head>
 
-      {/* CONTEXT */}
-      <MainContextProvider>
+      <body>
 
-        <CSS_Layer>
+        {/* CONTEXT */}
+        <MainContextProvider>
 
-          <body>
+          <CSS_Layer>
 
             {/* debug */}
             {/* <TEST /> */}
 
             <Header />
 
-          </body>
+            <Footer />
 
-        </CSS_Layer>
+          </CSS_Layer>
 
-      </MainContextProvider>
+        </MainContextProvider>
+
+      </body>
 
     </html>
   );

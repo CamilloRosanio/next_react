@@ -8,19 +8,13 @@
   padding: 0;
 
   list-style: none;
-  list-style-type: none;
   text-decoration: none;
 
-  /* FONT */
   font-family: "Roboto", sans-serif;
 }
 
 button {
   all: unset;
-}
-
-a:-webkit-any-link {
-  color: var(--color-primary);
 }
 
 
@@ -52,17 +46,17 @@ a:-webkit-any-link {
   --container-max: 1400px;
 
   /* PALETTE - DARK MODE */
-  --color-primary: white;
-  --color-secondary: rgb(180, 180, 180);
-  --color-terziary: rgb(107, 107, 107);
+  --color-primary: rgb(42, 42, 42);
+  --color-secondary: rgb(75, 75, 75);
+  --color-darker: rgb(107, 107, 107);
 
-  --bg-primary: rgb(17, 17, 17);
-  --bg-elements: rgb(43, 43, 43);
+  --bg-primary: rgb(231, 231, 231);
+  --bg-primary-body: rgb(255, 255, 255);
 
   --color1: rgb(45, 138, 233);
   --color2: rgb(237, 13, 137);
-  --color3: rgb(0, 255, 234);
-  --hover-color: rgb(0, 255, 234);
+  --color3: rgb(0, 156, 143);
+  --hover-color: rgb(0, 156, 143);
 }
 
 
@@ -125,10 +119,10 @@ p {
 # UTILITY
 *******************************************************************/
 
-body {
+#cssLayer {
   height: 100vh;
   width: 100vw;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary-body);
   color: var(--color-primary);
 }
 
@@ -158,7 +152,7 @@ main {
 .button {
   font-size: var(--typo-small);
   font-weight: bold;
-  padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) * 1.2);
+  padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) + var(--space-unit-half));
   border-radius: 50px;
   border: 2px solid;
   cursor: pointer;
@@ -169,10 +163,10 @@ main {
 .input {
   font-size: var(--typo-p);
   padding: var(--space-unit-half) var(--space-unit);
-  background-color: var(--bg-elements);
+  background-color: var(--bg-primary);
   color: var(--color-primary);
   outline: none;
-  border: 2px solid var(--bg-elements);
+  border: 2px solid var(--bg-primary);
   border-radius: 50px;
   flex-grow: 1;
 }
@@ -182,13 +176,17 @@ main {
 }
 
 .input:focus {
-  background-color: var(--bg-elements);
+  background-color: var(--bg-primary);
   color: var(--color-primary);
   border: 2px solid var(--color3);
   border-radius: 50px;
 }
 
 /****************************************** LINK */
+
+.hyperlink {
+  color: inherit;
+}
 
 .hyperlink:hover {
   color: var(--hover-color);
@@ -237,6 +235,16 @@ main {
   color: var(--color1);
 }
 
+.callUs.space2 {
+  display: flex;
+  gap: var(--space-unit-half);
+}
+
+.callUs strong {
+  color: var(--color-primary);
+  display: flex;
+}
+
 
 
 /*******************************************************************
@@ -247,7 +255,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: var(--space-unit-2);
-  background-color: var(--bg-elements);
+  background-color: var(--bg-primary);
 }
 
 header .imgContainer {
@@ -276,7 +284,7 @@ nav {
 
 nav>a {
   padding-right: var(--space-unit);
-  border-right: 1px solid var(--color-terziary);
+  border-right: 1px solid var(--color-darker);
 }
 
 nav :nth-last-child(2) {
@@ -318,10 +326,10 @@ nav .dropDown {
 nav .dropDown>a {
   padding-bottom: var(--space-unit);
   margin-bottom: var(--space-unit);
-  border-bottom: 1px solid var(--color-terziary);
+  border-bottom: 1px solid var(--color-darker);
 }
 
-nav .dropDown> :last-child {
+nav .dropDown :last-child {
   border: none;
   padding-bottom: 0;
   margin-bottom: 0;
@@ -343,10 +351,22 @@ nav .dropDown> :last-child {
   min-width: 30%;
 }
 
-.contactForm .fieldMessage.input {
+#fieldMessage {
   padding: var(--space-unit);
   min-height: 12rem;
   border-radius: 15px;
+}
+
+.contactForm .errorMsg {
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-unit-half)
+}
+
+.contactForm .errorMsg img {
+  width: calc(15px + calc(var(--typo-vw) * 0.5));
+  aspect-ratio: 1;
 }
 
 
@@ -385,121 +405,6 @@ nav .dropDown> :last-child {
 
 
 /*******************************************************************
-# CALL US
-*******************************************************************/
-
-.callHours {
-  gap: var(--space-unit-half);
-}
-
-.callHours .daySlots {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-unit-half);
-}
-
-.callHours .slot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-unit-half);
-  padding-bottom: var(--space-unit-half);
-  border-bottom: 1px solid var(--color-terziary);
-  ;
-}
-
-.callHours .daySlots :last-child {
-  padding-bottom: none;
-}
-
-.callHours .day {
-  min-width: 12%;
-}
-
-.callHours .hours {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-unit);
-}
-
-
-
-/*******************************************************************
-# MAP
-*******************************************************************/
-
-.mapSection a:hover {
-  color: inherit;
-}
-
-.mapContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(var(--space-unit) *3);
-}
-
-.mapContainer .mapText {
-  max-width: 35%;
-}
-
-.mapContainer a:hover {
-  color: inherit;
-}
-
-.mapContainer .imgContainer {
-  display: flex;
-  height: calc(var(--space-unit) * 3 + 20vh);
-}
-
-.mapContainer img {
-  max-height: 100%;
-  max-width: 100%;
-}
-
-
-
-/*******************************************************************
-# ERROR MSG
-*******************************************************************/
-
-.errorMsg {
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  gap: var(--space-unit-half);
-}
-
-.errorMsg img {
-  width: calc(15px + calc(var(--typo-vw) * 0.5));
-  aspect-ratio: 1;
-}
-
-
-
-/*******************************************************************
-# ACCORDION
-*******************************************************************/
-
-.accordionItem.card {
-  cursor: pointer;
-  /* padding: calc(var(--space-unit) * 1.5); */
-  border-radius: 15px;
-  border-top-right-radius: 0;
-}
-
-.accordionText {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-}
-
-.accordionText.open {
-  padding-top: var(--space-unit);
-  max-height: 1000px;
-}
-
-
-
-/*******************************************************************
 # SOCIAL MEDIA
 *******************************************************************/
 
@@ -525,7 +430,6 @@ nav .dropDown> :last-child {
   display: flex;
   align-items: center;
   gap: var(--space-unit-half);
-  cursor: pointer;
 }
 
 .toggle .toggleContainer {
@@ -546,7 +450,7 @@ nav .dropDown> :last-child {
 .toggle .togglePoint {
   height: calc(var(--space-unit) + .5vh -4px);
   aspect-ratio: 1;
-  background-color: var(--color-terziary);
+  background-color: var(--color-darker);
   border-radius: 100%;
 }
 
@@ -574,12 +478,12 @@ footer {
   flex-wrap: wrap;
   gap: var(--space-unit);
   padding: var(--space-unit-2);
-  background-color: var(--bg-elements);
+  background-color: var(--bg-primary);
 }
 
 footer .flexLine>a {
   padding-right: var(--space-unit);
-  border-right: 1px solid var(--color-terziary);
+  border-right: 1px solid var(--color-darker);
 }
 
 footer .flexLine :last-child {
@@ -626,24 +530,9 @@ footer .flexLine :last-child {
   }
 
   .card {
-    padding: calc(var(--space-unit) * 1.5);
+    padding: var(--space-unit);
     border-radius: 15px;
     border-top-right-radius: 0;
-  }
-
-  .callHours .day {
-    min-width: 20%;
-  }
-
-  .mapContainer .imgSection {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-unit-2);
-  }
-
-  .mapContainer .mapText {
-    max-width: none;
   }
 }
 
@@ -657,34 +546,12 @@ footer .flexLine :last-child {
     --typo-size: 1.6rem;
   }
 
-  .container {
-    width: calc(var(--container)* 1.07);
-    padding: var(--space-unit-2) 0;
-  }
-
   p {
     line-height: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *1.5));
   }
 
   header {
     padding: calc(var(--space-unit) *1.5);
-  }
-
-  .card {
-    padding: var(--space-unit);
-  }
-
-  .callHours .slot {
-    flex-direction: column;
-  }
-
-  .callHours .day {
-    min-width: 25%;
-  }
-
-  .buttonContainerContacts {
-    display: flex;
-    justify-content: center;
   }
 }
 

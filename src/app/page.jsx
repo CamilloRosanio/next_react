@@ -56,11 +56,11 @@ export default function HomePage() {
       Go to non-existing Page
     </a>
 
-    <h1>{mainContext.listSymbol} Super Titolo Grande</h1>
-    <h2>Titolo medio sezione</h2>
-    <h3>Titolo h3</h3>
-    <h4>Titolo di una informazione importante</h4>
+    <h1>{mainContext.listSymbol} H1 Main Title</h1>
+    <h2>H2 Section Title</h2>
+    <h3>H3 Paragraph Title</h3>
+    <h4>H4 Important info Title</h4>
     <h5>H5 Title</h5>
-    <p>Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. Paragrafo semplice con contenuti di testo estesi. </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
   </>
 }

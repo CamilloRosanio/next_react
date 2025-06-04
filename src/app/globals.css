@@ -2,6 +2,11 @@
 # RESET
 *******************************************************************/
 
+/* FONT FAMILY IMPORT */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +17,8 @@
   text-decoration: none;
 
   /* FONT */
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -42,10 +48,12 @@ a:-webkit-any-link {
   --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2));
   --typo-h2: calc(var(--typo-size) + var(--typo-vw));
   --typo-h3: calc(calc(var(--typo-size) *0.8) + calc(var(--typo-vw) /2));
-  --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.8));
-  --typo-h5: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.4));
-  --typo-p: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.4));
-  --typo-small: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.2));
+  --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) * 0.8));
+  --typo-h5: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.5));
+  --typo-p: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.8));
+  --typo-small: calc(calc(var(--typo-size) * 0.6) + calc(var(--typo-vw) *0.3));
+
+
 
   /* CONTAINER */
   --container: 80%;
@@ -53,7 +61,7 @@ a:-webkit-any-link {
 
   /* PALETTE - DARK MODE */
   --color-primary: white;
-  --color-secondary: rgb(180, 180, 180);
+  --color-secondary: rgb(228, 228, 228);
   --color-terziary: rgb(107, 107, 107);
 
   --bg-primary: rgb(17, 17, 17);
@@ -70,6 +78,10 @@ a:-webkit-any-link {
 /*******************************************************************
 # RESPONSIVE TYPOGRAPHY
 *******************************************************************/
+
+* {
+  letter-spacing: calc(var(--typo-size) * 0.02);
+}
 
 h1 {
   font-size: var(--typo-h1);
@@ -94,7 +106,7 @@ h5 {
 p {
   color: var(--color-secondary);
   font-size: var(--typo-p);
-  line-height: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *.8));
+  font-weight: 200;
 }
 
 
@@ -298,8 +310,8 @@ nav :last-child {
 
 nav .dropDownButton {
   cursor: pointer;
-  font-size: calc(var(--typo-p) + 3px);
-  font-weight: bold;
+  font-size: var(--typo-p);
+  font-weight: 500;
   padding-bottom: 2px;
 }
 
@@ -513,11 +525,11 @@ nav .dropDown> :last-child {
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
-  gap: calc(var(--space-unit) * 0.7);
+  gap: calc(var(--space-unit) * 1.2);
 }
 
 .socialMedia img {
-  height: calc(15px + calc(var(--typo-vw) * 0.5));
+  height: calc(20px + calc(var(--typo-vw) * 0.5));
   aspect-ratio: 1;
 }
 

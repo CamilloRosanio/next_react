@@ -59,7 +59,7 @@ const socialInfo = {
         hrefDesktop: '',
     },
     x: {
-        // Udername
+        // Username
         contact: 'debug',
         hrefMobile: 'twitter://user?screen_name=',
         hrefDesktop: 'https://x.com/',

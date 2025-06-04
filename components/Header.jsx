@@ -10,11 +10,11 @@ import { useMainContext } from "../contexts/MainContext";
 import Navbar from '../layouts/Navbar.jsx';
 
 
-// COMPONENT EXPORT
+// EXPORT
 export default function Header() {
 
     // DATA - CONTEXT
-    const mainContext = useMainContext();
+    const { darkMode } = useMainContext();
 
     // SUPPORT
     const imgLogoHeader = 'logo/logo-h50-white-default.png';
@@ -27,9 +27,7 @@ export default function Header() {
             {/* LOGO */}
             <div className="imgContainer">
                 <Link href="/">
-                    {/* <img src={mainContext.darkMode ? imgLogoHeader : imgLogoHeaderDark} alt="logo" /> */}
-
-                    <img src={imgLogoHeader} alt="logo" />
+                    <img src={darkMode ? imgLogoHeader : imgLogoHeaderDark} alt="logo" />
                 </Link>
             </div>
 

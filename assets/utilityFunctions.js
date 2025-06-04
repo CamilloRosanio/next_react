@@ -56,7 +56,7 @@ function allowedTime(allowedHours, gmtValue) {
     const currentMinute = timeGMT.getMinutes().toString().padStart(2, '0');
     const currentTime = `${currentHour}:${currentMinute}`;
 
-    // GET SLOTS (only if the day exists in allowedHours)
+    // GET SLOTS (solo se il giorno esiste in allowedHours)
     const fasceOrarie = allowedHours[currentDay];
 
     // VALIDATION - DAY

@@ -5,7 +5,7 @@
 import { useMainContext } from "../contexts/MainContext.jsx";
 
 
-// COMPONENT EXPORT
+// EXPORT
 export default function TEST() {
 
     // DATA - CONTEXT
@@ -13,14 +13,14 @@ export default function TEST() {
 
     return (
         <>
-            <h1>CONTEXT DATA</h1>
+            <h4>CONTEXT DATA</h4>
             <p>Window Width: {windowWidth}px</p>
             <p>Device Type: {deviceType}</p>
             <p>Dark Mode: {darkMode ? 'ON' : 'OFF'}</p>
+
             <button className="debug" onClick={switchMode}>
                 Switch Mode
             </button>
-
         </>
     );
 }

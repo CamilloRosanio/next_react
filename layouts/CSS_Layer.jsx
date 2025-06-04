@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useMainContext } from "../contexts/MainContext.jsx";
 
 
-// COMPONENT EXPORT
+// EXPORT
 export default function CSS_Layer({ children }) {
 
     // DATA - CONTEXT

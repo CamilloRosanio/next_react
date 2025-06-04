@@ -59,22 +59,6 @@ const utilityContent = {
             allowedTime: 'Al momento non siamo disponibili. Richiamare negli orari indicati',
         },
     },
-    accordions: {
-        aboutUs: {
-            section1: {
-                title: 'Section title 1',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nostrum dolor sequi. Deserunt voluptates nemo iure quia sunt? Assumenda expedita eius reiciendis eaque dolore recusandae voluptatum animi itaque minima ad Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nostrum dolor sequi. Deserunt voluptates nemo iure quia sunt? Assumenda expedita eius reiciendis eaque dolore recusandae voluptatum animi itaque minima ad Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nostrum dolor sequi. Deserunt voluptates nemo iure quia sunt? Assumenda expedita eius reiciendis eaque dolore recusandae voluptatum animi itaque minima ad',
-            },
-            section2: {
-                title: 'Section title 2',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nostrum dolor sequi. Deserunt voluptates nemo iure quia sunt? Assumenda expedita eius reiciendis eaque dolore recusandae voluptatum animi itaque minima ad',
-            },
-            section3: {
-                title: 'Section title 3',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis nostrum dolor sequi. Deserunt voluptates nemo iure quia sunt? Assumenda expedita eius reiciendis eaque dolore recusandae voluptatum animi itaque minima ad',
-            },
-        },
-    },
 };
 
 
@@ -82,7 +66,7 @@ const utilityContent = {
 export default utilityContent;
 
 
-// DATA EXPORT - PARZIALI
+// DATA EXPORT - DESTRUCTURED
 export const {
     listSymbol,
     disclaimers,
@@ -90,5 +74,4 @@ export const {
     callUs,
     openMaps,
     errorMsg,
-    accordions
 } = utilityContent;

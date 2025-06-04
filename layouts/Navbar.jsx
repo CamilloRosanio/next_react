@@ -1,5 +1,5 @@
 // UTILITY
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 
@@ -16,36 +16,20 @@ import { listSymbol } from '../assets/data/utilityContent.js';
 import Toggle from './Toggle';
 
 
-// COMPONENT EXPORT
+// EXPORT
 export default function Navbar() {
 
     // DATA - CONTEXT
-    const mainContext = useMainContext();
-
-    // DATA - SUPPORT
-    const navUtility = navLinks.filter(link => link.type == 'utility');
-    const navContent = navLinks.filter(link => link.type == 'content');
+    const { darkMode, switchMode, deviceType } = useMainContext();
 
     // USE-STATE
     const [hidden, setHidden] = useState(true);
-    const [windowSize, setwindowSize] = useState(window.innerWidth);
-    const [mobile, setMobile] = useState(window.innerWidth <= 576);
 
-    // USE-EFFECT RESIZE
-    useEffect(() => {
-        const handleResize = () => {
-            setwindowSize(window.innerWidth);
-            setMobile(window.innerWidth <= 576);
-        };
+    // SUPPORT
+    const navUtility = navLinks.filter(link => link.type == 'utility');
+    const navContent = navLinks.filter(link => link.type == 'content');
 
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    // HIDE MENU
+    // Hide Menu
     const showMenu = () => {
         if (hidden) {
             setHidden(false);
@@ -56,7 +40,7 @@ export default function Navbar() {
 
     return <>
 
-        {!mobile ?
+        {deviceType !== 'mobile' ?
 
             // DESKTOP / TABLET NAVBAR
             <nav>
@@ -74,8 +58,8 @@ export default function Navbar() {
 
                     <div>
                         <Toggle
-                            value={mainContext.darkMode}
-                            setValue={mainContext.switchMode}
+                            value={darkMode}
+                            setValue={switchMode}
                             iconSx='☼'
                             iconDx='☾'
                         />
@@ -102,8 +86,8 @@ export default function Navbar() {
 
                     <div>
                         <Toggle
-                            value={mainContext.darkMode}
-                            setValue={mainContext.switchMode}
+                            value={darkMode}
+                            setValue={switchMode}
                             iconSx='☼'
                             iconDx='☾'
                         />

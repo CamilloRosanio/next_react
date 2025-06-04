@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
 
       <head>
         <meta charSet="UTF-8" />
+        {/* FAVICON */}
         <link rel="icon" type="image/svg+xml" href="/favicon-default-img.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Project Name</title>
@@ -38,14 +39,22 @@ export default function RootLayout({ children }) {
         <MainContextProvider>
 
           <CSS_Layer>
+            <div className='wrapper'>
 
-            {/* debug */}
-            {/* <TEST /> */}
+              {/* debug */}
+              {/* <TEST /> */}
 
-            <Header />
+              <Header />
 
-            <Footer />
+              <main>
+                <div className='container'>
+                  {children}
+                </div>
+              </main>
 
+              <Footer />
+
+            </div>
           </CSS_Layer>
 
         </MainContextProvider>

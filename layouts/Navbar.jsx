@@ -1,3 +1,7 @@
+// READY FOR CLIENT SIDE
+"use client";
+
+
 // UTILITY
 import { useState } from 'react';
 import Link from 'next/link';

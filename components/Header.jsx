@@ -1,3 +1,7 @@
+// READY FOR CLIENT SIDE
+"use client";
+
+
 // UTILITY
 import Link from 'next/link';
 
@@ -17,8 +21,8 @@ export default function Header() {
     const { darkMode } = useMainContext();
 
     // SUPPORT
-    const imgLogoHeader = 'logo/logo-h50-white-default.png';
-    const imgLogoHeaderDark = 'logo/logo-h50-grey-default.png';
+    const imgLogoHeader = '/logo/logo-h50-white-default.png';
+    const imgLogoHeaderDark = '/logo/logo-h50-grey-default.png';
 
     return <>
 

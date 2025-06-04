@@ -5,13 +5,19 @@ function toTop() {
 
 // GET EMAIL
 function getEmail(emailData, emailEnc) {
-    console.log('ACTION: getEmail');
+
+    // debug
+    // console.log('ACTION: getEmail');
+
     return emailData.replaceAll(emailEnc, '');
 }
 
 // GET PHONE
 function getPhone(phoneData, phoneEnc) {
-    console.log('ACTION: getPhone');
+
+    // debug
+    // console.log('ACTION: getPhone');
+
     return phoneData.replaceAll(phoneEnc, '');
 }
 

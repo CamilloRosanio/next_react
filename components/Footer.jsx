@@ -1,5 +1,5 @@
-// UTILITY
-import Link from 'next/link';
+// READY FOR CLIENT SIDE
+"use client";
 
 
 // ASSETS

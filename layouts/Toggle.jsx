@@ -1,3 +1,7 @@
+// READY FOR CLIENT SIDE
+"use client";
+
+
 // EXPORT
 export default function Toggle({
     value,

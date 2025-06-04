@@ -1,4 +1,8 @@
-// IMPORT CONTEXTS
+// READY FOR CLIENT SIDE
+"use client";
+
+
+// CONTEXTS
 import { useMainContext } from "../contexts/MainContext";
 
 
@@ -45,7 +49,7 @@ export default function SocialMedia() {
             {(info.whatsapp && info.whatsapp.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.whatsapp.hrefDesktop : info.whatsapp.hrefMobile}${info.internationalPrefix.contact}${info.whatsapp.contact}`}
-                    target="_blank"><img src={darkMode ? imgWhatsapp : imgWhatsappDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgWhatsapp : imgWhatsappDark} alt="whatsapp icon" />
                 </a>
             }
 
@@ -53,7 +57,7 @@ export default function SocialMedia() {
             {(info.telegram && info.telegram.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.telegram.hrefDesktop : info.telegram.hrefMobile}${info.telegram.contact}`}
-                    target="_blank"><img src={darkMode ? imgTelegram : imgTelegramDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgTelegram : imgTelegramDark} alt="telegram icon" />
                 </a>
             }
 
@@ -61,7 +65,7 @@ export default function SocialMedia() {
             {(info.facebook && info.facebook.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.facebook.hrefDesktop : info.facebook.hrefMobile}${info.facebook.contact}`}
-                    target="_blank"><img src={darkMode ? imgFacebook : imgFacebookDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgFacebook : imgFacebookDark} alt="facebook icon" />
                 </a>
             }
 
@@ -69,7 +73,7 @@ export default function SocialMedia() {
             {(info.instagram && info.instagram.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.instagram.hrefDesktop : info.instagram.hrefMobile}${info.instagram.contact}`}
-                    target="_blank"><img src={darkMode ? imgInstagram : imgInstagramDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgInstagram : imgInstagramDark} alt="instagram icon" />
                 </a>
             }
 
@@ -77,7 +81,7 @@ export default function SocialMedia() {
             {(info.x && info.x.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.x.hrefDesktop : info.x.hrefMobile}${info.x.contact}`}
-                    target="_blank"><img src={darkMode ? imgX : imgXDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgX : imgXDark} alt="x icon" />
                 </a>
             }
 
@@ -86,7 +90,7 @@ export default function SocialMedia() {
             {(info.tiktok && info.tiktok.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.tiktok.hrefDesktop : info.tiktok.hrefMobile}${info.tiktok.contact}`}
-                    target="_blank"><img src={darkMode ? imgTiktok : imgTiktokDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgTiktok : imgTiktokDark} alt="tiktok icon" />
                 </a>
             }
 
@@ -94,7 +98,7 @@ export default function SocialMedia() {
             {(info.linkedin && info.linkedin.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.linkedin.hrefDesktop : info.linkedin.hrefMobile}${info.linkedin.contact}`}
-                    target="_blank"><img src={darkMode ? imgLinkedin : imgLinkedinDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgLinkedin : imgLinkedinDark} alt="linkedin icon" />
                 </a>
             }
 
@@ -102,7 +106,7 @@ export default function SocialMedia() {
             {(info.youtube && info.youtube.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.youtube.hrefDesktop : info.youtube.hrefMobile}${info.youtube.contact}`}
-                    target="_blank"><img src={darkMode ? imgYoutube : imgYoutubeDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgYoutube : imgYoutubeDark} alt="youtube icon" />
                 </a>
             }
 
@@ -110,7 +114,7 @@ export default function SocialMedia() {
             {(info.trustpilot && info.trustpilot.contact !== '') &&
                 <a
                     href={`${deviceType == 'desktop' ? info.trustpilot.hrefDesktop : info.trustpilot.hrefMobile}${info.trustpilot.contact}`}
-                    target="_blank"><img src={darkMode ? imgTrustpilot : imgTrustpilotDark} alt="" />
+                    target="_blank"><img src={darkMode ? imgTrustpilot : imgTrustpilotDark} alt="trustpilot icon" />
                 </a>
             }
         </div>

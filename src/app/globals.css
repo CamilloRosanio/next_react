@@ -237,6 +237,12 @@ main {
   color: var(--color1);
 }
 
+.missingData {
+  padding: 0 1rem;
+  background-color: yellow;
+  color: rgb(255, 0, 0);
+}
+
 
 
 /*******************************************************************
@@ -712,8 +718,6 @@ footer .flexLine :last-child {
   border: 2px solid rgb(255, 0, 0);
 }
 
-.missingData {
-  padding: 0 1rem;
-  background-color: yellow;
-  color: rgb(255, 0, 0);
-}
+/* * {
+  outline: 10px solid red;
+} */

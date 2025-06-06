@@ -17,7 +17,7 @@ const imgMapLight = '/map/mapLight.png';
 
 
 // COMPONENTS
-import Button1 from '../layouts/Button1';
+import Button1 from '../layouts/Button';
 
 
 // EXPORT

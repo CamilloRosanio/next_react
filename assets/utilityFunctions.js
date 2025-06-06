@@ -1,7 +1,28 @@
+/*******************************************************************
+# GENERAL
+*******************************************************************/
+
 // SCROLL TO TOP
 function toTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// DEBOUNCE
+function debounce(callback, delay) {
+    let timer;
+    return (value) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            callback(value);
+        }, delay)
+    }
+}
+
+
+
+/*******************************************************************
+# CONTACT FORM
+*******************************************************************/
 
 // GET EMAIL
 function getEmail(emailData, emailEnc) {
@@ -21,14 +42,14 @@ function getPhone(phoneData, phoneEnc) {
     return phoneData.replaceAll(phoneEnc, '');
 }
 
-// VALIDATION ORARI PUBBLICO - ALL (testa se l'intero Object è vuoto)
+// VALIDATION - ORARI PUBBLICO - ALL (testa se l'intero Object è vuoto)
 function isValidDays(objOrari) {
     return Object.values(objOrari).every(array =>
         array.every(item => item.start === '' && item.end === '')
     );
 }
 
-// VALIDATION ORARI PUBBLICO - DAYS (testa se il singolo giorno presenta orari vuoti)
+// VALIDATION - ORARI PUBBLICO - DAYS (testa se il singolo giorno presenta orari vuoti)
 const isValidHours = (orariPubblico) => {
     return Object.entries(orariPubblico)
         .filter(([day, slots]) =>
@@ -42,7 +63,7 @@ const isValidHours = (orariPubblico) => {
         }, {});
 };
 
-// VALIDATION FASCE ORARIE
+// VALIDATION - FASCE ORARIE
 function allowedTime(allowedHours, gmtValue) {
 
     if (!allowedHours || Object.keys(allowedHours).length === 0) {
@@ -85,9 +106,14 @@ function allowedTime(allowedHours, gmtValue) {
 };
 
 
-// FUNCTIONS EXPORT
+
+/*******************************************************************
+# EXPORT
+*******************************************************************/
+
 export {
     toTop,
+    debounce,
     getEmail,
     getPhone,
     isValidHours,

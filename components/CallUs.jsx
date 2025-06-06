@@ -12,7 +12,7 @@ import { isValidHours, getPhone, allowedTime } from '../assets/utilityFunctions'
 
 
 // COMPONENTS
-import Button1 from '../layouts/Button1';
+import Button1 from '../layouts/Button';
 import ErrorMsg from '../layouts/ErrorMsg';
 
 

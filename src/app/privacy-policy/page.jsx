@@ -13,7 +13,7 @@ import { toTop, getEmail } from '../../../assets/utilityFunctions.js';
 
 
 // COMPONENTS
-import Button1 from '../../../layouts/Button1';
+import Button1 from '../../../layouts/Button.jsx';
 
 
 // EXPORT

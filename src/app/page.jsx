@@ -6,9 +6,12 @@
 import { useMainContext } from "../../contexts/MainContext";
 
 
-// ASSETS
-import Button1 from "../../layouts/Button1";
+// COMPONENTS
+import Searchbar from "../../layouts/Searchbar";
+import Select from "../../layouts/Select";
+import Button1 from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
+import { useState } from "react";
 
 
 // EXPORT
@@ -17,9 +20,13 @@ export default function HomePage() {
   // DATA - CONTEXT
   const mainContext = useMainContext();
 
+  // USE-STATE
+  const [query, setQuery] = useState('');
+
   return <>
 
     <h3>{mainContext.listSymbol} CONTEXT INFO</h3>
+
     <Toggle
       value={mainContext.darkMode}
       setValue={mainContext.switchMode}
@@ -27,6 +34,19 @@ export default function HomePage() {
       textOff='Darkmode off'
     />
     <p>Device type: {mainContext.deviceType}</p>
+
+    <Searchbar
+      placeholder="Search by.."
+      onDebouncedChange={setQuery}
+      reset={setQuery}
+    />
+
+    <Select
+      placeholder='▼ Filter by..'
+    // options={'array'}
+    // value={'useState'}
+    // setValue={'setState'}
+    />
 
     < Button1
       text='button'

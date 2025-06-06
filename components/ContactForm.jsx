@@ -13,7 +13,7 @@ import { toTop, getEmail } from '../assets/utilityFunctions';
 
 // COMPONENTS
 import Checkbox from '../layouts/Checkbox';
-import Button1 from '../layouts/Button1';
+import Button1 from '../layouts/Button';
 import ErrorMsg from '../layouts/ErrorMsg';
 
 

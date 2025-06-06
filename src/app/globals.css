@@ -29,6 +29,10 @@ a:-webkit-any-link {
   color: var(--color-primary);
 }
 
+input {
+  all: unset;
+}
+
 
 
 /*******************************************************************
@@ -48,9 +52,9 @@ a:-webkit-any-link {
   --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2));
   --typo-h2: calc(var(--typo-size) + var(--typo-vw));
   --typo-h3: calc(calc(var(--typo-size) *0.8) + calc(var(--typo-vw) /2));
-  --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) * 0.8));
+  --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) * 0.6));
   --typo-h5: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.5));
-  --typo-p: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.8));
+  --typo-p: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.6));
   --typo-small: calc(calc(var(--typo-size) * 0.6) + calc(var(--typo-vw) *0.3));
 
 
@@ -59,7 +63,7 @@ a:-webkit-any-link {
   --container: 80%;
   --container-max: 1400px;
 
-  /* PALETTE - DARK MODE */
+  /* PALETTE - DEFAULT MODE */
   --color-primary: white;
   --color-secondary: rgb(228, 228, 228);
   --color-terziary: rgb(107, 107, 107);
@@ -71,6 +75,9 @@ a:-webkit-any-link {
   --color2: rgb(237, 13, 137);
   --color3: rgb(0, 255, 234);
   --hover-color: rgb(0, 255, 234);
+
+  --color-warning: rgb(226, 43, 67);
+  --color-success: rgb(28, 143, 89);
 }
 
 
@@ -85,22 +92,27 @@ a:-webkit-any-link {
 
 h1 {
   font-size: var(--typo-h1);
+  font-weight: 600;
 }
 
 h2 {
   font-size: var(--typo-h2);
+  font-weight: 600;
 }
 
 h3 {
   font-size: var(--typo-h3);
+  font-weight: 600;
 }
 
 h4 {
   font-size: var(--typo-h4);
+  font-weight: 500;
 }
 
 h5 {
   font-size: var(--typo-h5);
+  font-weight: 500;
 }
 
 p {
@@ -168,12 +180,31 @@ main {
 /****************************************** BUTTONS */
 
 .button {
+  line-height: normal;
   font-size: var(--typo-small);
-  font-weight: bold;
+  font-weight: 400;
   padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) * 1.2);
   border-radius: 50px;
   border: 2px solid;
   cursor: pointer;
+}
+
+.roundButton {
+  color: var(--bg-primary);
+  font-weight: 100;
+  border-radius: 100%;
+  background-color: rgb(214, 214, 214);
+  height: 2rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundButton:hover {
+  cursor: pointer;
+  color: var(--bg-primary);
+  background-color: var(--color2);
 }
 
 /****************************************** INPUTS*/
@@ -343,6 +374,79 @@ nav .dropDown> :last-child {
   border: none;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+
+
+/*******************************************************************
+# FILTERS + SEARCHBAR
+*******************************************************************/
+
+/****************************************** COMMON PROPERTIES */
+
+.searchbar .roundButton:hover,
+.selectContainer .roundButton:hover {
+  cursor: pointer;
+  color: var(--color-primary);
+  background-color: var(--color-warning);
+}
+
+/****************************************** SELECT */
+
+select {
+  all: unset;
+  display: flex;
+  align-items: center;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  padding: var(--space-unit-half) var(--typo-size);
+  padding-right: var(--space-unit-half);
+  border-radius: 35px;
+  border: 2px solid var(--color1);
+  background-color: var(--bg-primary);
+}
+
+.select {
+  cursor: pointer;
+  flex-grow: 1;
+  appearance: none;
+  font-size: var(--space-unit);
+  border: none;
+}
+
+.select.on {
+  color: var(--color-primary);
+
+}
+
+.select.off {
+  color: var(--color-terziary);
+  background-color: var(--bg-primary);
+}
+
+.select:focus {
+  outline: none;
+  border: none;
+}
+
+/****************************************** SEARCHBAR */
+
+.searchbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+  padding: var(--space-unit-half) var(--typo-size);
+  padding-right: var(--space-unit-half);
+  border-radius: 35px;
+  border: 2px solid var(--color1);
+}
+
+.searchbarInput {
+  min-width: 85%;
 }
 
 
@@ -544,6 +648,7 @@ nav .dropDown> :last-child {
   align-items: center;
   gap: var(--space-unit-half);
   cursor: pointer;
+  line-height: 100%;
 }
 
 .toggle .toggleContainer {
@@ -573,7 +678,6 @@ nav .dropDown> :last-child {
 }
 
 .toggle p {
-  height: calc(var(--space-unit) + .5vh);
   color: var(--color-primary);
 }
 

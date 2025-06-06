@@ -33,6 +33,10 @@ input {
   all: unset;
 }
 
+select {
+  all: unset;
+}
+
 
 
 /*******************************************************************
@@ -151,7 +155,7 @@ p {
 
 body {
   height: 100vh;
-  width: 100vw;
+  min-width: 95vw;
   background-color: var(--bg-primary);
   color: var(--color-primary);
 }
@@ -300,7 +304,14 @@ header {
 }
 
 header .imgContainer {
-  height: 25px;
+  max-height: var(--space-unit-3);
+  max-height: calc(var(--space-unit-2) * 1.1);
+}
+
+header .imgContainer a {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 header .imgContainer img {
@@ -394,7 +405,6 @@ nav .dropDown> :last-child {
 /****************************************** SELECT */
 
 select {
-  all: unset;
   display: flex;
   align-items: center;
 }
@@ -628,8 +638,14 @@ select {
 .socialMedia {
   display: flex;
   justify-content: start;
+  align-items: center;
   flex-wrap: wrap;
   gap: calc(var(--space-unit) * 1.2);
+}
+
+.socialMedia a {
+  display: flex;
+  align-items: center;
 }
 
 .socialMedia img {
@@ -779,6 +795,10 @@ footer .flexLine :last-child {
     --typo-size: 1.6rem;
   }
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   .container {
     width: calc(var(--container)* 1.07);
     padding: var(--space-unit-2) 0;
@@ -790,6 +810,10 @@ footer .flexLine :last-child {
 
   header {
     padding: calc(var(--space-unit) *1.5);
+  }
+
+  header .imgContainer {
+    max-height: calc(var(--space-unit-1) * 1.6);
   }
 
   .card {
@@ -829,11 +853,11 @@ footer .flexLine :last-child {
 
 .debug {
   padding: var(--space-unit);
-  background-color: aqua;
+  background-color: rgba(255, 0, 0, 0.3);
   color: rgb(255, 0, 0);
-  border: 2px solid rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);
 }
 
 /* * {
-  outline: 10px solid red;
+  outline: 1px solid blue;
 } */

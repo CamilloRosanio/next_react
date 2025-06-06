@@ -18,6 +18,11 @@ const navLinks = [
     },
     {
         type: 'content',
+        page: 'Gallery',
+        path: '/gallery',
+    },
+    {
+        type: 'content',
         page: 'About us',
         path: '/about-us',
     },

@@ -31,7 +31,9 @@ export default function Header() {
             {/* LOGO */}
             <div className="imgContainer">
                 <Link href="/">
-                    <img src={darkMode ? imgLogoHeader : imgLogoHeaderDark} alt="logo" />
+                    <div>
+                        <img src={darkMode ? imgLogoHeader : imgLogoHeaderDark} alt="logo" />
+                    </div>
                 </Link>
             </div>
 

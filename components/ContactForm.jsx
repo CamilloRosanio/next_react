@@ -42,6 +42,10 @@ export default function ContactForm({ info }) {
 
     // SUPPORT
 
+    // Field Length Limit
+    const minLengthLimit = 2;
+    const maxLengthLimit = 70;
+
     // Handle On Change
     const handleOnChange = (e) => {
         const receivedValue = (e.target.type === 'checkbox' ? e.target.checked : e.target.value);
@@ -105,32 +109,32 @@ export default function ContactForm({ info }) {
     const dataValidation = () => {
 
         // NAME
-        if (fields.name.length < 2) {
+        if (fields.name.length < minLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.nameShort);
             return false;
-        } else if (fields.name.length > 30) {
+        } else if (fields.name.length > maxLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.nameLong);
             return false;
         }
 
         // SURNAME
-        if (fields.surname.length < 2) {
+        if (fields.surname.length < minLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.surnameShort);
             return false;
-        } else if (fields.surname.length > 50) {
+        } else if (fields.surname.length > maxLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.surnameLong);
             return false;
         }
 
         // EMAIL
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(fields.email)) {
+        if (!emailRegex.test(fields.email) || fields.email.length < 8 || fields.email.length > maxLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.email);
             return false;
         }
 
         // PHONE
-        if (fields.phone.length < 5) {
+        if (fields.phone.length < 8) {
             setErrorMsg(utilityContent.errorMsg.contactForm.phoneShort);
             return false;
         } else if (fields.phone.length > 25) {

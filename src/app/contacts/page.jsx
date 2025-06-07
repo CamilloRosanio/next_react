@@ -1,7 +1,6 @@
 // READY FOR CLIENT SIDE
 "use client";
 
-
 // ASSETS
 import businessInfo from "../../../assets/data/businessInfo";
 import { toTop } from '../../../assets/utilityFunctions.js';

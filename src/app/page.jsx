@@ -51,7 +51,6 @@ export default function HomePage() {
     < Button1
       text='button'
       onClick={null}
-      extraClass={''}
     />
 
     < Button1

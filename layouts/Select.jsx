@@ -1,3 +1,7 @@
+// READY FOR CLIENT SIDE
+"use client";
+
+
 // COMPONENTS
 import RoundButton from "./RoundButton"
 

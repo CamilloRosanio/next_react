@@ -1,3 +1,7 @@
+// READY FOR CLIENT SIDE
+"use client";
+
+
 // COMPONENT EXPORT
 export default function RoundButton({ onClick, icon }) {
     return <>

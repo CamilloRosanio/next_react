@@ -18,7 +18,11 @@ function debounce(callback, delay) {
     }
 }
 
-
+// SPLIT QUERY
+function splitQuery(query) {
+    const splitted = query.trim().split(/\s+/);
+    return splitted;
+}
 
 /*******************************************************************
 # CONTACT FORM
@@ -114,10 +118,11 @@ function allowedTime(allowedHours, gmtValue) {
 export {
     toTop,
     debounce,
+    splitQuery,
     getEmail,
     getPhone,
     isValidHours,
-    allowedTime
+    allowedTime,
 };
 
 

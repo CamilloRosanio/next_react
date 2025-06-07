@@ -73,7 +73,7 @@ export const MainContextProvider = ({ children }) => {
 
     // debug
     // console.log("PRODUCTS:", products);
-    console.log("KEYS:", pKeys);
+    // console.log("KEYS:", pKeys);
 
     return <>
         <MainContext.Provider value={{

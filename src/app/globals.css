@@ -185,6 +185,10 @@ main {
   display: none;
 }
 
+.warning {
+  color: var(--color-warning);
+}
+
 /****************************************** BUTTONS */
 
 .button {
@@ -219,7 +223,7 @@ main {
 
 .input {
   font-size: var(--typo-p);
-  padding: var(--space-unit-half) var(--space-unit);
+  padding: var(--space-unit-half) var(--space-unit-2);
   background-color: var(--bg-elements);
   color: var(--color-primary);
   outline: none;
@@ -413,7 +417,7 @@ nav .dropDown> :last-child {
 .searchbar .roundButton:hover,
 .selectContainer .roundButton:hover {
   cursor: pointer;
-  color: var(--color-primary);
+  color: white;
   background-color: var(--color-warning);
 }
 
@@ -432,7 +436,6 @@ select {
   padding-right: var(--space-unit-half);
   border-radius: 35px;
   border: 2px solid var(--color1);
-  background-color: var(--bg-primary);
 }
 
 .select {
@@ -468,6 +471,7 @@ select {
   padding-right: var(--space-unit-half);
   border-radius: 35px;
   border: 2px solid var(--color1);
+  background-color: var(--bg-primary);
 }
 
 .searchbarInput {
@@ -479,6 +483,13 @@ select {
 /*******************************************************************
 # CONTACT FORM
 *******************************************************************/
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit-2);
+  margin-bottom: var(--space-unit-2);
+}
 
 .contactForm .space1 {
   display: flex;
@@ -496,6 +507,16 @@ select {
   border-radius: 15px;
 }
 
+.charCounter {
+  display: flex;
+  justify-content: end;
+}
+
+.charCounter .counter {
+  margin-left: auto;
+  font-weight: 400;
+}
+
 
 
 /*******************************************************************
@@ -505,6 +526,9 @@ select {
 .checkboxContainer {
   cursor: pointer;
   color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-unit);
 }
 
 .checkbox {

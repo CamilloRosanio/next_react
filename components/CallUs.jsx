@@ -70,7 +70,7 @@ function CallUs({ info }) {
 
                         {validHours &&
                             // DAY SLOTS
-                            <ul className='daySlots'>
+                            <ul className='daySlots space4'>
                                 {Object.entries(validHours).map(([day, slots]) => (
                                     <li key={day} className='slot'>
                                         <h5 className='day'>{day}</h5>

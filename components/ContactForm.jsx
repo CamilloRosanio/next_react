@@ -20,9 +20,6 @@ import ErrorMsg from '../layouts/ErrorMsg';
 // EXPORT
 function ContactForm({ info }) {
 
-    // SUPPORT
-    console.log('MOUNTING: Contact Form');
-
     // Form Fields
     const fieldsDefault = {
         name: '',
@@ -46,6 +43,7 @@ function ContactForm({ info }) {
     // Field Length Limit
     const minLengthLimit = 2;
     const maxLengthLimit = 70;
+    const msgMax = 300;
 
     // Handle On Change
     const handleOnChange = (e) => {
@@ -54,6 +52,9 @@ function ContactForm({ info }) {
             ...fields,
             [e.target.name]: receivedValue,
         });
+
+        // debug
+        // console.log(`${e.target.name}: ${receivedValue}`)
     }
 
     // Set Privacy Values
@@ -135,7 +136,7 @@ function ContactForm({ info }) {
         }
 
         // PHONE
-        if (fields.phone.length < 8) {
+        if (fields.phone.length < 7) {
             setErrorMsg(utilityContent.errorMsg.contactForm.phoneShort);
             return false;
         } else if (fields.phone.length > 25) {
@@ -144,7 +145,7 @@ function ContactForm({ info }) {
         }
 
         // MESSAGE
-        if (fields.message.length > 600) {
+        if (fields.message.length > msgMax) {
             setErrorMsg(utilityContent.errorMsg.contactForm.message);
             return false;
         }
@@ -213,7 +214,7 @@ function ContactForm({ info }) {
                             autoComplete='on'
                         >
 
-                            <div className='space1'>
+                            <div className='formFields'>
                                 {/* NAME */}
                                 <input
                                     type="text"
@@ -229,6 +230,10 @@ function ContactForm({ info }) {
                                     required
                                 />
 
+                                {/* ALERT */}
+                                {(fields.name.length == 1 || fields.name.length == minLengthLimit) && <p><span className='warning'>✖</span> Nome troppo corto</p>}
+                                {fields.name.length > maxLengthLimit && <p><span className='warning'>✖</span> Nome troppo lungo</p>}
+
                                 {/* SURNAME */}
                                 <input
                                     type="text"
@@ -243,9 +248,11 @@ function ContactForm({ info }) {
                                     onInput={(e) => e.target.setCustomValidity('')}
                                     required
                                 />
-                            </div>
 
-                            <div className='space1'>
+                                {/* ALERT */}
+                                {(fields.surname.length == 1 || fields.surname.length == minLengthLimit) && <p><span className='warning'>✖</span> Cognome troppo corto</p>}
+                                {fields.surname.length > maxLengthLimit && <p><span className='warning'>✖</span> Cognome troppo lungo</p>}
+
                                 {/* EMAIL */}
                                 <input
                                     type="text"
@@ -261,6 +268,10 @@ function ContactForm({ info }) {
                                     required
                                 />
 
+                                {/* ALERT */}
+                                {(fields.email.length > 0 && fields.email.length < 8) && <p><span className='warning'>✖</span> Email troppo corta</p>}
+                                {fields.email.length > maxLengthLimit && <p><span className='warning'>✖</span> Email troppo lunga</p>}
+
                                 {/* PHONE */}
                                 <input
                                     type="number"
@@ -272,9 +283,13 @@ function ContactForm({ info }) {
                                     className='input'
                                     autoComplete='on'
                                 />
+
+                                {/* ALERT */}
+                                {(fields.phone.length > 0 && fields.phone.length < 7) && <p><span className='warning'>✖</span> Numero di telefono troppo corto</p>}
+                                {fields.phone.length > 25 && <p><span className='warning'>✖</span> Numero di telefono troppo lungo</p>}
                             </div>
 
-                            <div className='space1'>
+                            <div className='space2 flexCol'>
                                 {/* MESSAGE */}
                                 <textarea
                                     type="textarea"
@@ -284,16 +299,25 @@ function ContactForm({ info }) {
                                     onChange={handleOnChange}
                                     className='fieldMessage input space1'
                                 />
+
+                                <div className='charCounter'>
+                                    {/* ALERT */}
+                                    {fields.message.length > msgMax && <p><span className='warning'>✖</span> Messaggio troppo lungo</p>}
+
+                                    {/* CHARACTERS COUNTER */}
+                                    <p className={`counter ${fields.message.length > msgMax && 'warning'}`}>{fields.message.length} / {msgMax}</p>
+                                </div>
                             </div>
 
                             {/* PRIVACY */}
-                            <div className='flexCol space2'>
+                            <div className='flexCol space4'>
                                 <Checkbox
                                     value={fields.privacy1}
                                     setValue={setPrivacy1}
                                     text={utilityContent.disclaimers.Privacy1}
                                     extraClass=''
                                 />
+
                                 <Checkbox
                                     value={fields.privacy2}
                                     setValue={setPrivacy2}

@@ -52,7 +52,7 @@ function OpenMaps({ info }) {
                     <div className='mapContainer'>
                         <div className='mapText flexCol'>
                             <h4>{utilityContent.openMaps.textContent.subTitle}</h4>
-                            <p className='space1'>{utilityContent.openMaps.textContent.paragraph}</p>
+                            <p className='space2'>{utilityContent.openMaps.textContent.paragraph}</p>
 
                             <a
                                 target='_blank'

@@ -15,9 +15,6 @@ import CSS_Layer from "../../layouts/CSS_Layer";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-// debug
-import TEST from "../../components/TEST";
-
 
 // EXPORT
 export default function RootLayout({ children }) {
@@ -40,9 +37,6 @@ export default function RootLayout({ children }) {
 
           <CSS_Layer>
             <div className='wrapper'>
-
-              {/* debug */}
-              {/* <TEST /> */}
 
               <Header />
 

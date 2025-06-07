@@ -2,12 +2,16 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // COMPONENTS
 import RoundButton from "./RoundButton"
 
 
 // EXPORT
-export default function Select({ placeholder, options, value, setValue }) {
+function Select({ placeholder, options, value, setValue }) {
 
     // NOTA: utilizzare solo come Select per filtri di ricerca e non come Field non controllato
 
@@ -43,6 +47,10 @@ export default function Select({ placeholder, options, value, setValue }) {
         </div>
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Select);
 
 
 

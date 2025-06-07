@@ -2,8 +2,12 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // COMPONENT EXPORT
-export default function Button1({
+function Button({
     text,
     onClick,
     extraClass,
@@ -16,3 +20,7 @@ export default function Button1({
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Button);

@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Link from 'next/link';
 
 
@@ -21,7 +21,7 @@ import Toggle from './Toggle';
 
 
 // EXPORT
-export default function Navbar() {
+function Navbar() {
 
     // DATA - CONTEXT
     const { darkMode, switchMode, deviceType } = useMainContext();
@@ -103,3 +103,7 @@ export default function Navbar() {
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Navbar);

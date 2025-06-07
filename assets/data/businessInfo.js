@@ -1,6 +1,6 @@
-/* NOTE
-DEPENDENCY: determina o meno il mount di alcuni componenti.
-*/
+// NOTES
+// DEPENDENCY: determina o meno il mount di alcuni componenti.
+
 
 // DATA
 const encodeEmail = '[/*encEmail/*]';

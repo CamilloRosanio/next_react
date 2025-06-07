@@ -1,6 +1,11 @@
 // READY FOR CLIENT SIDE
 "use client";
 
+
+// UTILITY
+import { memo } from "react";
+
+
 // ASSETS
 import businessInfo from "../../../assets/data/businessInfo";
 import { toTop } from '../../../assets/utilityFunctions.js';
@@ -14,7 +19,7 @@ import OpenMaps from "../../../components/OpenMaps";
 
 
 // EXPORT
-export default function ContactsPage() {
+function ContactsPage() {
 
     return <>
 
@@ -47,3 +52,7 @@ export default function ContactsPage() {
         </div>
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(ContactsPage);

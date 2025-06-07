@@ -1,6 +1,5 @@
-/* NOTE
-DEPENDENCY: determina il contenuto dei principali elementi "standard" nelle pagine.
-*/
+// NOTES
+// DEPENDENCY: determina il contenuto dei principali elementi "standard" nelle pagine.
 
 
 // DATA

@@ -1,3 +1,7 @@
+// NOTES
+// SetQueryArray è strettamente collegato al funzionamento della Searchbar "potenziata" per la ricerca di più parole insieme.
+
+
 // READY FOR CLIENT SIDE
 "use client";
 
@@ -7,6 +11,7 @@ import { useMainContext } from "../../contexts/MainContext";
 
 
 // COMPONENTS
+import Section from "../../layouts/Section";
 import Searchbar from "../../layouts/Searchbar";
 import Select from "../../layouts/Select";
 import Button1 from "../../layouts/Button";
@@ -21,9 +26,16 @@ export default function HomePage() {
   const mainContext = useMainContext();
 
   // USE-STATE
-  const [query, setQuery] = useState('');
+  const [queryArray, setQueryArray] = useState([]);
+
+  // SUPPORT
+
 
   return <>
+
+    <Section title='My Section Title'>
+      section content
+    </Section>
 
     <h3>{mainContext.listSymbol} CONTEXT INFO</h3>
 
@@ -37,8 +49,8 @@ export default function HomePage() {
 
     <Searchbar
       placeholder="Search by.."
-      onDebouncedChange={setQuery}
-      reset={setQuery}
+      onDebouncedChange={setQueryArray}
+      reset={setQueryArray}
     />
 
     <Select
@@ -87,8 +99,12 @@ export default function HomePage() {
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <h2>Products</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    {mainContext.products.map((p, index) => <p key={index}>{p.name}</p>)}
+
+    <h2>Keys</h2>
+
+    {mainContext.pKeys.map((k, index) => <p key={index}>{k.key}</p>)}
   </>
 }

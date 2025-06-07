@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 
 // ASSETS
@@ -11,7 +11,7 @@ import { listSymbol } from '../assets/data/utilityContent';
 
 
 // COMPONENT EXPORT
-export default function Accordion({ accordionContent }) {
+function Accordion({ accordionContent }) {
 
     // USE-STATE
     const [activeSection, setActiveSection] = useState(null);
@@ -32,7 +32,7 @@ export default function Accordion({ accordionContent }) {
                     className="accordionItem card space1"
                 >
                     <div className="accordionHeader">
-                        <h4><span className='listSymbol'>{listSymbol}</span> {accordionContent[sectionKey].title}</h4>
+                        <h3><span className='listSymbol'>{listSymbol}</span> {accordionContent[sectionKey].title}</h3>
                     </div>
                     <div
                         className={`accordionText ${activeSection === sectionKey ? 'open' : ''}`}
@@ -44,3 +44,7 @@ export default function Accordion({ accordionContent }) {
         </ul>
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Accordion);

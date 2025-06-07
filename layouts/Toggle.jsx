@@ -2,8 +2,12 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // EXPORT
-export default function Toggle({
+function Toggle({
     value,
     setValue,
     textOn,
@@ -28,3 +32,7 @@ export default function Toggle({
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Toggle);

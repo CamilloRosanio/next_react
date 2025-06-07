@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 
 // ASSETS
@@ -17,7 +17,7 @@ import ErrorMsg from '../layouts/ErrorMsg';
 
 
 // EXPORT
-export default function CallUs({ info }) {
+function CallUs({ info }) {
 
     // USE-STATE
     const [telTo, setTelTo] = useState(null);
@@ -107,3 +107,7 @@ export default function CallUs({ info }) {
         }
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(CallUs);

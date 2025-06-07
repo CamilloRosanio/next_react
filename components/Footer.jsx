@@ -2,6 +2,10 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // ASSETS
 import navLinks from '../assets/data/navLinks';
 
@@ -11,7 +15,7 @@ import SocialMedia from './SocialMedia';
 
 
 // EXPORT
-export default function Footer() {
+function Footer() {
 
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');
@@ -30,3 +34,7 @@ export default function Footer() {
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Footer);

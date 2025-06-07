@@ -2,8 +2,12 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // COMPONENT EXPORT
-export default function RoundButton({ onClick, icon }) {
+function RoundButton({ onClick, icon }) {
     return <>
 
         <p className="roundButton" onClick={onClick}>
@@ -14,3 +18,7 @@ export default function RoundButton({ onClick, icon }) {
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(RoundButton);

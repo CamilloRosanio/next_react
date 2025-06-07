@@ -5,13 +5,6 @@
 "use client";
 
 
-// METADATA
-export const metadata = {
-  title: 'Titolo Pagina',
-  description: 'Descrizione pagina',
-};
-
-
 // UTILITY
 import { useState, useEffect } from "react";
 
@@ -33,7 +26,7 @@ import { useMainContext } from "../contexts/MainContext";
 
 
 // EXPORT
-export default function NomePagina() {
+function Component() {
 
   // USE-ROUTER
 
@@ -65,3 +58,7 @@ export default function NomePagina() {
 
   </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Component);

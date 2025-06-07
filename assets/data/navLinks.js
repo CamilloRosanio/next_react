@@ -1,6 +1,5 @@
-/* NOTE
-DEPENDENCY: determina il map dei Link nella Navbar
-*/
+// NOTES
+// DEPENDENCY: determina il map dei Link nella Navbar
 
 
 // DATA

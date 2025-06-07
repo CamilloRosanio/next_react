@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 
 // CREATE CONTEXT
@@ -11,6 +11,8 @@ const MainContext = createContext();
 
 
 // ASSETS
+import productsDb from '../assets/data/productsDb.js';
+import { getKeys } from '../assets/utilityFunctions.js';
 
 
 // PROVIDER EXPORT
@@ -22,6 +24,16 @@ export const MainContextProvider = ({ children }) => {
     const [deviceType, setDeviceType] = useState('');
 
     // SUPPORT
+
+    // Products useMemo()
+    const products = useMemo(() => {
+        return productsDb;
+    }, []);
+
+    // Products Unique Keys + Type
+    const pKeys = useMemo(() => {
+        return getKeys(products);
+    }, []);
 
     // Mode Switch
     const switchMode = () => {
@@ -59,8 +71,14 @@ export const MainContextProvider = ({ children }) => {
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
 
+    // debug
+    // console.log("PRODUCTS:", products);
+    console.log("KEYS:", pKeys);
+
     return <>
         <MainContext.Provider value={{
+            products,
+            pKeys,
             darkMode,
             switchMode,
             windowWidth,

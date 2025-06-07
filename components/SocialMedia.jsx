@@ -2,6 +2,10 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // CONTEXTS
 import { useMainContext } from "../contexts/MainContext";
 
@@ -33,7 +37,7 @@ const imgTrustpilotDark = '/socialMedia/icon-50-grey-trustpilot.png';
 
 
 // EXPORT
-export default function SocialMedia() {
+function SocialMedia() {
 
     // DATA - CONTEXT
     const { darkMode, deviceType } = useMainContext();
@@ -120,3 +124,7 @@ export default function SocialMedia() {
         </div>
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(SocialMedia);

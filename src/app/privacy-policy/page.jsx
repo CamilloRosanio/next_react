@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 
 // ASSETS
@@ -17,7 +17,7 @@ import Button1 from '../../../layouts/Button.jsx';
 
 
 // EXPORT
-export default function PrivacyPolicyPage() {
+function PrivacyPolicyPage() {
 
     // USE-STATE
     const [showEmail, setShowEmail] = useState(false);
@@ -288,3 +288,7 @@ export default function PrivacyPolicyPage() {
         </div>
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(PrivacyPolicyPage);

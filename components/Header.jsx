@@ -4,6 +4,7 @@
 
 // UTILITY
 import Link from 'next/link';
+import { memo } from 'react';
 
 
 // CONTEXTS
@@ -12,10 +13,11 @@ import { useMainContext } from "../contexts/MainContext";
 
 // COMPONENTS
 import Navbar from '../layouts/Navbar.jsx';
+import { defaultHead } from 'next/head';
 
 
 // EXPORT
-export default function Header() {
+function Header() {
 
     // DATA - CONTEXT
     const { darkMode } = useMainContext();
@@ -41,3 +43,7 @@ export default function Header() {
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Header);

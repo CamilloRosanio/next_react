@@ -2,12 +2,16 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // ASSETS
 const imgWarning = '/miscellaneous/warning-gold.png';
 
 
-// COMPONENT EXPORT
-export default function ErrorMsg({
+// EXPORT
+function ErrorMsg({
     text,
     extraClass,
 }) {
@@ -20,3 +24,7 @@ export default function ErrorMsg({
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(ErrorMsg);

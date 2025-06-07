@@ -2,6 +2,10 @@
 "use client";
 
 
+// UTILITY
+import { memo } from "react";
+
+
 // ASSETS
 import pagesContent from "../../../assets/data/pagesContent";
 
@@ -11,7 +15,7 @@ import Accordion from "../../../layouts/Accordion";
 
 
 // COMPONENT EXPORT
-export default function AboutUsPage() {
+function Gallery() {
     return <>
 
         <h1 className='space2'>{pagesContent.aboutUs.pageTitle}</h1>
@@ -22,3 +26,7 @@ export default function AboutUsPage() {
 
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(Gallery);

@@ -1,5 +1,6 @@
 // UTILITY
 import Link from 'next/link';
+import { memo } from 'react';
 
 
 // ASSETS
@@ -7,7 +8,7 @@ const redCross = '/miscellaneous/cross-red.png';
 
 
 // EXPORT
-export default function NotFoundPage() {
+function NotFoundPage() {
   return <>
 
     <div className="notFoundContainer">
@@ -26,3 +27,7 @@ export default function NotFoundPage() {
 
   </>
 }
+
+
+// EXPORT MEMO()
+export default memo(NotFoundPage);

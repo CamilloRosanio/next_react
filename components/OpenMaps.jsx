@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 
 // CONTEXTS
@@ -21,7 +21,7 @@ import Button1 from '../layouts/Button';
 
 
 // EXPORT
-export default function OpenMaps({ info }) {
+function OpenMaps({ info }) {
 
     // DATA - CONTEXT
     const mainContext = useMainContext();
@@ -83,3 +83,7 @@ export default function OpenMaps({ info }) {
         }
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(OpenMaps);

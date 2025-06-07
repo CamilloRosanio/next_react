@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState } from 'react';
+import { useState, memo } from 'react';
 
 
 // ASSETS
@@ -18,9 +18,10 @@ import ErrorMsg from '../layouts/ErrorMsg';
 
 
 // EXPORT
-export default function ContactForm({ info }) {
+function ContactForm({ info }) {
 
     // SUPPORT
+    console.log('MOUNTING: Contact Form');
 
     // Form Fields
     const fieldsDefault = {
@@ -344,3 +345,7 @@ export default function ContactForm({ info }) {
         }
     </>
 }
+
+
+// EXPORT MEMO()
+export default memo(ContactForm);

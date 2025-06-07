@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 
 
 // CONTEXTS
@@ -11,7 +11,7 @@ import { useMainContext } from "../contexts/MainContext.jsx";
 
 
 // EXPORT
-export default function CSS_Layer({ children }) {
+function CSS_Layer({ children }) {
 
     // DATA - CONTEXT
     const { darkMode } = useMainContext();
@@ -44,3 +44,7 @@ export default function CSS_Layer({ children }) {
         </>
     );
 }
+
+
+// EXPORT MEMO()
+export default memo(CSS_Layer);

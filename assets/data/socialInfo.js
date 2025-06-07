@@ -1,7 +1,6 @@
-/* NOTE
-DEPENDENCY: determina il map dei Link nel componente SocialMedia.
-ATTENZIONE: se il campo "contact" resta vuoto, il link non verrà incluso nel map.
-*/
+// NOTES
+/* DEPENDENCY: determina il map dei Link nel componente SocialMedia.
+ATTENZIONE: se il campo "contact" resta vuoto, il link non verrà incluso nel map. */
 
 
 // DATA

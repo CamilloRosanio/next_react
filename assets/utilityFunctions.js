@@ -18,11 +18,98 @@ function debounce(callback, delay) {
     }
 }
 
+
+
+/*******************************************************************
+# FILTERS
+*******************************************************************/
+
 // SPLIT QUERY
 function splitQuery(query) {
     const splitted = query.trim().split(/\s+/);
     return splitted;
 }
+
+// GET KEYS
+function getKeys(dataArray) {
+    const keyTypesMap = new Map();
+    const keyValuesMap = new Map();
+    const keyNumberValues = new Map();
+    const typeConflicts = new Set();
+
+    for (const obj of dataArray) {
+        for (const [key, value] of Object.entries(obj)) {
+            if (value === null || value === undefined) continue;
+
+            let type = typeof value;
+
+            if (Array.isArray(value)) {
+                type = 'array';
+            } else if (type === 'object') {
+                continue;
+            }
+
+            // CONFLICT HANDLER
+            if (keyTypesMap.has(key)) {
+                const existingTypes = keyTypesMap.get(key);
+                if (!existingTypes.has(type)) {
+                    typeConflicts.add(key);
+                }
+                existingTypes.add(type);
+            } else {
+                keyTypesMap.set(key, new Set([type]));
+            }
+
+            // ARRAYS VALUES
+            if (type === 'array') {
+                if (!keyValuesMap.has(key)) {
+                    keyValuesMap.set(key, new Set());
+                }
+                value.forEach(item => {
+                    keyValuesMap.get(key).add(item);
+                });
+            }
+
+            // NUMBER MAX / MIN
+            if (type === 'number') {
+                if (!keyNumberValues.has(key)) {
+                    keyNumberValues.set(key, []);
+                }
+                keyNumberValues.get(key).push(value);
+            }
+        }
+    }
+
+    if (typeConflicts.size > 0) {
+        console.error("KEY TYPE CONFLICT:", [...typeConflicts]);
+    }
+
+    const result = [];
+
+    for (const [key, types] of keyTypesMap.entries()) {
+        if (typeConflicts.has(key)) continue;
+
+        const type = [...types][0];
+        const item = { key, type };
+
+        if (type === 'array' && keyValuesMap.has(key)) {
+            item.value = [...keyValuesMap.get(key)];
+        }
+
+        if (type === 'number' && keyNumberValues.has(key)) {
+            const numbers = keyNumberValues.get(key);
+            const min = Math.min(...numbers);
+            const max = Math.max(...numbers);
+            item.value = [min, max];
+        }
+
+        result.push(item);
+    }
+
+    return result;
+}
+
+
 
 /*******************************************************************
 # CONTACT FORM
@@ -119,6 +206,7 @@ export {
     toTop,
     debounce,
     splitQuery,
+    getKeys,
     getEmail,
     getPhone,
     isValidHours,

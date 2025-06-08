@@ -181,17 +181,19 @@ main {
   margin: auto;
 }
 
+.bottomButtonsContainer {
+  margin-top: var(--space-unit-4);
+  display: flex;
+  justify-content: start;
+  gap: var(--space-unit);
+}
+
 .hidden {
   display: none;
 }
 
 .warning {
   color: var(--color-warning);
-}
-
-.solid {
-  font-weight: bolder;
-  padding: calc(var(--space-unit-half) * 0.6)
 }
 
 /****************************************** BUTTONS */
@@ -533,7 +535,7 @@ select {
 .OverlayCloseContainer {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
 }
 
 .galleryPicOverlay .roundButton {
@@ -936,7 +938,7 @@ footer .flexLine :last-child {
 
   .buttonContainerContacts {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 

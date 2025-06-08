@@ -25,6 +25,11 @@ const navLinks = [
         page: 'About us',
         path: '/about-us',
     },
+    {
+        type: 'content',
+        page: 'FAQ',
+        path: '/faq',
+    },
 ];
 
 

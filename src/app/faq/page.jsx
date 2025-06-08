@@ -4,6 +4,7 @@
 
 // UTILITY
 import { memo } from "react";
+import Link from "next/link";
 
 
 // ASSETS
@@ -12,22 +13,34 @@ import { toTop } from "../../../assets/utilityFunctions";
 
 // COMPONENTS
 import Section from "../../../layouts/Section";
+import Accordion from "../../../layouts/Accordion";
 import Button from "../../../layouts/Button";
 
 
 // COMPONENT EXPORT
-function AboutUsPage() {
+function FaqPage() {
     return <>
 
-        <h1 className='space2'>About us</h1>
+        <h1 className='space2'>FAQ</h1>
 
-        <Section title='Section 1'>
-            <p>Text content of this section.</p>
+        <Section title=''>
+            <p>Rispondiamo a tutte le vostre domande più frequenti.</p>
         </Section>
 
-        <Section title='Section 2'>
-            <p>LText content of this section.</p>
-        </Section>
+        <Accordion
+            title='Accordion title'
+            text='Accordion text content.'
+        />
+
+        <Accordion
+            title='Accordion title'
+            text='Accordion text content.'
+        />
+
+        <Accordion
+            title='Accordion title'
+            text='Accordion text content.'
+        />
 
         {/* BOTTOM BUTTONS */}
         <div className='bottomButtonsContainer'>
@@ -49,4 +62,4 @@ function AboutUsPage() {
 
 
 memo// EXPORT MEMO()
-export default memo(AboutUsPage);
+export default memo(FaqPage);

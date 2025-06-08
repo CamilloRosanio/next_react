@@ -53,14 +53,6 @@ function Gallery({ imgList }) {
 
         </div>
 
-        <div className='buttonContainerContacts'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-        </div>
-
     </>
 }
 

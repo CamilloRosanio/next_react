@@ -30,9 +30,9 @@ function Accordion({ title, text }) {
                 <div className="accordionHeader">
                     <h3>
                         {!open ?
-                            <span className='listSymbol'>✚</span>
+                            <span className='listSymbol'>▶</span>
                             :
-                            <span className='listSymbol solid'>−</span>
+                            <span className='listSymbol'>▼</span>
                         } {title}
                     </h3>
                 </div>

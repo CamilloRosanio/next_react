@@ -6,6 +6,10 @@
 import { useMainContext } from "../../contexts/MainContext";
 
 
+// ASSETS
+import { toTop } from "../../assets/utilityFunctions";
+
+
 // COMPONENTS
 import Section from "../../layouts/Section";
 import Button from "../../layouts/Button";
@@ -86,5 +90,21 @@ export default function HomePage() {
     <h2>Keys</h2>
 
     {mainContext.pKeys.map((k, index) => <p key={index}>{k.key}</p>)}
+
+
+    {/* BOTTOM BUTTONS */}
+    <div className='bottomButtonsContainer'>
+      < Button
+        text='▲'
+        onClick={toTop}
+        extraClass={'color2'}
+      />
+
+      < Button
+        text='Contattaci ▶'
+        path='/contacts'
+        extraClass={'color2'}
+      />
+    </div>
   </>
 }

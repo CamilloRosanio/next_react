@@ -43,7 +43,8 @@ function ContactsPage() {
                 />}
         </div>
 
-        <div className='buttonContainerContacts'>
+        {/* BOTTOM BUTTONS */}
+        <div className='bottomButtonsContainer'>
             < Button
                 text='▲'
                 onClick={toTop}

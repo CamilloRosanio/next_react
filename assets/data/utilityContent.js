@@ -18,10 +18,10 @@ const utilityContent = {
             email: '* la tua email',
             phone: 'il tuo telefono',
             message: 'il tuo messaggio',
-            submitButton: 'INVIA',
+            submitButton: 'INVIA ▶',
             sentConfirmation: 'Messaggio inviato',
             sentThankYou: 'Grazie per averci contattato. Riceverai una risposta quanto prima alla Email o al Numero di Telefono da te indicato.',
-            sentBackButton: 'TORNA AL FORM',
+            sentBackButton: 'TORNA AL FORM ▶',
         },
     },
     callUs: {
@@ -30,7 +30,7 @@ const utilityContent = {
             subTitle: 'Parla direttamente con noi',
             slotsDefinedOff: 'Restiamo a tua disposizione.',
             slotsDefinedOn: 'Siamo disponibili nelle seguenti fasce orarie:',
-            callButton: 'CHIAMA',
+            callButton: 'CHIAMA ▶',
         },
     },
     openMaps: {
@@ -38,7 +38,7 @@ const utilityContent = {
             title: 'Vieni a trovarci',
             subTitle: 'La nostra sede',
             paragraph: 'Parla direttamente con noi e scopri tutti i servizi dedicati ai nostri clienti.',
-            mapButton: 'INDICAZIONI',
+            mapButton: 'INDICAZIONI ▶',
         },
     },
     errorMsg: {

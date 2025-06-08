@@ -43,7 +43,7 @@ function ContactForm({ info }) {
     // Field Length Limit
     const minLengthLimit = 2;
     const maxLengthLimit = 70;
-    const msgMax = 300;
+    const msgMax = 255;
 
     // Handle On Change
     const handleOnChange = (e) => {
@@ -130,6 +130,9 @@ function ContactForm({ info }) {
 
         // EMAIL
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+
         if (!emailRegex.test(fields.email) || fields.email.length < 8 || fields.email.length > maxLengthLimit) {
             setErrorMsg(utilityContent.errorMsg.contactForm.email);
             return false;
@@ -231,8 +234,8 @@ function ContactForm({ info }) {
                                 />
 
                                 {/* ALERT */}
-                                {(fields.name.length == 1 || fields.name.length == minLengthLimit) && <p><span className='warning'>✖</span> Nome troppo corto</p>}
-                                {fields.name.length > maxLengthLimit && <p><span className='warning'>✖</span> Nome troppo lungo</p>}
+                                {(fields.name.length == 1) && <p><span className='warning'>✖</span> Nome troppo corto</p>}
+                                {fields.name.length >= maxLengthLimit && <p><span className='warning'>✖</span> Nome troppo lungo</p>}
 
                                 {/* SURNAME */}
                                 <input
@@ -250,8 +253,8 @@ function ContactForm({ info }) {
                                 />
 
                                 {/* ALERT */}
-                                {(fields.surname.length == 1 || fields.surname.length == minLengthLimit) && <p><span className='warning'>✖</span> Cognome troppo corto</p>}
-                                {fields.surname.length > maxLengthLimit && <p><span className='warning'>✖</span> Cognome troppo lungo</p>}
+                                {(fields.surname.length == 1) && <p><span className='warning'>✖</span> Cognome troppo corto</p>}
+                                {fields.surname.length >= maxLengthLimit && <p><span className='warning'>✖</span> Cognome troppo lungo</p>}
 
                                 {/* EMAIL */}
                                 <input
@@ -270,7 +273,8 @@ function ContactForm({ info }) {
 
                                 {/* ALERT */}
                                 {(fields.email.length > 0 && fields.email.length < 8) && <p><span className='warning'>✖</span> Email troppo corta</p>}
-                                {fields.email.length > maxLengthLimit && <p><span className='warning'>✖</span> Email troppo lunga</p>}
+                                {fields.email.length >= maxLengthLimit && <p><span className='warning'>✖</span> Email troppo lunga</p>}
+                                {(!fields.email.includes('@') && fields.email.length > 0) && <p><span className='warning'>✖</span> Manca il carattere "@"</p>}
 
                                 {/* PHONE */}
                                 <input
@@ -286,7 +290,7 @@ function ContactForm({ info }) {
 
                                 {/* ALERT */}
                                 {(fields.phone.length > 0 && fields.phone.length < 7) && <p><span className='warning'>✖</span> Numero di telefono troppo corto</p>}
-                                {fields.phone.length > 25 && <p><span className='warning'>✖</span> Numero di telefono troppo lungo</p>}
+                                {fields.phone.length >= 25 && <p><span className='warning'>✖</span> Numero di telefono troppo lungo</p>}
                             </div>
 
                             <div className='space2 flexCol'>

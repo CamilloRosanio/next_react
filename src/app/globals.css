@@ -189,6 +189,11 @@ main {
   color: var(--color-warning);
 }
 
+.solid {
+  font-weight: bolder;
+  padding: calc(var(--space-unit-half) * 0.6)
+}
+
 /****************************************** BUTTONS */
 
 .button {
@@ -715,22 +720,15 @@ select {
 # ACCORDION
 *******************************************************************/
 
-.accordionItem.card {
+.accordion.card {
   cursor: pointer;
-  /* padding: calc(var(--space-unit) * 1.5); */
   border-radius: 15px;
   border-top-right-radius: 0;
 }
 
 .accordionText {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-}
-
-.accordionText.open {
   padding-top: var(--space-unit);
-  max-height: 1000px;
+  max-height: 50vh;
 }
 
 

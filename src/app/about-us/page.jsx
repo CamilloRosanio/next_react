@@ -21,7 +21,18 @@ function AboutUsPage() {
         <h1 className='space2'>About us</h1>
 
         <Accordion
-            accordionContent={pagesContent.aboutUs.accordions.aboutUs}
+            title='Accordion title'
+            text='Accordion text content.'
+        />
+
+        <Accordion
+            title='Accordion title'
+            text='Accordion text content.'
+        />
+
+        <Accordion
+            title='Accordion title'
+            text='Accordion text content.'
         />
 
     </>

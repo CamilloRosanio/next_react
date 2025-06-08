@@ -11,37 +11,39 @@ import { listSymbol } from '../assets/data/utilityContent';
 
 
 // COMPONENT EXPORT
-function Accordion({ accordionContent }) {
+function Accordion({ title, text }) {
 
     // USE-STATE
-    const [activeSection, setActiveSection] = useState(null);
+    const [open, setOpen] = useState(false);
 
     // SUPPORT
 
-    // Handle Click
-    const handleClick = (sectionKey) => {
-        setActiveSection(activeSection === sectionKey ? null : sectionKey);
+    // Handle open
+    const handleOpen = () => {
+        setOpen(prev => !prev);
     };
 
     return <>
-        <ul className="accordion">
-            {Object.keys(accordionContent).map((sectionKey) => (
-                <li
-                    key={sectionKey}
-                    onClick={() => handleClick(sectionKey)}
-                    className="accordionItem card space1"
-                >
-                    <div className="accordionHeader">
-                        <h3><span className='listSymbol'>{listSymbol}</span> {accordionContent[sectionKey].title}</h3>
+        {(title && text) &&
+            <div className="accordion card space2" onClick={() => handleOpen()}>
+
+                <div className="accordionHeader">
+                    <h3>
+                        {!open ?
+                            <span className='listSymbol'>✚</span>
+                            :
+                            <span className='listSymbol solid'>−</span>
+                        } {title}
+                    </h3>
+                </div>
+
+                {open &&
+                    <div className='accordionText'>
+                        <p>{text}</p>
                     </div>
-                    <div
-                        className={`accordionText ${activeSection === sectionKey ? 'open' : ''}`}
-                    >
-                        <p>{accordionContent[sectionKey].text}</p>
-                    </div>
-                </li>
-            ))}
-        </ul>
+                }
+            </div>
+        }
     </>
 }
 

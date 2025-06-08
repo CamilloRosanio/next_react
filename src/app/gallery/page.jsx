@@ -15,7 +15,6 @@ import Section from "../../../layouts/Section";
 import Gallery from "../../../layouts/Gallery";
 
 
-
 // COMPONENT EXPORT
 function GalleryPage() {
     return <>

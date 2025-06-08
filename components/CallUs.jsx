@@ -12,7 +12,7 @@ import { isValidHours, getPhone, allowedTime } from '../assets/utilityFunctions'
 
 
 // COMPONENTS
-import Button1 from '../layouts/Button';
+import Button from '../layouts/Button';
 import ErrorMsg from '../layouts/ErrorMsg';
 
 
@@ -96,7 +96,7 @@ function CallUs({ info }) {
 
                     <div className='buttonContainerContacts' onClick={callNow}>
                         <a href={telTo}>
-                            < Button1
+                            < Button
                                 text={utilityContent.callUs.textContent.callButton}
                                 extraClass={'color2'}
                             />

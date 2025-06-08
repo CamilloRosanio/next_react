@@ -17,7 +17,7 @@ function Section({ children, title }) {
 
         <div className="section">
 
-            <h2><span className='listSymbol'>{listSymbol} </span> {title}</h2>
+            {title && <h2><span className='listSymbol'>{listSymbol} </span> {title}</h2>}
 
             {children}
         </div>

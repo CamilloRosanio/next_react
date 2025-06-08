@@ -545,7 +545,6 @@ select {
 
 
 
-
 /*******************************************************************
 # CONTACT FORM
 *******************************************************************/
@@ -920,8 +919,13 @@ footer .flexLine :last-child {
     max-height: calc(var(--space-unit-1) * 1.6);
   }
 
+  .gallery {
+    gap: var(--space-unit-half);
+  }
+
   .galleryPicContainer {
     flex: 0 0 100%;
+    gap: var(--space-unit-half);
   }
 
   .card {

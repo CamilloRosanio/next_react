@@ -10,7 +10,12 @@
 import { useState, memo } from "react";
 
 
+// ASSETS
+import { toTop } from "../assets/utilityFunctions";
+
+
 // COMPONENTS
+import Button from "./Button";
 import PicOverlay from "./PicOverlay";
 
 
@@ -34,7 +39,7 @@ function Gallery({ imgList }) {
 
     return <>
 
-        <div className="gallery">
+        <div className="gallery space2">
 
             {/* GALLERY */}
             {imgList.map((picPath, index) => (
@@ -46,6 +51,14 @@ function Gallery({ imgList }) {
             {/* OVERLAY */}
             {selectedPic && <PicOverlay picPath={selectedPic} onClose={closeOverlay} />}
 
+        </div>
+
+        <div className='buttonContainerContacts'>
+            < Button
+                text='▲'
+                onClick={toTop}
+                extraClass={'color2'}
+            />
         </div>
 
     </>

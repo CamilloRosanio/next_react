@@ -8,7 +8,7 @@ import { useMainContext } from "../../contexts/MainContext";
 
 // COMPONENTS
 import Section from "../../layouts/Section";
-import Button1 from "../../layouts/Button";
+import Button from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
 
 
@@ -20,8 +20,14 @@ export default function HomePage() {
 
   return <>
 
-    <Section title='My Section Title'>
-      <p>Section content</p>
+    <h1 className='space2'>Home Title</h1>
+
+    <Section title='First section Title'>
+      <p>First section content</p>
+    </Section>
+
+    <Section title='Second section Title'>
+      <p>Second section content</p>
     </Section>
 
     <h3>{mainContext.listSymbol} CONTEXT INFO</h3>
@@ -34,24 +40,24 @@ export default function HomePage() {
     />
     <p>Device type: {mainContext.deviceType}</p>
 
-    < Button1
+    < Button
       text='button'
       onClick={null}
     />
 
-    < Button1
+    < Button
       text='color 1'
       onClick={null}
       extraClass={'color1'}
     />
 
-    < Button1
+    < Button
       text='color 2'
       onClick={null}
       extraClass={'color2'}
     />
 
-    < Button1
+    < Button
       text='color 3'
       onClick={null}
       extraClass={'color3'}

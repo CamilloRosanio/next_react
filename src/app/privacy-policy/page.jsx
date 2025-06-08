@@ -13,7 +13,7 @@ import { toTop, getEmail } from '../../../assets/utilityFunctions.js';
 
 
 // COMPONENTS
-import Button1 from '../../../layouts/Button.jsx';
+import Button from '../../../layouts/Button.jsx';
 
 
 // EXPORT
@@ -85,7 +85,7 @@ function PrivacyPolicyPage() {
                         <p>Indirizzo email del Titolare:</p>
                         {/* GET EMAIL */}
                         {!showEmail ?
-                            < Button1
+                            < Button
                                 text='MOSTRA EMAIL'
                                 onClick={showEmailContact}
                                 extraClass={'color2'}
@@ -280,7 +280,7 @@ function PrivacyPolicyPage() {
         </div>
 
         <div className='buttonContainerContacts'>
-            < Button1
+            < Button
                 text='▲'
                 onClick={toTop}
                 extraClass={'color2'}

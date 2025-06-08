@@ -13,7 +13,7 @@ import { toTop, getEmail } from '../assets/utilityFunctions';
 
 // COMPONENTS
 import Checkbox from '../layouts/Checkbox';
-import Button1 from '../layouts/Button';
+import Button from '../layouts/Button';
 import ErrorMsg from '../layouts/ErrorMsg';
 
 
@@ -357,7 +357,7 @@ function ContactForm({ info }) {
                                 <p className='space2'>{utilityContent.contactForm.textContent.sentThankYou}</p>
 
                             </div>
-                            < Button1
+                            < Button
                                 text='TORNA AL FORM'
                                 onClick={setSuccessValue}
                                 extraClass={'color2'}

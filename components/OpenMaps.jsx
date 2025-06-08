@@ -17,7 +17,7 @@ const imgMapLight = '/map/mapLight.png';
 
 
 // COMPONENTS
-import Button1 from '../layouts/Button';
+import Button from '../layouts/Button';
 
 
 // EXPORT
@@ -60,7 +60,7 @@ function OpenMaps({ info }) {
                                 className='hyperlink'
                             >
                                 <div className='buttonContainerContacts'>
-                                    < Button1
+                                    < Button
                                         text={utilityContent.openMaps.textContent.mapButton}
                                         extraClass={'color2'}
                                     />

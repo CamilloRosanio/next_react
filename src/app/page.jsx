@@ -14,6 +14,7 @@ import { toTop } from "../../assets/utilityFunctions";
 import Section from "../../layouts/Section";
 import Button from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
+import Modal from "../../layouts/Modal";
 
 
 // EXPORT
@@ -103,7 +104,7 @@ export default function HomePage() {
       < Button
         text='Contattaci ▶'
         path='/contacts'
-        extraClass={'color2'}
+        extraClass={'color1'}
       />
     </div>
   </>

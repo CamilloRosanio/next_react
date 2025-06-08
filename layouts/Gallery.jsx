@@ -10,12 +10,7 @@
 import { useState, memo } from "react";
 
 
-// ASSETS
-import { toTop } from "../assets/utilityFunctions";
-
-
 // COMPONENTS
-import Button from "./Button";
 import PicOverlay from "./PicOverlay";
 
 

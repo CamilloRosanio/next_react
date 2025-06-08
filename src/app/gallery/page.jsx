@@ -40,7 +40,7 @@ function GalleryPage() {
             < Button
                 text='Contattaci ▶'
                 path='/contacts'
-                extraClass={'color2'}
+                extraClass={'color1'}
             />
         </div>
 

@@ -19,6 +19,8 @@
   /* FONT */
   /* font-family: "Roboto", sans-serif; */
   font-family: "Poppins", sans-serif;
+
+  word-break: break-word;
 }
 
 button {
@@ -145,6 +147,10 @@ p {
 
 .space2 {
   margin-bottom: var(--space-unit-2);
+}
+
+.space3 {
+  margin-bottom: calc(var(--space-unit) * 3)
 }
 
 .space4 {
@@ -314,6 +320,49 @@ main {
   padding: 0 1rem;
   background-color: yellow;
   color: rgb(255, 0, 0);
+}
+
+
+
+/*******************************************************************
+# MODAL
+*******************************************************************/
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  padding: var(--space-unit-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit-2);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  max-width: 60%;
+  color: var(--color-primary);
+  padding: var(--space-unit-2);
+}
+
+.modalText {
+  color: inherit;
+}
+
+.modalButtonsContainer {
+  display: flex;
+  justify-content: end;
+  gap: var(--space-unit);
+}
+
+.closeModal {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
 }
 
 
@@ -913,6 +962,21 @@ footer .flexLine :last-child {
 
   header {
     padding: calc(var(--space-unit) *1.5);
+  }
+
+  .modal {
+    text-align: center;
+    max-width: 85%;
+    padding: var(--space-unit-2);
+  }
+
+  .modalButtonsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .closeModal {
+    margin: var(--space-unit) 0;
   }
 
   .gallery {

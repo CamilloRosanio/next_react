@@ -1,5 +1,5 @@
 // NOTES
-// QueryArray è strettamente collegato al funzionamento della Searchbar "potenziata" per la ricerca di più parole insieme.
+// Lo USE-STATE di "queryArray" è strettamente collegato al funzionamento della Searchbar ottimizzata per la ricerca di più parole insieme.
 
 
 // READY FOR CLIENT SIDE
@@ -53,6 +53,23 @@ function ProductsPage() {
     return <>
 
         Page Content
+
+
+
+        {/* BOTTOM BUTTONS */}
+        <div className='bottomButtonsContainer'>
+            < Button
+                text='▲'
+                onClick={toTop}
+                extraClass={'color2'}
+            />
+
+            < Button
+                text='Contattaci ▶'
+                path='/contacts'
+                extraClass={'color1'}
+            />
+        </div>
 
     </>
 }

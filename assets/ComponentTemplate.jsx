@@ -6,7 +6,7 @@
 
 
 // UTILITY
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 
 // ENV

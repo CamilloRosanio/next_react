@@ -279,11 +279,18 @@ function PrivacyPolicyPage() {
 
         </div>
 
-        <div className='buttonContainerContacts'>
+        {/* BOTTOM BUTTONS */}
+        <div className='bottomButtonsContainer'>
             < Button
                 text='▲'
                 onClick={toTop}
                 extraClass={'color2'}
+            />
+
+            < Button
+                text='Contattaci ▶'
+                path='/contacts'
+                extraClass={'color1'}
             />
         </div>
     </>

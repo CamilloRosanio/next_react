@@ -54,7 +54,7 @@ select {
   --typo-size: 1.3rem;
   --typo-vw: 1vw;
   --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2));
-  --typo-h2: calc(var(--typo-size) + calc(var(--typo-vw) *1.1));
+  --typo-h2: calc(var(--typo-size) + calc(var(--typo-vw) *0.8));
   --typo-h3: calc(calc(var(--typo-size) *0.8) + calc(var(--typo-vw) * 0.8));
   --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) * 0.7));
   --typo-h5: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.5));
@@ -913,10 +913,6 @@ footer .flexLine :last-child {
 
   header {
     padding: calc(var(--space-unit) *1.5);
-  }
-
-  header .imgContainer {
-    max-height: calc(var(--space-unit-1) * 1.6);
   }
 
   .gallery {

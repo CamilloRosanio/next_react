@@ -7,26 +7,30 @@ import { memo } from "react";
 
 
 // ASSETS
-import pagesContent from "../../../assets/data/pagesContent";
+import galleryPics from "../../../assets/data/gallery";
 
 
 // COMPONENTS
-import Accordion from "../../../layouts/Accordion";
+import Section from "../../../layouts/Section";
+import Gallery from "../../../layouts/Gallery";
+
 
 
 // COMPONENT EXPORT
-function Gallery() {
+function GalleryPage() {
     return <>
 
-        <h1 className='space2'>{pagesContent.aboutUs.pageTitle}</h1>
+        <h1 className='space2'>Gallery</h1>
 
-        <Accordion
-            accordionContent={pagesContent.aboutUs.accordions.aboutUs}
-        />
+        <Section title='Most recent'>
+            <p>Look at our most recent pictures.</p>
+        </Section>
+
+        <Gallery imgList={galleryPics} />
 
     </>
 }
 
 
 // EXPORT MEMO()
-export default memo(Gallery);
+export default memo(GalleryPage);

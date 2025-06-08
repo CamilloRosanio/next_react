@@ -481,6 +481,72 @@ select {
 
 
 /*******************************************************************
+# GALLERY
+*******************************************************************/
+
+/****************************************** COLUMNS */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit-half);
+}
+
+.galleryPicContainer {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+  cursor: pointer;
+}
+
+.galleryPic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/****************************************** OVERLAY */
+
+.galleryPicOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: var(--space-unit-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit-2);
+  justify-content: center;
+  align-items: center;
+}
+
+.OverlayCloseContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.galleryPicOverlay .roundButton {
+  cursor: pointer;
+  color: white;
+  background-color: var(--color-warning);
+}
+
+.galleryOverlayImg {
+  max-width: 100%;
+  max-height: calc(100% - calc(var(--space-unit-2) * 3));
+  object-fit: contain;
+}
+
+
+
+
+/*******************************************************************
 # CONTACT FORM
 *******************************************************************/
 
@@ -852,6 +918,10 @@ footer .flexLine :last-child {
 
   header .imgContainer {
     max-height: calc(var(--space-unit-1) * 1.6);
+  }
+
+  .galleryPicContainer {
+    flex: 0 0 100%;
   }
 
   .card {

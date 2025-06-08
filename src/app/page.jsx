@@ -1,7 +1,3 @@
-// NOTES
-// SetQueryArray è strettamente collegato al funzionamento della Searchbar "potenziata" per la ricerca di più parole insieme.
-
-
 // READY FOR CLIENT SIDE
 "use client";
 
@@ -12,11 +8,8 @@ import { useMainContext } from "../../contexts/MainContext";
 
 // COMPONENTS
 import Section from "../../layouts/Section";
-import Searchbar from "../../layouts/Searchbar";
-import Select from "../../layouts/Select";
 import Button1 from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
-import { useState } from "react";
 
 
 // EXPORT
@@ -25,16 +18,10 @@ export default function HomePage() {
   // DATA - CONTEXT
   const mainContext = useMainContext();
 
-  // USE-STATE
-  const [queryArray, setQueryArray] = useState([]);
-
-  // SUPPORT
-
-
   return <>
 
     <Section title='My Section Title'>
-      section content
+      <p>Section content</p>
     </Section>
 
     <h3>{mainContext.listSymbol} CONTEXT INFO</h3>
@@ -46,19 +33,6 @@ export default function HomePage() {
       textOff='Darkmode off'
     />
     <p>Device type: {mainContext.deviceType}</p>
-
-    <Searchbar
-      placeholder="Search by.."
-      onDebouncedChange={setQueryArray}
-      reset={setQueryArray}
-    />
-
-    <Select
-      placeholder='▼ Filter by..'
-    // options={'array'}
-    // value={'useState'}
-    // setValue={'setState'}
-    />
 
     < Button1
       text='button'

@@ -18,7 +18,7 @@ import Accordion from "../../../layouts/Accordion";
 function AboutUsPage() {
     return <>
 
-        <h1 className='space2'>{pagesContent.aboutUs.pageTitle}</h1>
+        <h1 className='space2'>About us</h1>
 
         <Accordion
             accordionContent={pagesContent.aboutUs.accordions.aboutUs}

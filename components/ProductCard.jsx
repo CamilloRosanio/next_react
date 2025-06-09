@@ -23,6 +23,7 @@ import { useMainContext } from "../contexts/MainContext";
 
 
 // COMPONENTS
+import SquarePic from "../layouts/SquarePic";
 
 
 // EXPORT

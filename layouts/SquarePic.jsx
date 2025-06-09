@@ -3,20 +3,7 @@
 
 
 // UTILITY
-import { useState, useEffect, memo } from "react";
-
-
-// ENV
-
-
-// CONTEXTS
-import { useMainContext } from "../contexts/MainContext";
-
-
-// ASSETS
-
-
-// SUPPORT
+import { memo } from "react";
 
 
 // COMPONENTS
@@ -24,15 +11,17 @@ import PicOverlay from "./PicOverlay";
 
 
 // EXPORT
-function SquarePic({ path, selectedPic, setSelectedPic }) {
+function SquarePic({ path, selectedPic, setSelectedPic, defaultText }) {
 
     // SUPPORT
 
     // Get File Name
     function getFileName(path) {
-        const fileWithExtension = path.split('/').pop();
-        const fileName = fileWithExtension.split('.').slice(0, -1).join('.');
-        return fileName;
+        if (path) {
+            const fileWithExtension = path.split('/').pop();
+            const fileName = fileWithExtension.split('.').slice(0, -1).join('.');
+            return fileName;
+        }
     }
 
     // Overlay - Open
@@ -47,15 +36,34 @@ function SquarePic({ path, selectedPic, setSelectedPic }) {
 
     return <>
 
-        {/* SQUARE PICTURE */}
-        <div className="squarePicContainer" onClick={() => openOverlay(path)}>
+        {path ?
+            <>
+                {/* SQUARE PICTURE */}
+                <div className="squarePicContainer" onClick={() => { path && openOverlay(path) }}>
 
-            <img src={path} alt={getFileName(path)} className="squarePic" />
+                    <img src={path} alt={getFileName(path)} className="squarePic" />
 
-        </div>
+                </div>
 
-        {/* OVERLAY */}
-        {selectedPic === path && <PicOverlay path={path} onClose={closeOverlay} />}
+                {/* OVERLAY */}
+                {selectedPic === path && <PicOverlay path={path} onClose={closeOverlay} />}
+            </>
+
+            :
+
+            <>
+                {/* DEFAULT */}
+                < div className="squarePicDefault">
+                    <h4>{defaultText}</h4>
+                </div >
+            </>
+        }
+
+
+
+
+
+
 
     </>
 }

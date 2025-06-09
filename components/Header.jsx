@@ -26,19 +26,19 @@ function Header() {
 
     // SUPPORT
 
-    // Default Logos
-    const imgLogoDarkModeDefault = '/logo/logo-h50-white-default.png';
-    const imgLogoLightModeDefault = '/logo/logo-h50-grey-default.png';
+    // Default Logo
+    const defaultDarkModeLogo = '/default/default-logo-dark-mode.png';
+    const defaultLightModeLogo = '/default/default-logo-light-mode.png';
 
-    // Logos
-    const imgLogoDarkMode = '/logo/logo-h50-dark-mode.png';
-    const imgLogoLightMode = '/logo/logo-h50-light-mode.png';
+    // Logo
+    const logoDarkMode = '/logo/logo-h50-dark-mode.png';
+    const logoLightMode = '/logo/logo-h50-light-mode.png';
 
     // Image onError
     const logoSrc = darkMode ?
-        (imgError ? imgLogoDarkModeDefault : imgLogoDarkMode)
+        (imgError ? defaultDarkModeLogo : logoDarkMode)
         :
-        (imgError ? imgLogoLightModeDefault : imgLogoLightMode);
+        (imgError ? defaultLightModeLogo : logoLightMode);
 
     return <>
 

@@ -1,16 +1,32 @@
 // NOTES
-// DEPENDENCY: determina il map delle immagini in Gallery
+// DEPENDENCY: determina il map delle immagini in Gallery.
+// AUTOMATION: genera automaticamente un ARRAY dei paths delle immagini all'interno della cartella "/public/gallery".
 
 
-// DATA
-const galleryPics = [
-
-    '/gallery/default/gallery-default-1.jpg',
-    '/gallery/default/gallery-default-2.png',
-    '/gallery/default/gallery-default-3.jpeg',
-    '/gallery/default/gallery-default-4.jpg',
-];
+// UTILITY
+import fs from 'fs';
+import path from 'path';
 
 
-// DATA EXPORT
+// SUPPORT
+
+const galleryDir = path.join(process.cwd(), 'public', 'gallery');
+
+const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp', '.tiff', '.svg'];
+
+let galleryPics = [];
+
+try {
+    const files = fs.readdirSync(galleryDir);
+    galleryPics = files
+        .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()))
+        .map(file => `/gallery/${file}`);
+} catch (err) {
+    console.error('Errore caricamento immagini:', err);
+}
+
+
+// EXPORT
 export default galleryPics;
+
+

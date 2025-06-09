@@ -11,10 +11,10 @@ import { useState, memo } from "react";
 
 
 // COMPONENTS
-import SquarePic from "./SquarePic";
+import SquarePic from './SquarePic';
 
 
-// EXPORT
+// // EXPORT
 function Gallery({ imgList }) {
 
     // USE-STATE
@@ -24,13 +24,13 @@ function Gallery({ imgList }) {
 
         <div className="gallery space2">
 
-            {/* GALLERY */}
             {imgList.map((path, index) => (
                 <SquarePic
                     key={index}
                     path={path}
                     selectedPic={selectedPic}
                     setSelectedPic={setSelectedPic}
+                    defaultText='DEFAULT TEXT'
                 />
             ))}
 

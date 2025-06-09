@@ -11,7 +11,7 @@ const MainContext = createContext();
 
 
 // ASSETS
-import productsDb from '../assets/data/productsDb.js';
+import products from '../assets/data/products.js';
 import { getKeys } from '../assets/utilityFunctions.js';
 
 
@@ -24,11 +24,6 @@ export const MainContextProvider = ({ children }) => {
     const [deviceType, setDeviceType] = useState('');
 
     // SUPPORT
-
-    // Products useMemo()
-    const products = useMemo(() => {
-        return productsDb;
-    }, []);
 
     // Products Unique Keys + Type
     const pKeys = useMemo(() => {
@@ -72,8 +67,8 @@ export const MainContextProvider = ({ children }) => {
     }, []);
 
     // debug
-    // console.log("PRODUCTS:", products);
-    // console.log("KEYS:", pKeys);
+    console.log('PRODUCTS:', products);
+    console.log('PRODUCTS KEYS:', getKeys(products));
 
     return <>
         <MainContext.Provider value={{

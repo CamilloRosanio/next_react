@@ -53,15 +53,15 @@ select {
   --space-unit-4: calc(var(--space-unit) * 4);
 
   /* TYPOGRAPHY */
-  --typo-size: 1.3rem;
+  --typo-size: 1.2rem;
   --typo-vw: 1vw;
-  --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2));
-  --typo-h2: calc(var(--typo-size) + calc(var(--typo-vw) *0.8));
-  --typo-h3: calc(calc(var(--typo-size) *0.8) + calc(var(--typo-vw) * 0.8));
-  --typo-h4: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) * 0.7));
-  --typo-h5: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.5));
-  --typo-p: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *0.7));
-  --typo-small: calc(calc(var(--typo-size) * 0.6) + calc(var(--typo-vw) *0.3));
+  --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2.1));
+  --typo-h2: calc(var(--typo-size) + calc(var(--typo-vw) *1.2));
+  --typo-h3: calc(var(--typo-size) + calc(var(--typo-vw) * 0.8));
+  --typo-h4: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
+  --typo-h5: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
+  --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
+  --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
 
 
 
@@ -118,12 +118,18 @@ h4 {
 
 h5 {
   font-size: var(--typo-h5);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 p {
   color: var(--color-secondary);
   font-size: var(--typo-p);
+  font-weight: 200;
+}
+
+.smallText {
+  color: var(--color-secondary);
+  font-size: var(--typo-small);
   font-weight: 200;
 }
 
@@ -205,7 +211,6 @@ main {
 /****************************************** BUTTONS */
 
 .button {
-  line-height: normal;
   font-size: var(--typo-small);
   font-weight: 400;
   padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) * 1.2);
@@ -924,15 +929,6 @@ footer .flexLine :last-child {
 
 @media screen and (max-width: 768px) {
 
-  :root {
-    /* TYPOGRAPHY */
-    --typo-size: 1.5rem;
-  }
-
-  p {
-    line-height: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *1.4));
-  }
-
   .card {
     padding: calc(var(--space-unit) * 1.5);
     border-radius: 15px;
@@ -962,7 +958,12 @@ footer .flexLine :last-child {
 
   :root {
     /* TYPOGRAPHY */
-    --typo-size: 1.6rem;
+    --typo-size: 1.2rem;
+    --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
+  }
+
+  p {
+    line-height: calc(var(--typo-size) + calc(var(--typo-vw) *1.7));
   }
 
   ::-webkit-scrollbar {
@@ -973,9 +974,7 @@ footer .flexLine :last-child {
     width: calc(var(--container)* 1.07);
   }
 
-  p {
-    line-height: calc(calc(var(--typo-size) /2) + calc(var(--typo-vw) *1.5));
-  }
+
 
   header {
     padding: calc(var(--space-unit) *1.5);

@@ -46,7 +46,7 @@ function Navbar() {
 
         {deviceType !== 'mobile' ?
 
-            // DESKTOP / TABLET NAVBAR
+            // DESKTOP / TABLET
             <nav>
                 {/* PAGES */}
                 {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink">{link.page}</Link>)}
@@ -74,7 +74,7 @@ function Navbar() {
 
             :
 
-            // MOBILE NAVBAR
+            // MOBILE
             <nav>
 
                 {/*  DROP-DOWN */}
@@ -84,9 +84,9 @@ function Navbar() {
 
                 <div className={hidden ? 'hidden' : 'dropDown'}>
                     {/* PAGES */}
-                    {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink">{listSymbol} {link.page}</Link>)}
+                    {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink" onClick={() => setHidden(true)}>{listSymbol} {link.page}</Link>)}
                     {/* UTILITY PAGES */}
-                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink">{listSymbol} {link.page}</Link>)}
+                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink" onClick={() => setHidden(true)}>{listSymbol} {link.page}</Link>)}
 
                     <div>
                         <Toggle

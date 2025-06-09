@@ -1,5 +1,4 @@
 // NOTES
-// Lo USE-STATE di "queryArray" è strettamente collegato al funzionamento della Searchbar ottimizzata per la ricerca di più parole insieme.
 
 
 // READY FOR CLIENT SIDE
@@ -7,11 +6,14 @@
 
 
 // UTILITY
-import { useState, useEffect, memo, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+
+// ENV
 
 
 // CONTEXTS
-import { useMainContext } from "../contexts/MainContext";
+import { useMainContext } from "../../../contexts/MainContext";
 
 
 // ASSETS
@@ -21,10 +23,11 @@ import { useMainContext } from "../contexts/MainContext";
 
 
 // COMPONENTS
+import ProductCard from "../../../components/ProductCard";
 
 
 // EXPORT
-function ProductsPage() {
+export default function ProductsPage() {
 
     // USE-ROUTER
 
@@ -32,7 +35,7 @@ function ProductsPage() {
     const mainContext = useMainContext();
 
     // USE-STATE
-    const [queryArray, setQueryArray] = useState([]);
+    const [customState, setCustomState] = useState('');
 
     // SUPPORT
 
@@ -52,28 +55,7 @@ function ProductsPage() {
 
     return <>
 
-        Page Content
-
-
-
-        {/* BOTTOM BUTTONS */}
-        <div className='bottomButtonsContainer'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-
-            < Button
-                text='Contattaci ▶'
-                path='/contacts'
-                extraClass={'color1'}
-            />
-        </div>
+        <ProductCard />
 
     </>
 }
-
-
-// EXPORT MEMO()
-export default memo(ProductsPage);

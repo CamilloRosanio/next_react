@@ -12,7 +12,7 @@ import RoundButton from "./RoundButton";
 
 
 // EXPORT
-function PicOverlay({ picPath, onClose }) {
+function PicOverlay({ path, onClose }) {
 
     // SUPPORT
 
@@ -35,14 +35,14 @@ function PicOverlay({ picPath, onClose }) {
     }, []);
 
     return createPortal(
-        <div className="galleryPicOverlay" ref={overlayRef} onClick={handleClickOutside}>
+        <div className="PicOverlay" ref={overlayRef} onClick={handleClickOutside}>
 
             <div className="OverlayCloseContainer">
                 <RoundButton onClick={onClose} />
             </div>
 
 
-            <img src={picPath} alt="full image" className="galleryOverlayImg" />
+            <img src={path} alt={`Full image: ${path}`} className="OverlayImg" />
         </div>,
         document.body
     );

@@ -11,7 +11,7 @@ import { useState, memo } from "react";
 
 
 // COMPONENTS
-import PicOverlay from "./PicOverlay";
+import SquarePic from "./SquarePic";
 
 
 // EXPORT
@@ -20,31 +20,19 @@ function Gallery({ imgList }) {
     // USE-STATE
     const [selectedPic, setSelectedPic] = useState(null);
 
-    // SUPPORT
-
-    // Overlay - Open
-    const openOverlay = (picPath) => {
-        setSelectedPic(picPath);
-    };
-
-    // Overlay - Close
-    const closeOverlay = () => {
-        setSelectedPic(null);
-    };
-
     return <>
 
         <div className="gallery space2">
 
             {/* GALLERY */}
-            {imgList.map((picPath, index) => (
-                <div className="galleryPicContainer" key={index} onClick={() => openOverlay(picPath)}>
-                    <img src={picPath} alt={`pic-${index}`} className="galleryPic" />
-                </div>
+            {imgList.map((path, index) => (
+                <SquarePic
+                    key={index}
+                    path={path}
+                    selectedPic={selectedPic}
+                    setSelectedPic={setSelectedPic}
+                />
             ))}
-
-            {/* OVERLAY */}
-            {selectedPic && <PicOverlay picPath={selectedPic} onClose={closeOverlay} />}
 
         </div>
 

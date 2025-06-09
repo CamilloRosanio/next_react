@@ -537,18 +537,12 @@ select {
 
 
 /*******************************************************************
-# GALLERY
+# SQUARE PICTURE + OVERLAY
 *******************************************************************/
 
-/****************************************** COLUMNS */
+/****************************************** SQUARE PICTURE */
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-unit-half);
-}
-
-.galleryPicContainer {
+.squarePicContainer {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
@@ -556,7 +550,7 @@ select {
   cursor: pointer;
 }
 
-.galleryPic {
+.squarePic {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -565,7 +559,7 @@ select {
 
 /****************************************** OVERLAY */
 
-.galleryPicOverlay {
+.PicOverlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -587,16 +581,30 @@ select {
   justify-content: center;
 }
 
-.galleryPicOverlay .roundButton {
+.PicOverlay .roundButton {
   cursor: pointer;
   color: white;
   background-color: var(--color-warning);
 }
 
-.galleryOverlayImg {
+.OverlayImg {
   max-width: 100%;
   max-height: calc(100% - calc(var(--space-unit-2) * 3));
   object-fit: contain;
+}
+
+
+
+/*******************************************************************
+# GALLERY
+*******************************************************************/
+
+/****************************************** COLUMNS */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit-half);
 }
 
 
@@ -983,7 +991,7 @@ footer .flexLine :last-child {
     gap: var(--space-unit-half);
   }
 
-  .galleryPicContainer {
+  .squarePicContainer {
     flex: 0 0 100%;
     gap: var(--space-unit-half);
   }

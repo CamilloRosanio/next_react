@@ -17,6 +17,11 @@ const navLinks = [
     },
     {
         type: 'content',
+        page: 'Products',
+        path: '/products',
+    },
+    {
+        type: 'content',
         page: 'Gallery',
         path: '/gallery',
     },

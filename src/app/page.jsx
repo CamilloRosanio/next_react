@@ -14,7 +14,6 @@ import { toTop } from "../../assets/utilityFunctions";
 import Section from "../../layouts/Section";
 import Button from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
-import Modal from "../../layouts/Modal";
 
 
 // EXPORT
@@ -92,9 +91,11 @@ export default function HomePage() {
 
     {mainContext.products.map((p, index) => <p key={index}>{p.name}</p>)}
 
-    <h2>Keys</h2>
+    <h2>Unique Categories</h2>
+    {mainContext.categories.map((c, index) => <p key={index}>{c}</p>)}
 
-    {mainContext.pKeys.map((k, index) => <p key={index}>{k.key}</p>)}
+    <h2>Unique Tags</h2>
+    {mainContext.tags.map((t, index) => <p key={index}>{t}</p>)}
 
 
     {/* BOTTOM BUTTONS */}

@@ -30,90 +30,21 @@ function splitQuery(query) {
     return splitted;
 }
 
-// GET KEYS
-function getKeys(dataArray) {
-    const keyTypesMap = new Map();
-    const keyValuesMap = new Map();
-    const keyNumberValues = new Map();
-    const typeConflicts = new Set();
+// GET UNIQUE VALUES
+function getUniqueValues(key, array) {
+    const uniqueValues = new Set();
 
-    for (const obj of dataArray) {
-        for (const [key, value] of Object.entries(obj)) {
-            if (value === null || value === undefined) continue;
-
-            let type = typeof value;
-
+    array.forEach(item => {
+        if (item.hasOwnProperty(key)) {
+            const value = item[key];
             if (Array.isArray(value)) {
-                type = 'array';
-            } else if (type === 'object') {
-                continue;
-            }
-
-            // CONFLICT HANDLER
-            if (keyTypesMap.has(key)) {
-                const existingTypes = keyTypesMap.get(key);
-                if (!existingTypes.has(type)) {
-                    typeConflicts.add(key);
-                }
-                existingTypes.add(type);
+                value.forEach(val => uniqueValues.add(val));
             } else {
-                keyTypesMap.set(key, new Set([type]));
-            }
-
-            // ARRAYS VALUES
-            if (type === 'array') {
-                if (!keyValuesMap.has(key)) {
-                    keyValuesMap.set(key, new Set());
-                }
-                value.forEach(item => {
-                    keyValuesMap.get(key).add(item);
-                });
-            }
-
-            // NUMBER MAX / MIN
-            if (type === 'number') {
-                if (!keyNumberValues.has(key)) {
-                    keyNumberValues.set(key, []);
-                }
-                keyNumberValues.get(key).push(value);
+                uniqueValues.add(value);
             }
         }
-    }
-
-    if (typeConflicts.size > 0) {
-        console.error("KEY TYPE CONFLICT:", [...typeConflicts]);
-    }
-
-    const result = [];
-
-    for (const [key, types] of keyTypesMap.entries()) {
-        if (typeConflicts.has(key)) continue;
-
-        const type = [...types][0];
-        const item = { key, type };
-
-        // Handling Arrays (sorting if the value is an array of strings)
-        if (type === 'array' && keyValuesMap.has(key)) {
-            let arrayValues = [...keyValuesMap.get(key)];
-            // Check if the array contains only strings
-            if (arrayValues.every(val => typeof val === 'string')) {
-                arrayValues = arrayValues.sort((a, b) => a.localeCompare(b));
-            }
-            item.value = arrayValues;
-        }
-
-        // Handling Number Max / Min
-        if (type === 'number' && keyNumberValues.has(key)) {
-            const numbers = keyNumberValues.get(key);
-            const min = Math.min(...numbers);
-            const max = Math.max(...numbers);
-            item.value = [min, max];
-        }
-
-        result.push(item);
-    }
-
-    return result;
+    });
+    return [...uniqueValues].sort();
 }
 
 
@@ -213,7 +144,7 @@ export {
     toTop,
     debounce,
     splitQuery,
-    getKeys,
+    getUniqueValues,
     getEmail,
     getPhone,
     isValidHours,

@@ -12,7 +12,7 @@ const MainContext = createContext();
 
 // ASSETS
 import products from '../assets/data/products.js';
-import { getKeys } from '../assets/utilityFunctions.js';
+import { getUniqueValues } from '../assets/utilityFunctions.js';
 
 
 // PROVIDER EXPORT
@@ -24,11 +24,8 @@ export const MainContextProvider = ({ children }) => {
     const [deviceType, setDeviceType] = useState('');
 
     // SUPPORT
-
-    // Products Unique Keys + Type
-    const pKeys = useMemo(() => {
-        return getKeys(products);
-    }, []);
+    const categories = getUniqueValues('category', products);
+    const tags = getUniqueValues('tags', products);
 
     // Mode Switch
     const switchMode = () => {
@@ -68,12 +65,13 @@ export const MainContextProvider = ({ children }) => {
 
     // debug
     console.log('PRODUCTS:', products);
-    console.log('PRODUCTS KEYS:', getKeys(products));
+    // console.log('PRODUCTS KEYS:', getKeys(products));
 
     return <>
         <MainContext.Provider value={{
             products,
-            pKeys,
+            categories,
+            tags,
             darkMode,
             switchMode,
             windowWidth,

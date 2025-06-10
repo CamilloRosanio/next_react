@@ -19,8 +19,6 @@
   /* FONT */
   /* font-family: "Roboto", sans-serif; */
   font-family: "Poppins", sans-serif;
-
-  word-break: break-word;
 }
 
 button {
@@ -60,8 +58,8 @@ select {
   --typo-h3: calc(var(--typo-size) + calc(var(--typo-vw) * 0.8));
   --typo-h4: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
   --typo-h5: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
-  --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.3));
-  --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
+  --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
+  --typo-small: calc(calc(var(--typo-size) * 0.8) + calc(var(--typo-vw) *0.0));
 
 
 
@@ -211,7 +209,7 @@ main {
 /****************************************** BUTTONS */
 
 .button {
-  font-size: var(--typo-small);
+  font-size: var(--typo-size);
   font-weight: 400;
   padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) * 1.2);
   border-radius: 50px;
@@ -473,10 +471,30 @@ nav .dropDown> :last-child {
 # FILTERS + SEARCHBAR
 *******************************************************************/
 
-/****************************************** COMMON PROPERTIES */
+/****************************************** FILTERS CONTAINER */
 
-.searchbar .roundButton:hover,
-.selectContainer .roundButton:hover {
+.filtersSection {
+  width: 100%;
+  display: flex;
+  gap: var(--space-unit);
+  flex-wrap: wrap;
+}
+
+/****************************************** COMMON FILTER PROPERTIES */
+
+.filterContainer {
+  flex-grow: 1;
+  cursor: pointer;
+  max-width: 40%;
+  border-radius: 35px;
+  border: 2px solid var(--color1);
+  padding: var(--space-unit-half) calc(var(--space-unit) * 1.5);
+  padding-right: var(--space-unit-half);
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterContainer .roundButton:hover {
   cursor: pointer;
   color: white;
   background-color: var(--color-warning);
@@ -487,34 +505,14 @@ nav .dropDown> :last-child {
 select {
   display: flex;
   align-items: center;
-}
-
-.selectContainer {
-  display: flex;
-  justify-content: space-between;
-  max-width: 300px;
-  padding: var(--space-unit-half) var(--typo-size);
-  padding-right: var(--space-unit-half);
-  border-radius: 35px;
-  border: 2px solid var(--color1);
+  margin-right: var(--space-unit);
 }
 
 .select {
-  cursor: pointer;
   flex-grow: 1;
   appearance: none;
   font-size: var(--space-unit);
   border: none;
-}
-
-.select.on {
-  color: var(--color-primary);
-
-}
-
-.select.off {
-  color: var(--color-terziary);
-  background-color: var(--bg-primary);
 }
 
 .select:focus {
@@ -522,18 +520,18 @@ select {
   border: none;
 }
 
-/****************************************** SEARCHBAR */
-
-.searchbar {
-  display: flex;
-  justify-content: space-between;
-  max-width: 300px;
-  padding: var(--space-unit-half) var(--typo-size);
-  padding-right: var(--space-unit-half);
-  border-radius: 35px;
-  border: 2px solid var(--color1);
-  background-color: var(--bg-primary);
+option {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--bg-elements);
 }
+
+option:hover {
+  background-color: var(--color1);
+}
+
+/****************************************** SEARCHBAR */
 
 .searchbarInput {
   min-width: 85%;
@@ -891,6 +889,7 @@ footer {
 }
 
 footer .flexLine>a {
+  font-size: var(--typo-small);
   padding-right: var(--space-unit);
   border-right: 1px solid var(--color-terziary);
 }
@@ -898,7 +897,6 @@ footer .flexLine>a {
 footer .flexLine :last-child {
   padding-right: 0;
   border: none;
-
 }
 
 
@@ -928,6 +926,11 @@ footer .flexLine :last-child {
 /****************************************** TABLET */
 
 @media screen and (max-width: 768px) {
+
+  .filterContainer {
+    flex-grow: 1;
+    max-width: 100%;
+  }
 
   .card {
     padding: calc(var(--space-unit) * 1.5);
@@ -974,10 +977,17 @@ footer .flexLine :last-child {
     width: calc(var(--container)* 1.07);
   }
 
-
-
   header {
     padding: calc(var(--space-unit) *1.5);
+  }
+
+  .section {
+    margin-bottom: var(--space-unit-2);
+  }
+
+  .filterContainer {
+    flex-grow: 1;
+    max-width: 100%;
   }
 
   .modal {

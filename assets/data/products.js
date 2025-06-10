@@ -53,7 +53,7 @@ const productsDb = [
     {
         id: "7",
         name: "Tavolo da Giardino Pieghevole",
-        category: "Giardino",
+        category: "Giardinaggio",
         tags: ["outdoor", "arredo", "pieghevole"]
     },
     {

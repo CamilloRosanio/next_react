@@ -17,13 +17,13 @@ function Select({ placeholder, options, value, setValue }) {
 
     return <>
 
-        <div className="selectContainer">
+        <div className="filterContainer">
 
             {/* OPTIONS */}
             <select
                 onChange={e => setValue(e.target.value)}
                 value={value}
-                className={`select ${value ? 'on' : 'off'}`}
+                className='select'
             >
                 <option value=''>{placeholder || '▼ Filter by..'}</option>
 

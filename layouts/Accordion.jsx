@@ -3,11 +3,7 @@
 
 
 // UTILITY
-import { useState, memo } from 'react';
-
-
-// ASSETS
-import { listSymbol } from '../assets/data/utilityContent';
+import { useState, useRef, memo } from 'react';
 
 
 // COMPONENT EXPORT
@@ -17,15 +13,22 @@ function Accordion({ title, text }) {
     const [open, setOpen] = useState(false);
 
     // SUPPORT
+    const accordionRef = useRef();
 
     // Handle open
     const handleOpen = () => {
         setOpen(prev => !prev);
+        if (accordionRef.current) {
+            accordionRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
     };
 
     return <>
         {(title && text) &&
-            <div className="accordion card space2" onClick={() => handleOpen()}>
+            <div className="accordion card space2" ref={accordionRef} onClick={() => handleOpen()}>
 
                 <div className="accordionHeader">
                     <h4>

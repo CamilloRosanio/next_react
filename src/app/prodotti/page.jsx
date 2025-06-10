@@ -11,7 +11,7 @@ import { useMainContext } from "../../../contexts/MainContext";
 
 
 // ASSETS
-import { toTop, switchBoolean, splitQuery, addRemove } from "../../../assets/utilityFunctions";
+import { switchBoolean, splitQuery, addRemove } from "../../../assets/utilityFunctions";
 
 
 // COMPONENTS

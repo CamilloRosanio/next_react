@@ -60,7 +60,7 @@ select {
   --typo-h3: calc(var(--typo-size) + calc(var(--typo-vw) * 0.8));
   --typo-h4: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
   --typo-h5: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
-  --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
+  --typo-p: calc(var(--typo-size) + calc(var(--typo-vw) *0.3));
   --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
 
 
@@ -925,7 +925,7 @@ footer .flexLine :last-child {
 # MEDIAQUERY
 *******************************************************************/
 
-/* TABLET */
+/****************************************** TABLET */
 
 @media screen and (max-width: 768px) {
 
@@ -952,7 +952,7 @@ footer .flexLine :last-child {
 }
 
 
-/* MOBILE */
+/****************************************** MOBILE */
 
 @media screen and (max-width: 576px) {
 
@@ -1023,7 +1023,7 @@ footer .flexLine :last-child {
 }
 
 
-/* MOBILE XS */
+/****************************************** MOBILE XS */
 
 @media screen and (max-width: 350px) {
 

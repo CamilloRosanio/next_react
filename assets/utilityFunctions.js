@@ -37,9 +37,6 @@ function getKeys(dataArray) {
     const keyNumberValues = new Map();
     const typeConflicts = new Set();
 
-    // CATEGORY HANDLER
-    const categoryValuesSet = new Set();
-
     for (const obj of dataArray) {
         for (const [key, value] of Object.entries(obj)) {
             if (value === null || value === undefined) continue;
@@ -80,11 +77,6 @@ function getKeys(dataArray) {
                 }
                 keyNumberValues.get(key).push(value);
             }
-
-            // UNIQUE CATEGORIES
-            if (key === 'category' && type === 'string') {
-                categoryValuesSet.add(value);
-            }
         }
     }
 
@@ -100,20 +92,22 @@ function getKeys(dataArray) {
         const type = [...types][0];
         const item = { key, type };
 
+        // Handling Arrays (sorting if the value is an array of strings)
         if (type === 'array' && keyValuesMap.has(key)) {
-            item.value = [...keyValuesMap.get(key)];
+            let arrayValues = [...keyValuesMap.get(key)];
+            // Check if the array contains only strings
+            if (arrayValues.every(val => typeof val === 'string')) {
+                arrayValues = arrayValues.sort((a, b) => a.localeCompare(b));
+            }
+            item.value = arrayValues;
         }
 
+        // Handling Number Max / Min
         if (type === 'number' && keyNumberValues.has(key)) {
             const numbers = keyNumberValues.get(key);
             const min = Math.min(...numbers);
             const max = Math.max(...numbers);
             item.value = [min, max];
-        }
-
-        // SORT CATEGORIES
-        if (key === 'category' && type === 'string') {
-            item.value = [...categoryValuesSet].sort((a, b) => a.localeCompare(b));
         }
 
         result.push(item);

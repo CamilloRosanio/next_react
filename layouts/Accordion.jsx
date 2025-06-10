@@ -28,13 +28,13 @@ function Accordion({ title, text }) {
             <div className="accordion card space2" onClick={() => handleOpen()}>
 
                 <div className="accordionHeader">
-                    <h3>
+                    <h4>
                         {!open ?
                             <span className='listSymbol'>▶</span>
                             :
                             <span className='listSymbol'>▼</span>
                         } {title}
-                    </h3>
+                    </h4>
                 </div>
 
                 {open &&

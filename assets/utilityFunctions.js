@@ -31,6 +31,9 @@ const switchBoolean = (setValue) => {
 
 // SPLIT QUERY
 function splitQuery(query) {
+    if (query === '' || query[0] === '') {
+        return [''];
+    }
     const splitted = query.trim().split(/\s+/);
     return splitted;
 }

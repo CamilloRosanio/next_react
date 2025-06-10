@@ -1,6 +1,3 @@
-// NOTES
-
-
 // READY FOR CLIENT SIDE
 "use client";
 
@@ -21,8 +18,10 @@ import { toTop, switchBoolean, splitQuery, addRemove } from "../../../assets/uti
 import Section from "../../../layouts/Section";
 import Searchbar from "../../../layouts/Searchbar";
 import Select from "../../../layouts/Select";
-import Button from "../../../layouts/Button";
+import TagLabel from "../../../layouts/TagLabel";
 import RoundButton from "../../../layouts/RoundButton";
+import PageBottomButtons from "../../../components/PageBottomButtons";
+import Modal from "../../../layouts/Modal";
 
 
 // EXPORT
@@ -45,16 +44,8 @@ export default function ProductsPage() {
     // SUPPORT
     const sortArrow = sortOrder === 1 ? '▼' : '▲';
 
-    // Remove ALL Filters
-    const removeFilters = () => {
-        setQuery('');
-        setCategory('');
-        setSelectedTags([]);
-        setShowTags(false);
-    };
-
     // Show Tags
-    function hideTags() { switchBoolean(setShowTags); }
+    function showTagsList() { switchBoolean(setShowTags); }
 
     // Products useMemo()
     const productsList = useMemo(() => {
@@ -110,66 +101,51 @@ export default function ProductsPage() {
 
     return <>
 
-        <h1 className='space2'>Products</h1>
+        <h1 className='space2'>Prodotti</h1>
 
         <Section>
-            <p>Explore our products list.</p>
+            <p>Trova il prodotto che fa per te.</p>
         </Section>
-
-        {/* DEBUG */}
-        <div className="flexCol">
-            <div>
-                <h4>QUERY:</h4>
-                <div className="flexLine">
-                    {query && splitQuery(query).map((q, index) => <p key={index}>{q}</p>)}
-                </div>
-            </div>
-
-            <div className="flexLine">
-                <h4>CATEGORY: </h4>
-                {category && <p>{category}</p>}
-            </div>
-        </div>
 
 
 
         {/* FILTERS */}
-
-        <div className="flexLine">
-            <h3>Filter list</h3>
-
-            <Button
-                text='remove all filters'
-                onClick={() => removeFilters()}
-                extraClass='remove'
-            />
-        </div>
-
         <div className="filtersSection">
             <Searchbar
-                placeholder='Search by name..'
+                placeholder='Cerca per nome..'
                 onDebouncedChange={setQuery}
                 reset={() => setQuery([''])}
             />
 
             <Select
-                placeholder='▼ Filter by category..'
+                placeholder='▼ Filtra per categoria..'
                 options={categories}
                 value={category}
                 setValue={setCategory}
             />
 
             <div className="filterContainer tags">
-                <p className="tagsFilter" onClick={() => hideTags()}>
-                    {showTags ? '▼' : '▶'} Filter by tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
+                <p className="tagsFilter" onClick={() => showTagsList()}>
+                    {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
                 </p>
 
-                <RoundButton onClick={() => { setSelectedTags([]); setShowTags(false); }} />
+                <RoundButton onClick={() => setShowModal(true)} />
             </div>
         </div>
 
+        {/* MODAL - REMOVE ALL TAGS */}
+        {showModal &&
+            <Modal
+                closeModal={() => setShowModal(false)}
+                text='Confermando rimuoverai tutti i Tags dal filtro.'
+                confirm={() => { setSelectedTags([]); setShowTags(false); setShowModal(false); }}
+            />
+        }
+
+
+
         {/* TAGS LIST */}
-        {showTags &&
+        {/* {showTags &&
             <div className="tagsList">
                 {tags && tags.map
                     ((t, index) =>
@@ -182,33 +158,34 @@ export default function ProductsPage() {
                         </div>
                     )}
             </div>
+        } */}
+
+        {showTags &&
+            <div className="tagsList">
+                {tags && selectedTags.map
+                    ((t, index) =>
+                        <TagLabel
+                            key={index}
+                            item={t}
+                            isSelectedList={selectedTags}
+                        />
+                    )}
+            </div>
         }
 
 
 
         {/* PRODUCTS LIST */}
-        {productsList.map((p, index) =>
+        {/* {productsList.map((p, index) =>
             <div className="flexLine debug" key={index}>
                 <p>• {p.category} - {p.name}</p>
             </div>
-        )}
+        )} */}
 
 
 
         {/* BOTTOM BUTTONS */}
-        <div className='bottomButtonsContainer'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-
-            < Button
-                text='Contattaci ▶'
-                path='/contacts'
-                extraClass={'color1'}
-            />
-        </div>
+        <PageBottomButtons toContacts={true} />
 
     </>
 }

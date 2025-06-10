@@ -25,7 +25,7 @@ function Footer() {
         <footer>
 
             <div className='flexLine'>
-                {navUtility.map(link => <a key={link.page} href={link.path} target="_blank" className="hyperlink">{link.page}</a>)}
+                {navUtility.map(link => <a key={link.page} href={link.path} target="_blank" className="hyperlink navLink">{link.page}</a>)}
             </div>
 
             <SocialMedia />

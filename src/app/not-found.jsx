@@ -12,7 +12,7 @@ function NotFoundPage() {
   return <>
 
     <div className="notFoundContainer">
-      <h2>Page not found</h2>
+      <h2>Pagina inesistente</h2>
 
       <div className="imgContainer">
         <Link href="/">
@@ -21,7 +21,7 @@ function NotFoundPage() {
       </div>
 
       <Link href="/" className="hyperlink button color2">
-        Back to Home Page
+        Torna alla Home
       </Link>
     </div>
 

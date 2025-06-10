@@ -6,13 +6,9 @@
 import { memo } from "react";
 
 
-// ASSETS
-import { toTop } from "../../../assets/utilityFunctions";
-
-
 // COMPONENTS
 import Section from "../../../layouts/Section";
-import Button from "../../../layouts/Button";
+import PageBottomButtons from "../../../components/PageBottomButtons";
 
 
 // COMPONENT EXPORT
@@ -30,19 +26,7 @@ function AboutUsPage() {
         </Section>
 
         {/* BOTTOM BUTTONS */}
-        <div className='bottomButtonsContainer'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-
-            < Button
-                text='Contattaci ▶'
-                path='/contacts'
-                extraClass={'color1'}
-            />
-        </div>
+        <PageBottomButtons toContacts={true} />
 
     </>
 }

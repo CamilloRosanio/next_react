@@ -6,14 +6,11 @@
 import { useMainContext } from "../../contexts/MainContext";
 
 
-// ASSETS
-import { toTop } from "../../assets/utilityFunctions";
-
-
 // COMPONENTS
 import Section from "../../layouts/Section";
 import Button from "../../layouts/Button";
 import Toggle from "../../layouts/Toggle";
+import PageBottomButtons from "../../components/PageBottomButtons";
 
 
 // EXPORT
@@ -99,18 +96,6 @@ export default function HomePage() {
 
 
     {/* BOTTOM BUTTONS */}
-    <div className='bottomButtonsContainer'>
-      < Button
-        text='▲'
-        onClick={toTop}
-        extraClass={'color2'}
-      />
-
-      < Button
-        text='Contattaci ▶'
-        path='/contacts'
-        extraClass={'color1'}
-      />
-    </div>
+    <PageBottomButtons toContacts={true} />
   </>
 }

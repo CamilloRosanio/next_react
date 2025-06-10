@@ -8,14 +8,13 @@ import { memo } from "react";
 
 // ASSETS
 import businessInfo from "../../../assets/data/businessInfo";
-import { toTop } from '../../../assets/utilityFunctions.js';
 
 
 // COMPONENTS
-import Button from "../../../layouts/Button";
 import ContactForm from "../../../components/ContactForm";
 import CallUs from "../../../components/CallUs";
 import OpenMaps from "../../../components/OpenMaps";
+import PageBottomButtons from "../../../components/PageBottomButtons";
 
 
 // EXPORT
@@ -44,13 +43,7 @@ function ContactsPage() {
         </div>
 
         {/* BOTTOM BUTTONS */}
-        <div className='bottomButtonsContainer'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-        </div>
+        <PageBottomButtons />
     </>
 }
 

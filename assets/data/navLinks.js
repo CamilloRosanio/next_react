@@ -12,23 +12,23 @@ const navLinks = [
     },
     {
         type: 'utility',
-        page: 'Contacts',
-        path: '/contacts',
+        page: 'Contatti',
+        path: '/contatti',
     },
     {
         type: 'content',
-        page: 'Products',
-        path: '/products',
+        page: 'Prodotti',
+        path: '/prodotti',
     },
     {
         type: 'content',
-        page: 'Gallery',
-        path: '/gallery',
+        page: 'Galleria',
+        path: '/galleria',
     },
     {
         type: 'content',
-        page: 'About us',
-        path: '/about-us',
+        page: 'Chi siamo',
+        path: '/chi-siamo',
     },
     {
         type: 'content',

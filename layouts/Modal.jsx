@@ -42,7 +42,7 @@ export default function Modal({ closeModal, text, confirm }) {
                             confirm();
                             closeModal();
                         }}
-                        extraClass='color3'
+                        extraClass='color1'
                     />
 
                     <Button

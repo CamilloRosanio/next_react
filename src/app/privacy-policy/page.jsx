@@ -9,11 +9,11 @@ import { useState, memo } from 'react';
 // ASSETS
 import businessInfo from '../../../assets/data/businessInfo.js';
 import { listSymbol } from '../../../assets/data/utilityContent.js';
-import { toTop, getEmail } from '../../../assets/utilityFunctions.js';
+import { getEmail } from '../../../assets/utilityFunctions.js';
 
 
 // COMPONENTS
-import Button from '../../../layouts/Button.jsx';
+import PageBottomButtons from '../../../components/PageBottomButtons.jsx';
 
 
 // EXPORT
@@ -280,19 +280,7 @@ function PrivacyPolicyPage() {
         </div>
 
         {/* BOTTOM BUTTONS */}
-        <div className='bottomButtonsContainer'>
-            < Button
-                text='▲'
-                onClick={toTop}
-                extraClass={'color2'}
-            />
-
-            < Button
-                text='Contattaci ▶'
-                path='/contacts'
-                extraClass={'color1'}
-            />
-        </div>
+        <PageBottomButtons toContacts={true} />
     </>
 }
 

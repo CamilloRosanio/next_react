@@ -14,7 +14,7 @@ import { useMainContext } from "../../../contexts/MainContext";
 
 
 // ASSETS
-import { toTop } from "../../../assets/utilityFunctions";
+import { toTop, switchBoolean, splitQuery, addRemove } from "../../../assets/utilityFunctions";
 
 
 // SUPPORT
@@ -25,6 +25,7 @@ import Section from "../../../layouts/Section";
 import Searchbar from "../../../layouts/Searchbar";
 import Select from "../../../layouts/Select";
 import Button from "../../../layouts/Button";
+import RoundButton from "../../../layouts/RoundButton";
 
 
 // EXPORT
@@ -38,13 +39,25 @@ export default function ProductsPage() {
     // USE-STATE
     const [query, setQuery] = useState([]);
     const [category, setCategory] = useState('');
-    const [selectedTags, setSelectedTags] = useState([]);
-    const [sortBy, setSortBy] = useState('title');
+    const [selectedTags, setSelectedTags] = useState(['espresso']);
+    const [showTags, setShowTags] = useState(false);
+    const [sortBy, setSortBy] = useState('name');
     const [sortOrder, setSortOrder] = useState(1);
     const [showModal, setShowModal] = useState(false);
 
     // SUPPORT
     const sortArrow = sortOrder === 1 ? '▼' : '▲';
+
+    // Remove ALL Filters
+    const removeFilters = () => {
+        setQuery(splitQuery(''));
+        setCategory('');
+        setSelectedTags([]);
+        setShowTags(false);
+    };
+
+    // Show Tags
+    function hideTags() { switchBoolean(setShowTags); }
 
     // Products useMemo()
     const productsList = useMemo(() => {
@@ -53,7 +66,6 @@ export default function ProductsPage() {
         const countMatches = (product) => {
             let matches = 0;
             query.forEach(q => {
-                // Verifica se 'name' e 'description' sono stringhe valide prima di chiamare 'toLowerCase()'
                 const name = product.name ? product.name.toLowerCase() : '';
                 const description = product.description ? product.description.toLowerCase() : '';
                 if (name.includes(q.toLowerCase()) || description.includes(q.toLowerCase())) {
@@ -95,8 +107,8 @@ export default function ProductsPage() {
     // INIT USE-EFFECT
     useEffect(() => {
 
-        // debug
-        // return console.log('INIT USE-STATE');
+        console.log('MOUNTING | Products Page');
+
     }, []);
 
     return <>
@@ -107,24 +119,7 @@ export default function ProductsPage() {
             <p>Explore our products list.</p>
         </Section>
 
-        {/* FILTERS */}
-
-        <div className="filtersSection">
-            <Searchbar
-                placeholder='Search by name..'
-                onDebouncedChange={setQuery}
-                reset={() => setQuery([''])}
-            />
-
-            <Select
-                placeholder='▼ Filter by category..'
-                options={categories}
-                value={category}
-                setValue={setCategory}
-            />
-        </div>
-
-
+        {/* DEBUG */}
         <div className="flexCol">
             <div>
                 <h4>QUERY:</h4>
@@ -139,12 +134,79 @@ export default function ProductsPage() {
             </div>
         </div>
 
+
+
+        {/* FILTERS */}
+
+        <div className="flexLine">
+            <h3>Filter list</h3>
+
+            {
+                (query === '')
+                &&
+                <Button
+                    text='remove all filters'
+                    onClick={() => removeFilters()}
+                    extraClass='remove'
+                />
+            }
+
+            {/* <Button
+                text='remove all filters'
+                onClick={() => removeFilters()}
+                extraClass='remove'
+            /> */}
+        </div>
+
+        <div className="filtersSection">
+            <Searchbar
+                placeholder='Search by name..'
+                onDebouncedChange={setQuery}
+                reset={() => setQuery([''])}
+            />
+
+            <Select
+                placeholder='▼ Filter by category..'
+                options={categories}
+                value={category}
+                setValue={setCategory}
+            />
+
+            <div className="filterContainer tags">
+                <p className="tagsFilter" onClick={() => hideTags()}>
+                    {showTags ? '▼' : '▶'} Filter by tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
+                </p>
+
+                <RoundButton onClick={() => { setSelectedTags([]); setShowTags(false); }} />
+            </div>
+        </div>
+
+        {/* TAGS LIST */}
+        {showTags &&
+            <div className="tagsList">
+                {tags && tags.map
+                    ((t) =>
+                        <div
+                            className={`tagLabel ${selectedTags.includes(t) ? 'on' : ''}`}
+                            onClick={() => addRemove(selectedTags, t)}
+                        >
+                            # {t}
+                        </div>
+                    )}
+            </div>
+        }
+
+
+
+
         {/* PRODUCTS LIST */}
         {productsList.map((p, index) =>
             <div className="flexLine debug" key={index}>
                 <p>• {p.category} - {p.name}</p>
             </div>
         )}
+
+
 
         {/* BOTTOM BUTTONS */}
         <div className='bottomButtonsContainer'>

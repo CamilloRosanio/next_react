@@ -18,6 +18,11 @@ function debounce(callback, delay) {
     }
 }
 
+// SWITCH ON/OFF
+const switchBoolean = (setValue) => {
+    setValue(prev => !prev);
+};
+
 
 
 /*******************************************************************
@@ -38,13 +43,22 @@ function getUniqueValues(key, array) {
         if (item.hasOwnProperty(key)) {
             const value = item[key];
             if (Array.isArray(value)) {
-                value.forEach(val => uniqueValues.add(val));
+                value.forEach(val => uniqueValues.add(val.toLowerCase()));
             } else {
-                uniqueValues.add(value);
+                uniqueValues.add(value.toLowerCase());
             }
         }
     });
     return [...uniqueValues].sort();
+}
+
+function addRemove(array, string) {
+    if (array.includes(string)) {
+        array.splice(array.indexOf(string), 1);
+    } else {
+        array.push(string);
+        array.sort();
+    }
 }
 
 
@@ -143,8 +157,10 @@ function allowedTime(allowedHours, gmtValue) {
 export {
     toTop,
     debounce,
+    switchBoolean,
     splitQuery,
     getUniqueValues,
+    addRemove,
     getEmail,
     getPhone,
     isValidHours,

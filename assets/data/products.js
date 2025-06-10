@@ -10,8 +10,18 @@ const productsDb = [
         description: "Macchina per caffè espresso con sistema a pressione avanzato.",
         category: "Elettrodomestici",
         img: "/images/caffettiera.jpg",
-        tags: ["caffè", "espresso", "macchina"],
+        tags: ["caffè", "espresso", "caffettiera"],
         price: 129.99,
+        available: true
+    },
+    {
+        id: "100",
+        name: "Macchinetta Espresso Pro",
+        description: "Macchina per caffè espresso da ufficio.",
+        category: "Ristorazione",
+        img: "/images/macchinetta-caffè.jpg",
+        tags: ["caffè", "espresso", "macchina"],
+        price: 87.50,
         available: true
     },
     {

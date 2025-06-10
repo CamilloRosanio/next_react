@@ -69,6 +69,7 @@ select {
 
   /* PALETTE - DEFAULT MODE */
   --color-primary: white;
+  --color-primary-transparent20: rgba(255, 255, 255, 0.2);
   --color-secondary: rgb(228, 228, 228);
   --color-terziary: rgb(107, 107, 107);
 
@@ -471,6 +472,12 @@ nav .dropDown> :last-child {
 # FILTERS + SEARCHBAR
 *******************************************************************/
 
+.button.remove {
+  background-color: var(--color-warning);
+  border: none;
+  font-size: var(--space-unit);
+}
+
 /****************************************** FILTERS CONTAINER */
 
 .filtersSection {
@@ -483,6 +490,7 @@ nav .dropDown> :last-child {
 /****************************************** COMMON FILTER PROPERTIES */
 
 .filterContainer {
+  font-size: var(--space-unit);
   flex-grow: 1;
   cursor: pointer;
   max-width: 40%;
@@ -492,6 +500,7 @@ nav .dropDown> :last-child {
   padding-right: var(--space-unit-half);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .filterContainer .roundButton:hover {
@@ -511,7 +520,6 @@ select {
 .select {
   flex-grow: 1;
   appearance: none;
-  font-size: var(--space-unit);
   border: none;
 }
 
@@ -535,6 +543,37 @@ option:hover {
 
 .searchbarInput {
   min-width: 85%;
+}
+
+/****************************************** TAGS */
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit);
+  padding: var(--space-unit-2) 0;
+  margin: var(--space-unit-2) 0;
+  border-top: 2px dotted var(--color-terziary);
+  border-bottom: 2px dotted var(--color-terziary);
+}
+
+.tagsFilter {
+  color: var(--color-primary);
+  font-size: var(--space-unit);
+  font-weight: 400;
+
+}
+
+.tagLabel {
+  cursor: pointer;
+  font-size: calc(var(--typo-small) * 1);
+  border: 2px solid var(--color-primary-transparent20);
+  border-radius: 35px;
+  padding: calc(var(--space-unit) / 10) var(--space-unit);
+}
+
+.tagLabel.on {
+  border: 2px solid var(--color3);
 }
 
 

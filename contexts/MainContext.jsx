@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 
 // CREATE CONTEXT
@@ -12,7 +12,7 @@ const MainContext = createContext();
 
 // ASSETS
 import products from '../assets/data/products.js';
-import { getUniqueValues } from '../assets/utilityFunctions.js';
+import { switchBoolean, getUniqueValues } from '../assets/utilityFunctions.js';
 
 
 // PROVIDER EXPORT
@@ -28,9 +28,7 @@ export const MainContextProvider = ({ children }) => {
     const tags = getUniqueValues('tags', products);
 
     // Mode Switch
-    const switchMode = () => {
-        setDarkMode(prev => !prev);
-    };
+    function switchMode() { switchBoolean(setDarkMode); }
 
     // Update Device Type
     const updateDeviceType = (width) => {
@@ -64,8 +62,9 @@ export const MainContextProvider = ({ children }) => {
     }, []);
 
     // debug
-    console.log('PRODUCTS:', products);
-    // console.log('PRODUCTS KEYS:', getKeys(products));
+    // console.log('CONTEXT | PRODUCTS:', products);
+    // console.log('CONTEXT | CATEGORIES:', categories);
+    // console.log('CONTEXT | TAGS:', tags);
 
     return <>
         <MainContext.Provider value={{

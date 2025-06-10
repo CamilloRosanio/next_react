@@ -129,7 +129,7 @@ export default function ProductsPage() {
                     {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
                 </p>
 
-                <RoundButton onClick={() => setShowModal(true)} />
+                <RoundButton onClick={() => { selectedTags.length ? setShowModal(true) : null }} />
             </div>
         </div>
 
@@ -145,42 +145,28 @@ export default function ProductsPage() {
 
 
         {/* TAGS LIST */}
-        {/* {showTags &&
-            <div className="tagsList">
-                {tags && tags.map
-                    ((t, index) =>
-                        <div
-                            key={index}
-                            className={`tagLabel ${selectedTags.includes(t) ? 'on' : ''}`}
-                            onClick={() => addRemove(selectedTags, t)}
-                        >
-                            # {t}
-                        </div>
-                    )}
-            </div>
-        } */}
-
         {showTags &&
-            <div className="tagsList">
-                {tags && selectedTags.map
-                    ((t, index) =>
-                        <TagLabel
-                            key={index}
-                            item={t}
-                            isSelectedList={selectedTags}
-                        />
-                    )}
-            </div>
+            <ul className="tagsList">
+                {tags.map((tag, index) => (
+                    <li
+                        key={index}
+                        className={`tagLabel ${selectedTags.includes(tag) ? "on" : ""}`}
+                        onClick={() => addRemove(tag, selectedTags, setSelectedTags)}
+                    >
+                        {tag}
+                    </li>
+                ))}
+            </ul>
         }
 
 
 
         {/* PRODUCTS LIST */}
-        {/* {productsList.map((p, index) =>
+        {productsList.map((p, index) =>
             <div className="flexLine debug" key={index}>
                 <p>• {p.category} - {p.name}</p>
             </div>
-        )} */}
+        )}
 
 
 

@@ -55,12 +55,11 @@ function getUniqueValues(key, array) {
     return [...uniqueValues].sort();
 }
 
-function addRemove(array, string) {
-    if (array.includes(string)) {
-        array.splice(array.indexOf(string), 1);
+function addRemove(item, selectedItems, setSelectedItems) {
+    if (selectedItems.includes(item)) {
+        setSelectedItems(selectedItems.filter((i) => i !== item));
     } else {
-        array.push(string);
-        array.sort();
+        setSelectedItems([...selectedItems, item]);
     }
 }
 

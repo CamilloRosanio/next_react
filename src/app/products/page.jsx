@@ -17,9 +17,6 @@ import { useMainContext } from "../../../contexts/MainContext";
 import { toTop, switchBoolean, splitQuery, addRemove } from "../../../assets/utilityFunctions";
 
 
-// SUPPORT
-
-
 // COMPONENTS
 import Section from "../../../layouts/Section";
 import Searchbar from "../../../layouts/Searchbar";
@@ -37,7 +34,7 @@ export default function ProductsPage() {
     const { products, categories, tags } = useMainContext();
 
     // USE-STATE
-    const [query, setQuery] = useState([]);
+    const [query, setQuery] = useState('');
     const [category, setCategory] = useState('');
     const [selectedTags, setSelectedTags] = useState(['espresso']);
     const [showTags, setShowTags] = useState(false);
@@ -50,7 +47,7 @@ export default function ProductsPage() {
 
     // Remove ALL Filters
     const removeFilters = () => {
-        setQuery(splitQuery(''));
+        setQuery('');
         setCategory('');
         setSelectedTags([]);
         setShowTags(false);
@@ -65,7 +62,7 @@ export default function ProductsPage() {
         // SUPPORT
         const countMatches = (product) => {
             let matches = 0;
-            query.forEach(q => {
+            splitQuery(query).forEach(q => {
                 const name = product.name ? product.name.toLowerCase() : '';
                 const description = product.description ? product.description.toLowerCase() : '';
                 if (name.includes(q.toLowerCase()) || description.includes(q.toLowerCase())) {
@@ -81,7 +78,7 @@ export default function ProductsPage() {
             const description = product.description ? product.description.toLowerCase() : '';
 
             // Match - Query
-            const matchesQuery = query.some(q =>
+            const matchesQuery = splitQuery(query).some(q =>
                 name.includes(q.toLowerCase()) ||
                 description.includes(q.toLowerCase())
             );
@@ -107,7 +104,7 @@ export default function ProductsPage() {
     // INIT USE-EFFECT
     useEffect(() => {
 
-        console.log('MOUNTING | Products Page');
+        console.log('MOUNTING | PRODUCTS PAGE');
 
     }, []);
 
@@ -124,7 +121,7 @@ export default function ProductsPage() {
             <div>
                 <h4>QUERY:</h4>
                 <div className="flexLine">
-                    {query && query.map((q, index) => <p key={index}>{q}</p>)}
+                    {query && splitQuery(query).map((q, index) => <p key={index}>{q}</p>)}
                 </div>
             </div>
 
@@ -141,21 +138,11 @@ export default function ProductsPage() {
         <div className="flexLine">
             <h3>Filter list</h3>
 
-            {
-                (query === '')
-                &&
-                <Button
-                    text='remove all filters'
-                    onClick={() => removeFilters()}
-                    extraClass='remove'
-                />
-            }
-
-            {/* <Button
+            <Button
                 text='remove all filters'
                 onClick={() => removeFilters()}
                 extraClass='remove'
-            /> */}
+            />
         </div>
 
         <div className="filtersSection">
@@ -185,8 +172,9 @@ export default function ProductsPage() {
         {showTags &&
             <div className="tagsList">
                 {tags && tags.map
-                    ((t) =>
+                    ((t, index) =>
                         <div
+                            key={index}
                             className={`tagLabel ${selectedTags.includes(t) ? 'on' : ''}`}
                             onClick={() => addRemove(selectedTags, t)}
                         >
@@ -195,7 +183,6 @@ export default function ProductsPage() {
                     )}
             </div>
         }
-
 
 
 

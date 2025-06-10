@@ -14,7 +14,7 @@ import { useEffect, useState, useCallback } from 'react';
 
 
 // ASSETS
-import { splitQuery, debounce } from '../assets/utilityFunctions';
+import { debounce } from '../assets/utilityFunctions';
 
 
 // COMPONENTS
@@ -30,7 +30,7 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset }) {
     // USE-CALLBACK
     const debouncedChange = useCallback(
         debounce((localValue) => {
-            onDebouncedChange(splitQuery(localValue));
+            onDebouncedChange(localValue);
         }, 500),
         [onDebouncedChange]
     );
@@ -52,7 +52,7 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset }) {
 
             {/* RESET BUTTON */}
             <RoundButton
-                onClick={() => { reset(''); setLocalValue(''); }}
+                onClick={() => { reset(); setLocalValue(''); }}
             />
         </div>
     );

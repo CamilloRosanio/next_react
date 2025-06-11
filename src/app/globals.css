@@ -560,6 +560,7 @@ option:hover {
   color: var(--color-primary);
   font-size: var(--space-unit);
   font-weight: 400;
+  flex-grow: 1;
 
 }
 
@@ -587,7 +588,7 @@ option:hover {
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  flex: 0 0 calc((100% / 4) - ((var(--space-unit) * 2) / 4));
+  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
   cursor: pointer;
 }
 
@@ -675,6 +676,14 @@ option:hover {
   cursor: pointer;
   display: flex;
   gap: var(--space-unit-2);
+}
+
+.productsContainer .squarePicContainer {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 calc((100% / 5) - ((var(--space-unit) * 2) / 54));
+  cursor: pointer;
 }
 
 .productDetails {

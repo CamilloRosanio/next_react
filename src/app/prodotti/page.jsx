@@ -117,6 +117,14 @@ export default function ProductsPage() {
         return sortedProducts;
     }, [products, query, category, selectedTags, sortBy, sortOrder]);
 
+    // Reset Filters
+    function resetFilters() {
+        setQuery('');
+        setCategory('');
+        setSelectedTags([]);
+        setShowTags(false);
+    };
+
     return <>
 
         <h1 className='space2'>Prodotti</h1>
@@ -129,6 +137,8 @@ export default function ProductsPage() {
 
         {/* FILTERS */}
 
+        <button className='button' onClick={() => resetFilters()}>RESET FILTRI</button>
+
         <Section>
             <h4>Prodotti trovati: {productsList.length}</h4>
 
@@ -137,6 +147,7 @@ export default function ProductsPage() {
                     placeholder='Cerca per nome..'
                     onDebouncedChange={setQuery}
                     reset={() => setQuery([''])}
+                    externalValue={query}
                 />
 
                 <Select

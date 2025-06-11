@@ -1,3 +1,8 @@
+// NOTES
+// Il "value" dell'input è collegato a "externalValue" così da poter essere resettato anche da azioni esterne alla Searchbar.
+// In questo modo è possibile anche implementare la funzione "potenziata" di ricerca per ARRAY di STRINGS.
+
+
 // READY FOR CLIENT SIDE
 "use client";
 
@@ -15,7 +20,7 @@ import RoundButton from './RoundButton';
 
 
 // EXPORT
-export default function Searchbar({ placeholder, onDebouncedChange, reset }) {
+export default function Searchbar({ placeholder, onDebouncedChange, reset, externalValue }) {
 
     // USE-STATE
     const [localValue, setLocalValue] = useState("");
@@ -29,9 +34,16 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset }) {
     );
 
     // USE-EFFECT
+
+    // Debounce
     useEffect(() => {
         debouncedChange(localValue);
     }, [localValue, debouncedChange]);
+
+    // Reset to resetted External Value
+    useEffect(() => {
+        setLocalValue(externalValue);
+    }, [externalValue]);
 
     return (
         <div className="filterContainer">
@@ -45,7 +57,7 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset }) {
 
             {/* RESET BUTTON */}
             <RoundButton
-                onClick={() => { reset(); setLocalValue(''); }}
+                onClick={() => setLocalValue(externalValue)}
             />
         </div>
     );

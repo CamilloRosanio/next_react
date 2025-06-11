@@ -211,12 +211,6 @@ export default function ProductsPage() {
             )}
         </div>
 
-        {productsList.map((p, index) =>
-            <div className="flexLine debug" key={index}>
-                <p>• {p.category} - {p.name} - {p.description}</p>
-            </div>
-        )}
-
 
 
         {/* BOTTOM BUTTONS */}

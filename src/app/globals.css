@@ -587,7 +587,7 @@ option:hover {
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+  flex: 0 0 calc((100% / 4) - ((var(--space-unit) * 2) / 4));
   cursor: pointer;
 }
 

@@ -30,7 +30,7 @@ function ProductCard({ name, description, category, img, tags, price, available 
 
       <SquarePic
         path={img}
-        defaultText='immagine prodotto'
+        defaultText='immagine non disponibile'
       />
 
       <div className="productDetails">

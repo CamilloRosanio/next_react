@@ -35,7 +35,7 @@ export default function ProductsPage() {
     // USE-STATE
     const [query, setQuery] = useState('');
     const [category, setCategory] = useState('');
-    const [selectedTags, setSelectedTags] = useState(['espresso']);
+    const [selectedTags, setSelectedTags] = useState([]);
     const [showTags, setShowTags] = useState(false);
     const [sortBy, setSortBy] = useState('name');
     const [sortOrder, setSortOrder] = useState(1);
@@ -51,6 +51,8 @@ export default function ProductsPage() {
     const productsList = useMemo(() => {
 
         // SUPPORT
+
+        // Count Matches - Name / Description
         const countMatches = (product) => {
             let matches = 0;
             splitQuery(query).forEach(q => {
@@ -63,18 +65,37 @@ export default function ProductsPage() {
             return matches;
         };
 
-        // FILTER
+        // Filter by Tags
+        const filterProductsByTags = (products, selectedTags) => {
+            // Se selectedTags è vuoto o contiene una stringa vuota, ritorna l'array originale
+            if (selectedTags.length === 0 || selectedTags[0] === '') {
+                return products;
+            }
+
+            return products.filter(product => {
+                // Se il prodotto non ha la chiave "tags", scartalo
+                if (!product.tags || product.tags.length === 0) {
+                    return false;
+                }
+
+                // Verifica se tutti i tag in selectedTags sono inclusi nei tags del prodotto
+                return selectedTags.every(tag => product.tags.includes(tag));
+            });
+        };
+
+
+        // FILTER - Name / Description / Category
         const filteredProducts = products.filter((product) => {
             const name = product.name ? product.name.toLowerCase() : '';
             const description = product.description ? product.description.toLowerCase() : '';
 
-            // Match - Query
+            // Query - Name / Description
             const matchesQuery = splitQuery(query).some(q =>
                 name.includes(q.toLowerCase()) ||
                 description.includes(q.toLowerCase())
             );
 
-            // Match - Category
+            // Category
             const matchesCategory = category ?
                 (typeof product.category === 'string' && product.category.toLowerCase() === category.toLowerCase())
                 : true;
@@ -82,8 +103,11 @@ export default function ProductsPage() {
             return matchesQuery && matchesCategory;
         });
 
+        // FILTER - Tags
+        const filteredByTags = filterProductsByTags(filteredProducts, selectedTags);
+
         // SORT
-        const sortedProducts = filteredProducts.sort((a, b) => {
+        const sortedProducts = filteredByTags.sort((a, b) => {
             const matchesA = countMatches(a);
             const matchesB = countMatches(b);
             return matchesB - matchesA; // Ordinamento decrescente
@@ -110,61 +134,69 @@ export default function ProductsPage() {
 
 
         {/* FILTERS */}
-        <div className="filtersSection">
-            <Searchbar
-                placeholder='Cerca per nome..'
-                onDebouncedChange={setQuery}
-                reset={() => setQuery([''])}
-            />
 
-            <Select
-                placeholder='▼ Filtra per categoria..'
-                options={categories}
-                value={category}
-                setValue={setCategory}
-            />
+        <Section>
+            <h4>Prodotti trovati: {productsList.length}</h4>
 
-            <div className="filterContainer tags">
-                <p className="tagsFilter" onClick={() => showTagsList()}>
-                    {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
-                </p>
+            <div className="filtersSection">
+                <Searchbar
+                    placeholder='Cerca per nome..'
+                    onDebouncedChange={setQuery}
+                    reset={() => setQuery([''])}
+                />
 
-                <RoundButton onClick={() => { selectedTags.length ? setShowModal(true) : null }} />
+                <Select
+                    placeholder='▼ Filtra per categoria..'
+                    options={categories}
+                    value={category}
+                    setValue={setCategory}
+                />
+
+                <div className="filterContainer tags">
+                    <p className="tagsFilter" onClick={() => showTagsList()}>
+                        {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
+                    </p>
+
+                    <RoundButton onClick={() => { selectedTags.length ? setShowModal(true) : null }} />
+                </div>
             </div>
-        </div>
 
-        {/* MODAL - REMOVE ALL TAGS */}
-        {showModal &&
-            <Modal
-                closeModal={() => setShowModal(false)}
-                text='Confermando rimuoverai tutti i Tags dal filtro.'
-                confirm={() => { setSelectedTags([]); setShowTags(false); setShowModal(false); }}
-            />
-        }
-
+            {/* MODAL - REMOVE ALL TAGS */}
+            {showModal &&
+                <Modal
+                    closeModal={() => setShowModal(false)}
+                    text='Confermando rimuoverai tutti i Tags dal filtro.'
+                    confirm={() => { setSelectedTags([]); setShowTags(false); setShowModal(false); }}
+                />
+            }
 
 
-        {/* TAGS LIST */}
-        {showTags &&
-            <ul className="tagsList">
-                {tags.map((tag, index) => (
-                    <li
-                        key={index}
-                        className={`tagLabel ${selectedTags.includes(tag) ? "on" : ""}`}
-                        onClick={() => addRemove(tag, selectedTags, setSelectedTags)}
-                    >
-                        {tag}
-                    </li>
-                ))}
-            </ul>
-        }
+
+            {/* TAGS LIST */}
+            {showTags &&
+                <ul className="tagsList">
+                    {tags.map((tag, index) => (
+                        <li
+                            key={index}
+                            className={`tagLabel ${selectedTags.includes(tag) ? "on" : ""}`}
+                            onClick={() => addRemove(tag, selectedTags, setSelectedTags)}
+                        >
+                            {tag}
+                        </li>
+                    ))}
+                </ul>
+            }
+
+        </Section>
+
+
 
 
 
         {/* PRODUCTS LIST */}
         {productsList.map((p, index) =>
             <div className="flexLine debug" key={index}>
-                <p>• {p.category} - {p.name}</p>
+                <p>• {p.category} - {p.name} - {p.description}</p>
             </div>
         )}
 

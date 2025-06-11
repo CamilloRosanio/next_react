@@ -6,14 +6,7 @@
 
 
 // UTILITY
-import { useState, useEffect, memo } from "react";
-
-
-// ENV
-
-
-// CONTEXTS
-import { useMainContext } from "../contexts/MainContext";
+import { memo } from "react";
 
 
 // ASSETS
@@ -27,36 +20,23 @@ import SquarePic from "../layouts/SquarePic";
 
 
 // EXPORT
-function ProductCard(id, imgPath) {
+function ProductCard({ name, description, category, img, tags, price, available }) {
 
   // USE-ROUTER
 
-  // DATA - CONTEXT
-  const mainContext = useMainContext();
-
-  // USE-STATE
-  const [customState, setCustomState] = useState('');
-
-  // SUPPORT
-
-  // USE-EFFECT
-  useEffect(() => {
-
-    // debug
-    return console.log('USE-STATE');
-  }, [customState]);
-
-  // INIT USE-EFFECT
-  useEffect(() => {
-
-    // debug
-    return console.log('INIT USE-STATE');
-  }, []);
-
   return <>
 
-    <div className="card">
-      ciao
+    <div className="productCard">
+
+      <SquarePic
+        path={img}
+        defaultText='Prodotto'
+      />
+
+      <div className="productDetails">
+        <h4>{name}</h4>
+      </div>
+
     </div>
 
   </>

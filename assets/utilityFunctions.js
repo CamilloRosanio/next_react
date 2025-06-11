@@ -23,6 +23,22 @@ const switchBoolean = (setValue) => {
     setValue(prev => !prev);
 };
 
+// IMG PATH VALIDATION
+function imgPathValidation(path) {
+    if (path) {
+        const img = new Image();
+        img.onload = function () {
+            return true;
+        };
+        img.onerror = function () {
+            return false;
+        };
+        img.src = path;
+    } else {
+        return false;
+    }
+}
+
 
 
 /*******************************************************************
@@ -160,6 +176,7 @@ export {
     toTop,
     debounce,
     switchBoolean,
+    imgPathValidation,
     splitQuery,
     getUniqueValues,
     addRemove,

@@ -30,7 +30,7 @@ export default function Modal({ closeModal, text, confirm }) {
         <div className="modalOverlay">
             <div className="modal card">
 
-                <h3 className="space1">Conferma necessaria</h3>
+                <h3 className="space1">Conferma</h3>
 
                 <p className="modalText space3">{text}</p>
 

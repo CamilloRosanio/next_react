@@ -18,8 +18,9 @@ import { switchBoolean, splitQuery, addRemove } from "../../../assets/utilityFun
 import Section from "../../../layouts/Section";
 import Searchbar from "../../../layouts/Searchbar";
 import Select from "../../../layouts/Select";
-import TagLabel from "../../../layouts/TagLabel";
+import Label from "../../../layouts/Label";
 import RoundButton from "../../../layouts/RoundButton";
+import ProductCard from "../../../components/ProductCard";
 import PageBottomButtons from "../../../components/PageBottomButtons";
 import Modal from "../../../layouts/Modal";
 
@@ -116,13 +117,6 @@ export default function ProductsPage() {
         return sortedProducts;
     }, [products, query, category, selectedTags, sortBy, sortOrder]);
 
-    // INIT USE-EFFECT
-    useEffect(() => {
-
-        console.log('MOUNTING | PRODUCTS PAGE');
-
-    }, []);
-
     return <>
 
         <h1 className='space2'>Prodotti</h1>
@@ -165,7 +159,7 @@ export default function ProductsPage() {
             {showModal &&
                 <Modal
                     closeModal={() => setShowModal(false)}
-                    text='Confermando rimuoverai tutti i Tags dal filtro.'
+                    text='Vuoi davvero rimuovere tutti i Tag?'
                     confirm={() => { setSelectedTags([]); setShowTags(false); setShowModal(false); }}
                 />
             }
@@ -175,14 +169,15 @@ export default function ProductsPage() {
             {/* TAGS LIST */}
             {showTags &&
                 <ul className="tagsList">
+
                     {tags.map((tag, index) => (
-                        <li
+                        <Label
                             key={index}
-                            className={`tagLabel ${selectedTags.includes(tag) ? "on" : ""}`}
-                            onClick={() => addRemove(tag, selectedTags, setSelectedTags)}
-                        >
-                            {tag}
-                        </li>
+                            item={tag}
+                            isSelectedList={selectedTags}
+                            setIsSelectedList={setSelectedTags}
+                            action={true}
+                        />
                     ))}
                 </ul>
             }
@@ -191,9 +186,32 @@ export default function ProductsPage() {
 
 
 
+        {/* COLUMNS INDEX */}
+        <div className="flexLine">
+            {products.map(p => {
+                null
+            })}
+        </div>
+
 
 
         {/* PRODUCTS LIST */}
+
+        <div className="productsContainer">
+            {productsList.map((p, index) =>
+                <ProductCard
+                    key={index}
+                    name={p.name && p.name}
+                    description={p.description && p.description}
+                    category={p.category && p.category}
+                    img={p.img && p.img}
+                    tags={p.tags && p.tags}
+                    price={p.price && p.price}
+                    available={p.name && p.name}
+                />
+            )}
+        </div>
+
         {productsList.map((p, index) =>
             <div className="flexLine debug" key={index}>
                 <p>• {p.category} - {p.name} - {p.description}</p>

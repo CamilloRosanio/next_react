@@ -31,6 +31,7 @@ function Gallery({ imgList }) {
                     selectedPic={selectedPic}
                     setSelectedPic={setSelectedPic}
                     defaultText='DEFAULT TEXT'
+                    galleryMode={true}
                 />
             ))}
 

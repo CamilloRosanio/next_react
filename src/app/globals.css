@@ -598,13 +598,23 @@ option:hover {
   object-position: center;
 }
 
+/****************************************** DEFAULT */
+
 .squarePicDefault {
   background-color: var(--bg-elements);
-  border: 2px solid var(--color-terziary);
+  border: 1px dotted var(--color-terziary);
   display: flex;
-  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
   justify-content: center;
   align-items: center;
+  aspect-ratio: 1;
+}
+
+.squarePicDefault.gallery {
+  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+}
+
+.squarePicDefault.index {
+  flex: 0 0 calc((100% / 6) - ((var(--space-unit) * 2) / 6));
 }
 
 /****************************************** OVERLAY */
@@ -642,6 +652,26 @@ option:hover {
   max-height: calc(100% - calc(var(--space-unit-2) * 3));
   object-fit: contain;
 }
+
+
+
+/*******************************************************************
+# PRODUCT CARD
+*******************************************************************/
+
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit-2);
+}
+
+.productCard {
+  cursor: pointer;
+  display: flex;
+  gap: var(--space-unit-2);
+  flex-wrap: wrap;
+}
+
 
 
 
@@ -970,6 +1000,10 @@ footer .flexLine :last-child {
     max-width: 100%;
   }
 
+  .squarePicDefault.index {
+    flex: 0 0 calc((100% / 2) - ((var(--space-unit) * 2) / 2));
+  }
+
   .card {
     padding: calc(var(--space-unit) * 1.5);
     border-radius: 15px;
@@ -1026,6 +1060,14 @@ footer .flexLine :last-child {
   .filterContainer {
     flex-grow: 1;
     max-width: 100%;
+  }
+
+  .tagsList {
+    margin: 0;
+  }
+
+  .squarePicDefault.index {
+    flex: 0 0 100%;
   }
 
   .modal {

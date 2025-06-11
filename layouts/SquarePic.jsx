@@ -6,18 +6,23 @@
 import { memo } from "react";
 
 
+// ASSETS
+import { imgPathValidation } from "../assets/utilityFunctions";
+
+
 // COMPONENTS
 import PicOverlay from "./PicOverlay";
 
 
 // EXPORT
-function SquarePic({ path, selectedPic, setSelectedPic, defaultText }) {
+function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode }) {
 
     // SUPPORT
+    const validPath = imgPathValidation(path);
 
     // Get File Name
     function getFileName(path) {
-        if (path) {
+        if (validPath) {
             const fileWithExtension = path.split('/').pop();
             const fileName = fileWithExtension.split('.').slice(0, -1).join('.');
             return fileName;
@@ -26,17 +31,23 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText }) {
 
     // Overlay - Open
     const openOverlay = (path) => {
-        setSelectedPic(path);
+        if (selectedPic && validPath) {
+            setSelectedPic(path);
+        }
+        return;
     };
 
     // Overlay - Close
     const closeOverlay = () => {
-        setSelectedPic(null);
+        if (selectedPic && validPath) {
+            setSelectedPic(null);
+        }
+        return;
     };
 
     return <>
 
-        {path ?
+        {validPath ?
             <>
                 {/* SQUARE PICTURE */}
                 <div className="squarePicContainer" onClick={() => { path && openOverlay(path) }}>
@@ -46,24 +57,22 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText }) {
                 </div>
 
                 {/* OVERLAY */}
-                {selectedPic === path && <PicOverlay path={path} onClose={closeOverlay} />}
+                {(selectedPic && selectedPic === path) && <PicOverlay path={path} onClose={closeOverlay} />}
             </>
-
             :
-
             <>
                 {/* DEFAULT */}
-                < div className="squarePicDefault">
-                    <h4>{defaultText}</h4>
-                </div >
+                {galleryMode ?
+                    < div className="squarePicDefault gallery">
+                        <h4>{defaultText}</h4>
+                    </div >
+                    :
+                    < div className="squarePicDefault index">
+                        <h4>{defaultText}</h4>
+                    </div >
+                }
             </>
         }
-
-
-
-
-
-
 
     </>
 }

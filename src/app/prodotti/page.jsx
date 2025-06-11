@@ -19,6 +19,7 @@ import Section from "../../../layouts/Section";
 import Searchbar from "../../../layouts/Searchbar";
 import Select from "../../../layouts/Select";
 import Label from "../../../layouts/Label";
+import Button from "../../../layouts/Button";
 import RoundButton from "../../../layouts/RoundButton";
 import ProductCard from "../../../components/ProductCard";
 import PageBottomButtons from "../../../components/PageBottomButtons";
@@ -136,11 +137,16 @@ export default function ProductsPage() {
 
 
         {/* FILTERS */}
-
-        <button className='button' onClick={() => resetFilters()}>RESET FILTRI</button>
-
         <Section>
-            <h4>Prodotti trovati: {productsList.length}</h4>
+            <div className="flexLine">
+                <h4>Prodotti trovati: {productsList.length}</h4>
+
+                <Button
+                    text='rimuovi filtri'
+                    onClick={() => resetFilters()}
+                    extraClass='buttonWarning'
+                />
+            </div>
 
             <div className="filtersSection">
                 <Searchbar

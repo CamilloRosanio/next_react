@@ -217,6 +217,13 @@ main {
   cursor: pointer;
 }
 
+.buttonWarning {
+  color: white;
+  font-weight: 500;
+  border: 2px solid var(--color-warning);
+  background-color: var(--color-warning);
+}
+
 .roundButton {
   color: var(--bg-primary);
   font-weight: 100;

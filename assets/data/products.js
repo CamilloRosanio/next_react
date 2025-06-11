@@ -9,7 +9,7 @@ const productsDb = [
         name: "Caffettiera Espresso Pro",
         description: "Macchina per caffè espresso con sistema a pressione avanzato.",
         category: "Elettrodomestici",
-        img: "/images/caffettiera.jpg",
+        img: "/products-img/product-pic-1.png",
         tags: ["caffè", "espresso", "caffettiera"],
         price: 129.99,
         available: true
@@ -19,7 +19,6 @@ const productsDb = [
         name: "Macchinetta Espresso Pro",
         description: "Macchina per caffè espresso da ufficio.",
         category: "Ristorazione",
-        img: "/images/macchinetta-caffè.jpg",
         tags: ["caffè", "espresso", "macchina"],
         price: 87.50,
         available: true
@@ -56,7 +55,7 @@ const productsDb = [
         name: "Auricolari Wireless X200",
         description: "Auricolari bluetooth con cancellazione rumore e 10 ore di autonomia.",
         category: "Elettronica",
-        img: "/images/auricolari.jpg",
+        img: "/products-img/product-pic-2.jpg",
         price: 89.99,
         available: true
     },
@@ -79,7 +78,7 @@ const productsDb = [
         name: "Olio Extra Vergine di Oliva 1L",
         description: "Olio italiano di alta qualità, spremitura a freddo.",
         category: "Alimentari",
-        img: "/images/olio.jpg",
+        img: "/products-img/product-pic-3.png",
         price: 12.3
     },
     {

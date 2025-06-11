@@ -196,7 +196,6 @@ export default function ProductsPage() {
 
 
         {/* PRODUCTS LIST */}
-
         <div className="productsContainer">
             {productsList.map((p, index) =>
                 <ProductCard

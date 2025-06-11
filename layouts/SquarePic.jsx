@@ -6,10 +6,6 @@
 import { memo } from "react";
 
 
-// ASSETS
-import { imgPathValidation } from "../assets/utilityFunctions";
-
-
 // COMPONENTS
 import PicOverlay from "./PicOverlay";
 
@@ -18,7 +14,7 @@ import PicOverlay from "./PicOverlay";
 function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode }) {
 
     // SUPPORT
-    const validPath = imgPathValidation(path);
+    const validPath = (path && path !== '');
 
     // Get File Name
     function getFileName(path) {
@@ -60,18 +56,18 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode
                 {(selectedPic && selectedPic === path) && <PicOverlay path={path} onClose={closeOverlay} />}
             </>
             :
-            <>
+            <div className="squarePicContainer" onClick={() => { path && openOverlay(path) }}>
                 {/* DEFAULT */}
                 {galleryMode ?
                     < div className="squarePicDefault gallery">
-                        <h4>{defaultText}</h4>
+                        <h5>{defaultText || 'immagine'}</h5>
                     </div >
                     :
                     < div className="squarePicDefault index">
-                        <h4>{defaultText}</h4>
+                        <h5>{defaultText || 'immagine'}</h5>
                     </div >
                 }
-            </>
+            </div>
         }
 
     </>

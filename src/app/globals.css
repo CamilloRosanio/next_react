@@ -607,6 +607,12 @@ option:hover {
   justify-content: center;
   align-items: center;
   aspect-ratio: 1;
+  text-align: center;
+}
+
+.squarePicDefault h5 {
+  font-size: var(--typo-size);
+  font-weight: 200;
 }
 
 .squarePicDefault.gallery {
@@ -669,9 +675,13 @@ option:hover {
   cursor: pointer;
   display: flex;
   gap: var(--space-unit-2);
-  flex-wrap: wrap;
 }
 
+.productDetails {
+  flex-grow: 1;
+  padding-bottom: var(--space-unit);
+  border-bottom: 1px dotted var(--color-terziary);
+}
 
 
 
@@ -1001,7 +1011,7 @@ footer .flexLine :last-child {
   }
 
   .squarePicDefault.index {
-    flex: 0 0 calc((100% / 2) - ((var(--space-unit) * 2) / 2));
+    flex: 0 0 30%;
   }
 
   .card {
@@ -1064,6 +1074,10 @@ footer .flexLine :last-child {
 
   .tagsList {
     margin: 0;
+  }
+
+  .productCard {
+    flex-wrap: wrap;
   }
 
   .squarePicDefault.index {

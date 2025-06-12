@@ -1,6 +1,7 @@
 // NOTES
 // Il "value" dell'input è collegato a "externalValue" così da poter essere resettato anche da azioni esterne alla Searchbar.
 // In questo modo è possibile anche implementare la funzione "potenziata" di ricerca per ARRAY di STRINGS.
+// Per filtrare secondo un ARRAY di STRINGS serve una funzione ausiliaria esterna "splitQuery" che trasformi la stringa dell'input in ARRAY.
 
 
 // READY FOR CLIENT SIDE

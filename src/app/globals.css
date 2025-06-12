@@ -53,7 +53,7 @@ select {
   /* TYPOGRAPHY */
   --typo-size: 1.2rem;
   --typo-vw: 1vw;
-  --typo-h1: calc(var(--typo-size) + calc(var(--typo-vw) *2.1));
+  --typo-h1: calc(calc(var(--typo-size) * 1.5) + calc(var(--typo-vw) *1.8));
   --typo-h2: calc(var(--typo-size) + calc(var(--typo-vw) *1.2));
   --typo-h3: calc(var(--typo-size) + calc(var(--typo-vw) * 0.8));
   --typo-h4: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
@@ -285,8 +285,8 @@ main {
 
 .roundButton:hover {
   cursor: pointer;
-  color: var(--bg-primary);
-  background-color: var(--color2);
+  color: white;
+  background-color: var(--color-warning);
 }
 
 /****************************************** ## INPUTS*/
@@ -721,6 +721,10 @@ option:hover {
 # CONTACT FORM
 *******************************************************************/
 
+form .input {
+  font-size: var(--typo-size);
+}
+
 .formFields {
   display: flex;
   flex-direction: column;
@@ -735,7 +739,8 @@ option:hover {
 }
 
 .contactForm .input {
-  min-width: 30%;
+  min-width: 25%;
+  padding-left: var(--space-unit);
 }
 
 .contactForm .fieldMessage.input {
@@ -1014,9 +1019,7 @@ footer .flexLine :last-child {
 # MEDIAQUERY
 *******************************************************************/
 
-
-
-/* ## TABLET ************************************************************************************************/
+/* ### TABLET ************************************************************************************************/
 
 @media screen and (max-width: 768px) {
 
@@ -1076,7 +1079,7 @@ footer .flexLine :last-child {
 
 
 
-/* ## MOBILE ************************************************************************************************/
+/* ### MOBILE ************************************************************************************************/
 
 @media screen and (max-width: 576px) {
 
@@ -1085,7 +1088,6 @@ footer .flexLine :last-child {
   :root {
     /* TYPOGRAPHY */
     --typo-size: 1.2rem;
-    --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
   }
 
   /****************************************** ## RESPONSIVE TYPOGRAPHY */
@@ -1150,7 +1152,11 @@ footer .flexLine :last-child {
   /****************************************** ## GALLERY */
 
   .gallery {
-    gap: var(--space-unit-2);
+    gap: var(--space-unit);
+  }
+
+  .gallery .squarePicContainer {
+    flex: 0 0 100%;
   }
 
   /****************************************** ## CALL US */
@@ -1188,7 +1194,7 @@ footer .flexLine :last-child {
 
 
 
-/* ## MOBILE XS ************************************************************************************************/
+/* ### MOBILE XS ************************************************************************************************/
 
 @media screen and (max-width: 350px) {
 

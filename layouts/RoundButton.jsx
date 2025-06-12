@@ -7,10 +7,10 @@ import { memo } from "react";
 
 
 // COMPONENT EXPORT
-function RoundButton({ onClick, icon }) {
+function RoundButton({ onClick, icon, extraClass }) {
     return <>
 
-        <p className="roundButton" onClick={onClick}>
+        <p className={extraClass ? `roundButton ${extraClass}` : 'roundButton'} onClick={onClick}>
             <span className="checkMark">
                 <strong>{icon || '✚'}</strong>
             </span>

@@ -15,14 +15,14 @@ import PageBottomButtons from "../../../components/PageBottomButtons";
 function AboutUsPage() {
     return <>
 
-        <h1 className='space2'>About us</h1>
+        <h1 className='space2'>Chisiamo</h1>
 
-        <Section title='Section 1'>
-            <p>Text content of this section.</p>
+        <Section title='Sezione 1'>
+            <p>Contenuto della sezione.</p>
         </Section>
 
-        <Section title='Section 2'>
-            <p>LText content of this section.</p>
+        <Section title='Sezione 2'>
+            <p>Contenuto della sezione.</p>
         </Section>
 
         {/* BOTTOM BUTTONS */}

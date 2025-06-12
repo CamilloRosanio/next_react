@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState, memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 
 // ASSETS
@@ -14,6 +14,7 @@ import { toTop, getEmail } from '../assets/utilityFunctions';
 // COMPONENTS
 import Checkbox from '../layouts/Checkbox';
 import Button from '../layouts/Button';
+import RoundButton from '../layouts/RoundButton';
 import ErrorMsg from '../layouts/ErrorMsg';
 
 
@@ -37,11 +38,10 @@ function ContactForm({ info }) {
     const [success, setSuccess] = useState(false);
     const [fields, setFields] = useState(fieldsDefault);
 
-
     // SUPPORT
 
     // Field Length Limit
-    const minLengthLimit = 4;
+    const minLengthLimit = 3;
     const maxLengthLimit = 50;
     const minEmailLength = 8;
     const minPhoneLength = 7;
@@ -50,11 +50,19 @@ function ContactForm({ info }) {
 
     // Handle On Change
     const handleOnChange = (e) => {
+
+        // Aggiornamento Fields
         const receivedValue = (e.target.type === 'checkbox' ? e.target.checked : e.target.value);
         setFields({
             ...fields,
             [e.target.name]: receivedValue,
         });
+
+        // Salvataggio su Local Storage
+        if (!localStorage.getItem("formFields")) {
+
+            localStorage.setItem("formFields", JSON.stringify(fields));
+        }
 
         // debug
         // console.log(`${e.target.name}: ${receivedValue}`)
@@ -202,6 +210,20 @@ function ContactForm({ info }) {
         }
     }
 
+    // INIT USE-EFFECT
+    useEffect(() => {
+        const storedFields = localStorage.getItem('formFields');
+
+        if (storedFields) {
+            try {
+                const parsedFields = JSON.parse(storedFields);
+                setFields(parsedFields);
+            } catch (error) {
+                console.error("Errore nell'estrazione di ( formFields ) dal localStorage:", error);
+            }
+        }
+    }, []);
+
     return <>
 
         {info.contactEmail &&
@@ -221,80 +243,104 @@ function ContactForm({ info }) {
                         >
 
                             <div className='formFields'>
-                                {/* NAME */}
-                                <input
-                                    type="text"
-                                    name='name'
-                                    id='fieldName'
-                                    placeholder={utilityContent.contactForm.textContent.name}
-                                    value={fields.name}
-                                    onChange={handleOnChange}
-                                    className='input'
-                                    autoComplete='on'
-                                    onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
-                                    onInput={(e) => e.target.setCustomValidity('')}
-                                    required
-                                />
+                                <div className='flexLine'>
+                                    {/* NAME */}
+                                    <input
+                                        type="text"
+                                        name='name'
+                                        id='fieldName'
+                                        placeholder={utilityContent.contactForm.textContent.name}
+                                        value={fields.name}
+                                        onChange={handleOnChange}
+                                        className='input'
+                                        autoComplete='on'
+                                        onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
+                                        onInput={(e) => e.target.setCustomValidity('')}
+                                        required
+                                    />
+
+                                    <RoundButton onClick={() => setFields({ ...fields, name: '' })} />
+                                </div>
 
                                 {/* ALERT */}
                                 {(fields.name.length > 0 && fields.name.length < minLengthLimit) && <p><span className='warning'>✖</span> Nome troppo corto</p>}
                                 {fields.name.length > maxLengthLimit && <p><span className='warning'>✖</span> Nome troppo lungo</p>}
 
-                                {/* SURNAME */}
-                                <input
-                                    type="text"
-                                    name='surname'
-                                    id='fieldSurname'
-                                    placeholder={utilityContent.contactForm.textContent.surname}
-                                    value={fields.surname}
-                                    onChange={handleOnChange}
-                                    className='input'
-                                    autoComplete='on'
-                                    onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
-                                    onInput={(e) => e.target.setCustomValidity('')}
-                                    required
-                                />
+
+
+                                <div className='flexLine'>
+                                    {/* SURNAME */}
+                                    <input
+                                        type="text"
+                                        name='surname'
+                                        id='fieldSurname'
+                                        placeholder={utilityContent.contactForm.textContent.surname}
+                                        value={fields.surname}
+                                        onChange={handleOnChange}
+                                        className='input'
+                                        autoComplete='on'
+                                        onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
+                                        onInput={(e) => e.target.setCustomValidity('')}
+                                        required
+                                    />
+
+                                    <RoundButton onClick={() => setFields({ ...fields, surname: '' })} />
+                                </div>
 
                                 {/* ALERT */}
                                 {(fields.surname.length > 0 && fields.surname.length < minLengthLimit) && <p><span className='warning'>✖</span> Cognome troppo corto</p>}
                                 {fields.surname.length > maxLengthLimit && <p><span className='warning'>✖</span> Cognome troppo lungo</p>}
 
-                                {/* EMAIL */}
-                                <input
-                                    type="text"
-                                    name='email'
-                                    id='fieldEmail'
-                                    placeholder={utilityContent.contactForm.textContent.email}
-                                    value={fields.email}
-                                    onChange={handleOnChange}
-                                    className='input'
-                                    autoComplete='on'
-                                    onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
-                                    onInput={(e) => e.target.setCustomValidity('')}
-                                    required
-                                />
+
+
+                                <div className='flexLine'>
+                                    {/* EMAIL */}
+                                    <input
+                                        type="text"
+                                        name='email'
+                                        id='fieldEmail'
+                                        placeholder={utilityContent.contactForm.textContent.email}
+                                        value={fields.email}
+                                        onChange={handleOnChange}
+                                        className='input'
+                                        autoComplete='on'
+                                        onInvalid={(e) => e.target.setCustomValidity(utilityContent.errorMsg.requiredField)}
+                                        onInput={(e) => e.target.setCustomValidity('')}
+                                        required
+                                    />
+
+                                    <RoundButton onClick={() => setFields({ ...fields, email: '' })} />
+                                </div>
 
                                 {/* ALERT */}
                                 {(fields.email.length > 0 && fields.email.length < minEmailLength) && <p><span className='warning'>✖</span> Email troppo corta</p>}
                                 {fields.email.length > maxLengthLimit && <p><span className='warning'>✖</span> Email troppo lunga</p>}
                                 {(!fields.email.includes('@') && fields.email.length > 0) && <p><span className='warning'>✖</span> Manca il carattere "@"</p>}
 
-                                {/* PHONE */}
-                                <input
-                                    type="number"
-                                    name='phone'
-                                    id='fieldPhone'
-                                    placeholder={utilityContent.contactForm.textContent.phone}
-                                    value={fields.phone}
-                                    onChange={handleOnChange}
-                                    className='input'
-                                    autoComplete='on'
-                                />
+
+
+                                <div className='flexLine'>
+                                    {/* PHONE */}
+                                    <input
+                                        type="number"
+                                        name='phone'
+                                        id='fieldPhone'
+                                        placeholder={utilityContent.contactForm.textContent.phone}
+                                        value={fields.phone}
+                                        onChange={handleOnChange}
+                                        className='input'
+                                        autoComplete='on'
+                                    />
+
+                                    <RoundButton onClick={() => setFields({ ...fields, phone: '' })} />
+                                </div>
 
                                 {/* ALERT */}
                                 {(fields.phone.length > 0 && fields.phone.length < minPhoneLength) && <p><span className='warning'>✖</span> Numero di telefono troppo corto</p>}
                                 {fields.phone.length > maxPhoneLength && <p><span className='warning'>✖</span> Numero di telefono troppo lungo</p>}
                             </div>
+
+
 
                             <div className='space2 flexCol'>
                                 {/* MESSAGE */}

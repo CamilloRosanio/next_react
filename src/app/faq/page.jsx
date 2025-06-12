@@ -23,18 +23,18 @@ function FaqPage() {
         </Section>
 
         <Accordion
-            title='Accordion title'
-            text='Accordion text content.'
+            title='Titolo Accordion'
+            text="Testo dell'accordion."
         />
 
         <Accordion
-            title='Accordion title'
-            text='Accordion text content.'
+            title='Titolo Accordion'
+            text="Testo dell'accordion."
         />
 
         <Accordion
-            title='Accordion title'
-            text='Accordion text content.'
+            title='Titolo Accordion'
+            text="Testo dell'accordion."
         />
 
         {/* BOTTOM BUTTONS */}

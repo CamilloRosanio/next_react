@@ -349,7 +349,7 @@ function ContactForm({ info }) {
 
                             {/* BUTTON */}
                             <div className='buttonContainerContacts'>
-                                <button className='button color2'>
+                                <button className='button buttonSolid1'>
                                     {utilityContent.contactForm.textContent.submitButton}
                                 </button>
                             </div>
@@ -367,7 +367,7 @@ function ContactForm({ info }) {
                             < Button
                                 text='TORNA AL FORM'
                                 onClick={setSuccessValue}
-                                extraClass={'color2'}
+                                extraClass={'buttonSolid2'}
                             />
                         </div>
                     }

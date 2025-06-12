@@ -76,6 +76,7 @@ select {
   --bg-elements: rgb(43, 43, 43);
 
   --color1: rgb(45, 138, 233);
+  --color1: rgb(0, 107, 214);
   --color2: rgb(237, 13, 137);
   --color3: rgb(0, 255, 234);
   --hover-color: rgb(0, 255, 234);
@@ -234,15 +235,30 @@ main {
 
 .button1 {
   border: 2px solid var(--color1);
-  background-color: var(--color1);
+  background-color: transparent;
 }
 
 .button2 {
   border: 2px solid var(--color2);
-  background-color: var(--color2);
+  background-color: transparent;
 }
 
 .button3 {
+  border: 2px solid var(--color3);
+  background-color: transparent;
+}
+
+.buttonSolid1 {
+  border: 2px solid var(--color1);
+  background-color: var(--color1);
+}
+
+.buttonSolid2 {
+  border: 2px solid var(--color2);
+  background-color: var(--color2);
+}
+
+.buttonSolid3 {
   color: var(--bg-primary);
   border: 2px solid var(--color3);
   background-color: var(--color3);
@@ -250,7 +266,7 @@ main {
 
 .buttonWarning {
   color: white;
-  font-weight: 400;
+  font-weight: 500;
   border: 2px solid var(--color-warning);
   background-color: var(--color-warning);
 }

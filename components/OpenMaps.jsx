@@ -62,7 +62,7 @@ function OpenMaps({ info }) {
                                 <div className='buttonContainerContacts'>
                                     < Button
                                         text={utilityContent.openMaps.textContent.mapButton}
-                                        extraClass={'color2'}
+                                        extraClass={'buttonSolid1'}
                                     />
                                 </div>
                             </a>

@@ -98,7 +98,7 @@ function CallUs({ info }) {
                         <a href={telTo}>
                             < Button
                                 text={utilityContent.callUs.textContent.callButton}
-                                extraClass={'color2'}
+                                extraClass={'buttonSolid1'}
                             />
                         </a>
                     </div>

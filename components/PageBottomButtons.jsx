@@ -24,7 +24,7 @@ function PageBottomButtons({ toContacts }) {
             < Button
                 text='▲'
                 onClick={toTop}
-                extraClass={'color2'}
+                extraClass={'button2'}
             />
 
 
@@ -32,7 +32,7 @@ function PageBottomButtons({ toContacts }) {
                 < Button
                     text='Contattaci ▶'
                     path='/contacts'
-                    extraClass={'color1'}
+                    extraClass={'buttonSolid1'}
                 />
             }
         </div>

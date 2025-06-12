@@ -41,28 +41,55 @@ export default function HomePage() {
     />
     <p>Device type: {mainContext.deviceType}</p>
 
-    < Button
-      text='button'
-      onClick={null}
-    />
+    <div className="flexLine">
+      < Button
+        text='button'
+        onClick={null}
+      />
 
-    < Button
-      text='button1'
-      onClick={null}
-      extraClass={'button1'}
-    />
+      < Button
+        text='button1'
+        onClick={null}
+        extraClass={'button1'}
+      />
 
-    < Button
-      text='button2'
-      onClick={null}
-      extraClass={'button2'}
-    />
+      < Button
+        text='button2'
+        onClick={null}
+        extraClass={'button2'}
+      />
 
-    < Button
-      text='button3'
-      onClick={null}
-      extraClass={'button3'}
-    />
+      < Button
+        text='button3'
+        onClick={null}
+        extraClass={'button3'}
+      />
+    </div>
+
+    <div className="flexLine">
+      < Button
+        text='button'
+        onClick={null}
+      />
+
+      < Button
+        text='button1'
+        onClick={null}
+        extraClass={'buttonSolid1'}
+      />
+
+      < Button
+        text='button2'
+        onClick={null}
+        extraClass={'buttonSolid2'}
+      />
+
+      < Button
+        text='button3'
+        onClick={null}
+        extraClass={'buttonSolid3'}
+      />
+    </div>
 
     <h1>H1</h1>
 

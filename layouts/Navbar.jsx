@@ -42,7 +42,7 @@ function Navbar() {
         }
     };
 
-    // USE-EFFECT
+    // INIT USE-EFFECT
     useEffect(() => {
         const handleClickOutsideMenu = (event) => {
             if (navbarRef.current && !navbarRef.current.contains(event.target)) {

@@ -17,10 +17,10 @@ function GalleryClient({ images }) {
 
     return <>
 
-        <h1 className='space2'>Gallery</h1>
+        <h1 className='space2'>Galleria</h1>
 
-        <Section title='Most recent'>
-            <p>Look at our most recent pictures.</p>
+        <Section >
+            <p>Dai uno sguardo alle nostre immagini più recenti.</p>
         </Section>
 
         {images && <Gallery imgList={images} />}

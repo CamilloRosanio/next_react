@@ -622,11 +622,11 @@ option:hover {
   gap: var(--space-unit-2);
 }
 
-.productsContainer .squarePicContainer {
+.productCard .squarePicContainer {
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  flex: 0 0 calc((100% / 5) - ((var(--space-unit) * 2) / 54));
+  flex: 0 0 calc((100% / 5) - ((var(--space-unit) * 2) / 5));
   cursor: pointer;
 }
 
@@ -648,7 +648,7 @@ option:hover {
   text-align: center;
 }
 
-.squarePicDefault h5 {
+.productCard .squarePicDefault h5 {
   font-size: var(--typo-size);
   font-weight: 200;
 }
@@ -1046,8 +1046,12 @@ footer .flexLine :last-child {
 
   /****************************************** ## PRODUCTS */
 
-  .squarePicDefault {
-    flex: 0 0 30%;
+  .productCard .squarePicContainer {
+    flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+  }
+
+  .productCard .squarePicDefault h5 {
+    font-size: calc(var(--typo-size) * 0.8);
   }
 
   /****************************************** ## CALL US */
@@ -1134,9 +1138,14 @@ footer .flexLine :last-child {
     flex-wrap: wrap;
   }
 
-  .squarePicDefault {
+  .productCard .squarePicContainer {
     flex: 0 0 100%;
   }
+
+  .productCard .squarePicDefault h5 {
+    font-size: var(--typo-size);
+  }
+
 
   /****************************************** ## GALLERY */
 

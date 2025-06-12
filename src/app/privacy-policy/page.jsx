@@ -13,6 +13,7 @@ import { getEmail } from '../../../assets/utilityFunctions.js';
 
 
 // COMPONENTS
+import Button from '../../../layouts/Button.jsx';
 import PageBottomButtons from '../../../components/PageBottomButtons.jsx';
 
 

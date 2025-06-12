@@ -27,7 +27,7 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode
 
     // Overlay - Open
     const openOverlay = (path) => {
-        if (selectedPic && validPath) {
+        if (selectedPic) {
             setSelectedPic(path);
         }
         return;
@@ -35,7 +35,7 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode
 
     // Overlay - Close
     const closeOverlay = () => {
-        if (selectedPic && validPath) {
+        if (selectedPic) {
             setSelectedPic(null);
         }
         return;
@@ -46,7 +46,7 @@ function SquarePic({ path, selectedPic, setSelectedPic, defaultText, galleryMode
         {validPath ?
             <>
                 {/* SQUARE PICTURE */}
-                <div className="squarePicContainer" onClick={() => { path && openOverlay(path) }}>
+                <div className="squarePicContainer" onClick={() => openOverlay(path)}>
 
                     <img src={path} alt={getFileName(path)} className="squarePic" />
 

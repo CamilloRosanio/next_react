@@ -89,7 +89,7 @@ function PrivacyPolicyPage() {
                             < Button
                                 text='MOSTRA EMAIL'
                                 onClick={showEmailContact}
-                                extraClass={'color2'}
+                                extraClass={'buttonSolid1'}
                             />
                             :
                             <h5>{info.emailTitolareDati !== '' ? getEmail(info.emailTitolareDati, info.encodeEmail) : <span className='missingData'>{defaultValues.emailTitolareDati}</span>}</h5>

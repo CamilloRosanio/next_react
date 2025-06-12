@@ -12,8 +12,7 @@ import { useMainContext } from "../contexts/MainContext";
 
 // ASSETS
 import utilityContent from '../assets/data/utilityContent';
-const imgMap = '/map/map.png';
-const imgMapLight = '/map/mapLight.png';
+import { listSymbol } from '../assets/data/utilityContent';
 
 
 // COMPONENTS
@@ -46,7 +45,7 @@ function OpenMaps({ info }) {
         {info.coordinateSede &&
 
             <div className='mapSection'>
-                <h3 className='space1'><span className='listSymbol'>{mainContext.listSymbol} </span>{utilityContent.openMaps.textContent.title}</h3>
+                <h3 className='space1'><span className='listSymbol'>{listSymbol}</span> {utilityContent.openMaps.textContent.title}</h3>
 
                 <div className="card">
                     <div className='mapContainer'>

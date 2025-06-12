@@ -272,6 +272,7 @@ main {
 }
 
 .roundButton {
+  cursor: pointer;
   color: var(--bg-primary);
   font-weight: 100;
   border-radius: 100%;
@@ -284,7 +285,6 @@ main {
 }
 
 .roundButton:hover {
-  cursor: pointer;
   color: white;
   background-color: var(--color-warning);
 }
@@ -528,12 +528,6 @@ nav .dropDown> :last-child {
   align-items: center;
 }
 
-.filterContainer .roundButton:hover {
-  cursor: pointer;
-  color: white;
-  background-color: var(--color-warning);
-}
-
 /****************************************** ## SELECT */
 
 select {
@@ -701,12 +695,6 @@ option:hover {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.PicOverlay .roundButton {
-  cursor: pointer;
-  color: white;
-  background-color: var(--color-warning);
 }
 
 .OverlayImg {

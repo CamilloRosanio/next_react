@@ -36,7 +36,7 @@ function ContactForm({ info }) {
     // USE-STATE
     const [errorMsg, setErrorMsg] = useState('');
     const [success, setSuccess] = useState(false);
-    const [fields, setFields] = useState(fieldsDefault);
+    const [fields, setFields] = useState(JSON.parse(localStorage.getItem('formFields')) || fieldsDefault);
 
     // SUPPORT
 
@@ -57,12 +57,6 @@ function ContactForm({ info }) {
             ...fields,
             [e.target.name]: receivedValue,
         });
-
-        // Salvataggio su Local Storage
-        if (!localStorage.getItem("formFields")) {
-
-            localStorage.setItem("formFields", JSON.stringify(fields));
-        }
 
         // debug
         // console.log(`${e.target.name}: ${receivedValue}`)
@@ -210,19 +204,11 @@ function ContactForm({ info }) {
         }
     }
 
-    // INIT USE-EFFECT
+    // USE-EFFECT
     useEffect(() => {
-        const storedFields = localStorage.getItem('formFields');
-
-        if (storedFields) {
-            try {
-                const parsedFields = JSON.parse(storedFields);
-                setFields(parsedFields);
-            } catch (error) {
-                console.error("Errore nell'estrazione di ( formFields ) dal localStorage:", error);
-            }
-        }
-    }, []);
+        // Aggiornamento Fields su Local Storage
+        localStorage.setItem("formFields", JSON.stringify(fields));
+    }, [fields])
 
     return <>
 

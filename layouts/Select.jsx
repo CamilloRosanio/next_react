@@ -43,7 +43,10 @@ function Select({ placeholder, options, value, setValue }) {
             </select>
 
             {/* RESET BUTTON */}
-            <RoundButton onClick={() => { setValue('') }} />
+            <RoundButton
+                onClick={() => { setValue('') }}
+                extraClass='roundButtonWarning'
+            />
         </div>
     </>
 }

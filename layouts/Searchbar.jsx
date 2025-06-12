@@ -59,6 +59,7 @@ export default function Searchbar({ placeholder, setExternalValue, externalValue
             {/* RESET BUTTON */}
             <RoundButton
                 onClick={() => { setLocalValue(''); setExternalValue(''); }}
+                extraClass='roundButtonWarning'
             />
         </div>
     );

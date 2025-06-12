@@ -1,21 +1,39 @@
-// NOTES
-// Questo Component è solo lato SERVER, ed ha lo scopo di fornire "galleryPics" dal SERVER ai componenti CLIENT.
+// READY FOR CLIENT SIDE
+"use client";
+
+
+// UTILITY
+import { memo } from "react";
 
 
 // ASSETS
-import galleryPics from '../../../assets/data/gallery';
+import { galleryPaths } from '../../../assets/data/galleryPaths.js';
 
 
 // COMPONENTS
-import GalleryClient from '../../../components/GalleryClient';
+import Section from "../../../layouts/Section";
+import Gallery from "../../../layouts/Gallery";
+import PageBottomButtons from "../../../components/PageBottomButtons";
 
 
 // EXPORT
-export default function GalleryPage() {
-    return (
-        <div>
-            <GalleryClient images={galleryPics} />
-        </div>
-    );
+function GalleryPage() {
+
+    return <>
+        <h1 className='space2'>Galleria</h1>
+
+        <Section >
+            <p>Dai uno sguardo alle nostre immagini più recenti.</p>
+        </Section>
+
+        {galleryPaths && <Gallery imgList={galleryPaths} />}
+
+        {/* BOTTOM BUTTONS */}
+        <PageBottomButtons toContacts={true} />
+    </>;
 }
+
+
+// EXPORT MEMO()
+export default memo(GalleryPage);
 

@@ -67,16 +67,6 @@ function OpenMaps({ info }) {
                                 </div>
                             </a>
                         </div>
-
-                        <a
-                            target='_blank'
-                            href={`${mainContext.deviceType == 'desktop' ? mapSettings.mapRootDesktop : mapSettings.mapRootMobile}${mapSettings.coordinates}`}
-                            className='hyperlink imgSection'
-                        >
-                            <div className='imgContainer'>
-                                <img src={mainContext.darkMode ? imgMap : imgMapLight} alt="" />
-                            </div>
-                        </a>
                     </div>
                 </div>
             </div>

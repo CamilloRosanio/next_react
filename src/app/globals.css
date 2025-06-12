@@ -191,6 +191,20 @@ main {
   margin: auto;
 }
 
+.card {
+  padding: var(--space-unit-2);
+  border: 2px solid var(--color1);
+  border-radius: 35px;
+  border-top-right-radius: 0;
+}
+
+.squarePic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .bottomButtonsContainer {
   margin-top: var(--space-unit-4);
   display: flex;
@@ -206,7 +220,7 @@ main {
   color: var(--color-warning);
 }
 
-/****************************************** BUTTONS */
+/****************************************** ## BUTTONS */
 
 .button {
   font-size: var(--typo-size-p);
@@ -242,7 +256,7 @@ main {
   background-color: var(--color2);
 }
 
-/****************************************** INPUTS*/
+/****************************************** ## INPUTS*/
 
 .input {
   font-size: var(--typo-small);
@@ -266,14 +280,14 @@ main {
   border-radius: 50px;
 }
 
-/****************************************** LINK */
+/****************************************** ## LINKS */
 
 .hyperlink:hover {
   color: var(--hover-color);
   transition: all 0.5s ease;
 }
 
-/****************************************** COLORS */
+/****************************************** ## COLORS */
 
 .color1 {
   border-color: var(--color1);
@@ -287,7 +301,7 @@ main {
   border-color: var(--color3);
 }
 
-/****************************************** FLEX */
+/****************************************** ## FLEX */
 
 .flexLine {
   display: flex;
@@ -302,7 +316,7 @@ main {
   gap: var(--space-unit);
 }
 
-/****************************************** SECTION */
+/****************************************** ## SECTION */
 
 .section {
   display: flex;
@@ -313,14 +327,7 @@ main {
   margin-bottom: var(--space-unit-4);
 }
 
-/****************************************** MISCELLANEOUS */
-
-.card {
-  padding: var(--space-unit-2);
-  border: 2px solid var(--color1);
-  border-radius: 35px;
-  border-top-right-radius: 0;
-}
+/****************************************** ## MISCELLANEOUS */
 
 .listSymbol {
   color: var(--color1);
@@ -416,7 +423,7 @@ nav {
   align-items: center;
   gap: var(--space-unit);
   position: relative;
-  width: 50%;
+  flex-grow: 1;
 }
 
 nav>a {
@@ -433,7 +440,7 @@ nav :last-child {
   border: none;
 }
 
-/****************************************** DROPDOWN */
+/****************************************** ## DROPDOWN */
 
 nav .dropDownButton {
   cursor: pointer;
@@ -475,16 +482,10 @@ nav .dropDown> :last-child {
 
 
 /*******************************************************************
-# FILTERS + SEARCHBAR
+# FILTERS
 *******************************************************************/
 
-.button.remove {
-  background-color: var(--color-warning);
-  border: none;
-  font-size: var(--space-unit);
-}
-
-/****************************************** FILTERS CONTAINER */
+/****************************************** ## FILTERS CONTAINER */
 
 .filtersSection {
   width: 100%;
@@ -493,7 +494,7 @@ nav .dropDown> :last-child {
   flex-wrap: wrap;
 }
 
-/****************************************** COMMON FILTER PROPERTIES */
+/****************************************** ## SHARED FILTERS PROPERTIES */
 
 .filterContainer {
   font-size: var(--space-unit);
@@ -515,7 +516,7 @@ nav .dropDown> :last-child {
   background-color: var(--color-warning);
 }
 
-/****************************************** SELECT */
+/****************************************** ## SELECT */
 
 select {
   display: flex;
@@ -545,13 +546,13 @@ option:hover {
   background-color: var(--color1);
 }
 
-/****************************************** SEARCHBAR */
+/****************************************** ## SEARCHBAR */
 
 .searchbarInput {
   min-width: 85%;
 }
 
-/****************************************** TAGS */
+/****************************************** ## TAGS */
 
 .tagsList {
   display: flex;
@@ -586,31 +587,42 @@ option:hover {
 
 
 /*******************************************************************
-# SQUARE PICTURE + OVERLAY
+# PRODUCTS
 *******************************************************************/
 
-/****************************************** SQUARE PICTURE */
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit-2);
+}
 
-.squarePicContainer {
+/****************************************** ## PRODUCT CARD */
+
+.productCard {
+  cursor: pointer;
+  display: flex;
+  gap: var(--space-unit-2);
+}
+
+.productsContainer .squarePicContainer {
   aspect-ratio: 1;
   overflow: hidden;
   position: relative;
-  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+  flex: 0 0 calc((100% / 5) - ((var(--space-unit) * 2) / 54));
   cursor: pointer;
 }
 
-.squarePic {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.productDetails {
+  flex-grow: 1;
+  padding-bottom: var(--space-unit);
+  border-bottom: 1px dotted var(--color-terziary);
 }
 
-/****************************************** DEFAULT */
+/****************************************** ## DEFAULT IMG */
 
 .squarePicDefault {
   background-color: var(--bg-elements);
-  border: 1px dotted var(--color-terziary);
+  /* border: 1px dotted var(--color-terziary); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -623,15 +635,33 @@ option:hover {
   font-weight: 200;
 }
 
-.squarePicDefault.gallery {
-  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
-}
-
-.squarePicDefault.index {
+.squarePicDefault {
   flex: 0 0 calc((100% / 6) - ((var(--space-unit) * 2) / 6));
 }
 
-/****************************************** OVERLAY */
+
+
+/*******************************************************************
+# GALLERY
+*******************************************************************/
+
+/****************************************** ## COLUMNS */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-unit-half);
+}
+
+.gallery .squarePicContainer {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 calc((100% / 3) - ((var(--space-unit) * 2) / 3));
+  cursor: pointer;
+}
+
+/****************************************** ## OVERLAY */
 
 .PicOverlay {
   position: fixed;
@@ -665,52 +695,6 @@ option:hover {
   max-width: 100%;
   max-height: calc(100% - calc(var(--space-unit-2) * 3));
   object-fit: contain;
-}
-
-
-
-/*******************************************************************
-# PRODUCT CARD
-*******************************************************************/
-
-.productsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-unit-2);
-}
-
-.productCard {
-  cursor: pointer;
-  display: flex;
-  gap: var(--space-unit-2);
-}
-
-.productsContainer .squarePicContainer {
-  aspect-ratio: 1;
-  overflow: hidden;
-  position: relative;
-  flex: 0 0 calc((100% / 5) - ((var(--space-unit) * 2) / 54));
-  cursor: pointer;
-}
-
-.productDetails {
-  flex-grow: 1;
-  padding-bottom: var(--space-unit);
-  border-bottom: 1px dotted var(--color-terziary);
-}
-
-
-
-/*******************************************************************
-# GALLERY
-*******************************************************************/
-
-/****************************************** COLUMNS */
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-unit-half);
 }
 
 
@@ -849,11 +833,6 @@ option:hover {
 
 .mapContainer a:hover {
   color: inherit;
-}
-
-.mapContainer .imgContainer {
-  display: flex;
-  height: calc(var(--space-unit) * 3 + 20vh);
 }
 
 .mapContainer img {
@@ -1017,18 +996,13 @@ footer .flexLine :last-child {
 # MEDIAQUERY
 *******************************************************************/
 
-/****************************************** TABLET */
+
+
+/* ## TABLET ************************************************************************************************/
 
 @media screen and (max-width: 768px) {
 
-  .filterContainer {
-    flex-grow: 1;
-    max-width: 100%;
-  }
-
-  .squarePicDefault.index {
-    flex: 0 0 30%;
-  }
+  /****************************************** ## UTILITY */
 
   .card {
     padding: calc(var(--space-unit) * 1.5);
@@ -1036,9 +1010,35 @@ footer .flexLine :last-child {
     border-top-right-radius: 0;
   }
 
+  /****************************************** ## FILTERS CONTAINER */
+
+  .filtersSection {
+    width: 100%;
+    display: flex;
+    gap: var(--space-unit);
+    flex-wrap: wrap;
+  }
+
+  /****************************************** ## SHARED FILTERS PROPERTIES */
+
+  .filterContainer {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  /****************************************** ## PRODUCTS */
+
+  .squarePicDefault {
+    flex: 0 0 30%;
+  }
+
+  /****************************************** ## CALL US */
+
   .callHours .day {
     min-width: 20%;
   }
+
+  /****************************************** ## MAP */
 
   .mapContainer .imgSection {
     width: 100%;
@@ -1053,9 +1053,12 @@ footer .flexLine :last-child {
 }
 
 
-/****************************************** MOBILE */
+
+/* ## MOBILE ************************************************************************************************/
 
 @media screen and (max-width: 576px) {
+
+  /****************************************** ## CUSTOM PROPERTIES */
 
   :root {
     /* TYPOGRAPHY */
@@ -1063,25 +1066,40 @@ footer .flexLine :last-child {
     --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.0));
   }
 
+  /****************************************** ## RESPONSIVE TYPOGRAPHY */
+
   p {
     line-height: calc(var(--typo-size) + calc(var(--typo-vw) *1.7));
   }
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
+  /****************************************** ## UTILITY */
 
   .container {
     width: calc(var(--container)* 1.07);
   }
 
-  header {
-    padding: calc(var(--space-unit) *1.5);
+  .card {
+    padding: var(--space-unit);
   }
+
+  .squarePicContainer {
+    flex: 0 0 100%;
+    gap: var(--space-unit-half);
+  }
+
+  /****************************************** ## SECTION */
 
   .section {
     margin-bottom: var(--space-unit-2);
   }
+
+  /****************************************** ## HEADER */
+
+  header {
+    padding: calc(var(--space-unit) *1.5);
+  }
+
+  /****************************************** ## FILTERS */
 
   .filterContainer {
     flex-grow: 1;
@@ -1092,41 +1110,23 @@ footer .flexLine :last-child {
     margin: 0;
   }
 
+  /****************************************** ## PRODUCTS */
+
   .productCard {
     flex-wrap: wrap;
   }
 
-  .squarePicDefault.index {
+  .squarePicDefault {
     flex: 0 0 100%;
   }
 
-  .modal {
-    text-align: center;
-    max-width: 85%;
-    padding: var(--space-unit-2);
-  }
-
-  .modalButtonsContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .closeModal {
-    margin: var(--space-unit) 0;
-  }
+  /****************************************** ## GALLERY */
 
   .gallery {
-    gap: var(--space-unit-half);
+    gap: var(--space-unit-2);
   }
 
-  .squarePicContainer {
-    flex: 0 0 100%;
-    gap: var(--space-unit-half);
-  }
-
-  .card {
-    padding: var(--space-unit);
-  }
+  /****************************************** ## CALL US */
 
   .callHours .slot {
     flex-direction: column;
@@ -1142,10 +1142,33 @@ footer .flexLine :last-child {
   }
 }
 
+/****************************************** ## MODAL */
 
-/****************************************** MOBILE XS */
+.modal {
+  text-align: center;
+  max-width: 85%;
+  padding: var(--space-unit-2);
+}
+
+.modalButtonsContainer {
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeModal {
+  margin: var(--space-unit) 0;
+}
+
+
+
+/* ## MOBILE XS ************************************************************************************************/
 
 @media screen and (max-width: 350px) {
+
+  /****************************************** ## NAVBAR */
+
+  /****************************************** ## DROPDOWN */
+
 
   nav .dropDown {
     top: 200%;
@@ -1165,7 +1188,3 @@ footer .flexLine :last-child {
   color: rgb(255, 0, 0);
   border: 1px solid rgb(255, 0, 0);
 }
-
-/* * {
-  outline: 1px solid blue;
-} */

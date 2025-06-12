@@ -181,8 +181,6 @@ export default function ProductsPage() {
                 />
             }
 
-
-
             {/* TAGS LIST */}
             {showTags &&
                 <ul className="tagsList">
@@ -200,15 +198,6 @@ export default function ProductsPage() {
             }
 
         </Section>
-
-
-
-        {/* COLUMNS INDEX */}
-        <div className="flexLine">
-            {products.map(p => {
-                null
-            })}
-        </div>
 
 
 

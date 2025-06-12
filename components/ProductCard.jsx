@@ -16,7 +16,7 @@ import { memo } from "react";
 
 
 // COMPONENTS
-import SquarePic from "../layouts/SquarePic";
+import SquarePicProduct from "../layouts/SquarePicProduct";
 
 
 // EXPORT
@@ -28,7 +28,7 @@ function ProductCard({ name, description, category, img, tags, price, available 
 
     <div className="productCard">
 
-      <SquarePic
+      <SquarePicProduct
         path={img}
         defaultText='immagine non disponibile'
       />

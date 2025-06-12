@@ -22,6 +22,7 @@ export const MainContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(true);
     const [windowWidth, setWindowWidth] = useState(570);
     const [deviceType, setDeviceType] = useState('');
+    const [hideMenu, setHideMenu] = useState(true);
 
     // SUPPORT
     const categories = getUniqueValues('category', products);
@@ -68,13 +69,15 @@ export const MainContextProvider = ({ children }) => {
 
     return <>
         <MainContext.Provider value={{
-            products,
-            categories,
-            tags,
             darkMode,
             switchMode,
             windowWidth,
             deviceType,
+            hideMenu,
+            setHideMenu,
+            products,
+            categories,
+            tags,
         }}>
             {children}
         </MainContext.Provider>

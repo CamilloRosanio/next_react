@@ -47,26 +47,22 @@ export default function HomePage() {
     />
 
     < Button
-      text='color 1'
+      text='button1'
       onClick={null}
-      extraClass={'color1'}
+      extraClass={'button1'}
     />
 
     < Button
-      text='color 2'
+      text='button2'
       onClick={null}
-      extraClass={'color2'}
+      extraClass={'button2'}
     />
 
     < Button
-      text='color 3'
+      text='button3'
       onClick={null}
-      extraClass={'color3'}
+      extraClass={'button3'}
     />
-
-    <a href="/abcdefghijklmnopq" className="hyperlink button">
-      Go to non-existing Page
-    </a>
 
     <h1>H1</h1>
 

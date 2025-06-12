@@ -6,7 +6,7 @@
 import "./globals.css";
 
 
-// CONTEXTS
+// CONTEXTS PROVIDERS
 import { MainContextProvider } from "../../contexts/MainContext.jsx";
 
 

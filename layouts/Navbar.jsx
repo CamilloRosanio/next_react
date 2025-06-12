@@ -3,7 +3,7 @@
 
 
 // UTILITY
-import { useState, memo } from 'react';
+import { useRef, useEffect, memo } from 'react';
 import Link from 'next/link';
 
 
@@ -24,41 +24,60 @@ import Toggle from './Toggle';
 function Navbar() {
 
     // DATA - CONTEXT
-    const { darkMode, switchMode, deviceType } = useMainContext();
-
-    // USE-STATE
-    const [hidden, setHidden] = useState(true);
+    const { darkMode, switchMode, deviceType, hideMenu, setHideMenu } = useMainContext();
 
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');
     const navContent = navLinks.filter(link => link.type == 'content');
+    const navbarRef = useRef();
+    const navbarRefMobile = useRef();
+
 
     // Hide Menu
     const showMenu = () => {
-        if (hidden) {
-            setHidden(false);
-        } else if (!hidden) {
-            setHidden(true);
+        if (hideMenu) {
+            setHideMenu(false);
+        } else if (!hideMenu) {
+            setHideMenu(true);
         }
     };
+
+    // USE-EFFECT
+    useEffect(() => {
+        const handleClickOutsideMenu = (event) => {
+            if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+                setHideMenu(true);
+            }
+
+            if (navbarRefMobile.current && !navbarRefMobile.current.contains(event.target)) {
+                setHideMenu(true);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutsideMenu);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutsideMenu);
+        };
+    }, []);
 
     return <>
 
         {deviceType !== 'mobile' ?
 
             // DESKTOP / TABLET
-            <nav>
+            <nav ref={navbarRef}>
                 {/* PAGES */}
-                {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink">{link.page}</Link>)}
+                {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink" onClick={() => setHideMenu(true)} >{link.page}</Link>)}
 
                 {/*  DROP-DOWN */}
-                <button className="dropDownButton" onClick={showMenu}>
+                <button className="dropDownButton" onClick={() => showMenu()}>
                     ☰
                 </button>
                 {/* UTILITY PAGES */}
-                <div className={hidden ? 'hidden' : 'dropDown'}>
+                <div className={hideMenu ? 'hidden' : 'dropDown'} >
 
-                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink">{listSymbol} {link.page}</Link>)}
+                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink" onClick={() => setHideMenu(true)} >{listSymbol} {link.page}</Link>)}
 
                     <div>
                         <Toggle
@@ -75,18 +94,18 @@ function Navbar() {
             :
 
             // MOBILE
-            <nav>
+            <nav ref={navbarRefMobile}>
 
                 {/*  DROP-DOWN */}
-                <button className="dropDownButton" onClick={showMenu}>
+                <button className="dropDownButton" onClick={() => showMenu()}>
                     ☰
                 </button>
 
-                <div className={hidden ? 'hidden' : 'dropDown'}>
+                <div className={hideMenu ? 'hidden' : 'dropDown'} >
                     {/* PAGES */}
-                    {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink" onClick={() => setHidden(true)}>{listSymbol} {link.page}</Link>)}
+                    {navContent.map(link => <Link key={link.page} href={link.path} className="hyperlink" onClick={() => setHideMenu(true)}>{listSymbol} {link.page}</Link>)}
                     {/* UTILITY PAGES */}
-                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink" onClick={() => setHidden(true)}>{listSymbol} {link.page}</Link>)}
+                    {navUtility.map(link => <Link key={link.page} href={link.path} target="_blank" className="hyperlink" onClick={() => setHideMenu(true)}>{listSymbol} {link.page}</Link>)}
 
                     <div>
                         <Toggle

@@ -58,7 +58,7 @@ select {
   --typo-h3: calc(var(--typo-size) + calc(var(--typo-vw) * 0.8));
   --typo-h4: calc(var(--typo-size) + calc(var(--typo-vw) *0.4));
   --typo-h5: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
-  --typo-small: calc(var(--typo-size) + calc(var(--typo-vw) *0.2));
+  --typo-small: calc(var(--typo-size) *0.8);
 
 
 
@@ -224,16 +224,33 @@ main {
 
 .button {
   font-size: var(--typo-size-p);
-  font-weight: 400;
+  font-weight: 500;
   padding: calc(var(--space-unit) * 0.3) calc(var(--space-unit) * 1.2);
   border-radius: 50px;
-  border: 2px solid;
+  border: 2px solid var(--bg-elements);
+  background-color: var(--bg-elements);
   cursor: pointer;
+}
+
+.button1 {
+  border: 2px solid var(--color1);
+  background-color: var(--color1);
+}
+
+.button2 {
+  border: 2px solid var(--color2);
+  background-color: var(--color2);
+}
+
+.button3 {
+  color: var(--bg-primary);
+  border: 2px solid var(--color3);
+  background-color: var(--color3);
 }
 
 .buttonWarning {
   color: white;
-  font-weight: 500;
+  font-weight: 400;
   border: 2px solid var(--color-warning);
   background-color: var(--color-warning);
 }
@@ -285,20 +302,6 @@ main {
 .hyperlink:hover {
   color: var(--hover-color);
   transition: all 0.5s ease;
-}
-
-/****************************************** ## COLORS */
-
-.color1 {
-  border-color: var(--color1);
-}
-
-.color2 {
-  border-color: var(--color2);
-}
-
-.color3 {
-  border-color: var(--color3);
 }
 
 /****************************************** ## FLEX */
@@ -444,9 +447,8 @@ nav :last-child {
 
 nav .dropDownButton {
   cursor: pointer;
-  font-size: var(--typo-small);
+  font-size: var(--typo-h5);
   font-weight: 500;
-  padding-bottom: 2px;
 }
 
 nav .dropDownButton:hover {

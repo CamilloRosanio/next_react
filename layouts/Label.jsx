@@ -16,7 +16,7 @@ function Label({ item, isSelectedList, setIsSelectedList, action }) {
     return (
         <>
             <li
-                className={`tagLabel ${(action && isSelectedList.includes(item)) ? "on" : ""}`}
+                className={`label ${(action && isSelectedList.includes(item)) ? "on" : ""}`}
                 onClick={() => { if (action) { addRemove(item, isSelectedList, setIsSelectedList); } }}
             >
                 # {item}

@@ -20,7 +20,7 @@ import RoundButton from './RoundButton';
 
 
 // EXPORT
-export default function Searchbar({ placeholder, onDebouncedChange, reset, externalValue }) {
+export default function Searchbar({ placeholder, setExternalValue, externalValue }) {
 
     // USE-STATE
     const [localValue, setLocalValue] = useState("");
@@ -28,9 +28,9 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset, exter
     // USE-CALLBACK
     const debouncedChange = useCallback(
         debounce((localValue) => {
-            onDebouncedChange(localValue);
+            setExternalValue(localValue);
         }, 500),
-        [onDebouncedChange]
+        [setExternalValue]
     );
 
     // USE-EFFECT
@@ -57,7 +57,7 @@ export default function Searchbar({ placeholder, onDebouncedChange, reset, exter
 
             {/* RESET BUTTON */}
             <RoundButton
-                onClick={() => setLocalValue(externalValue)}
+                onClick={() => { setLocalValue(''); setExternalValue(''); }}
             />
         </div>
     );

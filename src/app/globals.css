@@ -590,15 +590,15 @@ option:hover {
 
 }
 
-.tagLabel {
+.label {
   cursor: pointer;
-  font-size: calc(var(--typo-small) * 0.8);
+  font-size: var(--typo-small);
   border: 2px solid var(--color-primary-transparent20);
   border-radius: 35px;
   padding: calc(var(--space-unit) / 10) var(--space-unit);
 }
 
-.tagLabel.on {
+.label.on {
   border: 2px solid var(--color3);
 }
 

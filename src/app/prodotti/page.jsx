@@ -143,7 +143,7 @@ export default function ProductsPage() {
 
                 <Button
                     text='rimuovi filtri'
-                    onClick={() => resetFilters()}
+                    onClick={() => setShowModal(true)}
                     extraClass='buttonWarning'
                 />
             </div>
@@ -151,7 +151,7 @@ export default function ProductsPage() {
             <div className="filtersSection">
                 <Searchbar
                     placeholder='Cerca per nome..'
-                    onDebouncedChange={setQuery}
+                    setExternalValue={setQuery}
                     reset={() => setQuery([''])}
                     externalValue={query}
                 />
@@ -168,18 +168,9 @@ export default function ProductsPage() {
                         {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
                     </p>
 
-                    <RoundButton onClick={() => { selectedTags.length ? setShowModal(true) : null }} />
+                    <RoundButton onClick={() => { setSelectedTags([]); setShowTags(false); }} />
                 </div>
             </div>
-
-            {/* MODAL - REMOVE ALL TAGS */}
-            {showModal &&
-                <Modal
-                    closeModal={() => setShowModal(false)}
-                    text='Vuoi davvero rimuovere tutti i Tag?'
-                    confirm={() => { setSelectedTags([]); setShowTags(false); setShowModal(false); }}
-                />
-            }
 
             {/* TAGS LIST */}
             {showTags &&
@@ -195,6 +186,15 @@ export default function ProductsPage() {
                         />
                     ))}
                 </ul>
+            }
+
+            {/* MODAL - REMOVE ALL FILTERS */}
+            {showModal &&
+                <Modal
+                    closeModal={() => setShowModal(false)}
+                    text='Vuoi davvero rimuovere tutti i filtri?'
+                    confirm={() => { resetFilters(); setShowModal(false) }}
+                />
             }
 
         </Section>

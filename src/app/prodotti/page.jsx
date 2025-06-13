@@ -165,7 +165,7 @@ export default function ProductsPage() {
 
                 <div className="filterContainer tags">
                     <p className="tagsFilter" onClick={() => showTagsList()}>
-                        {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `(${selectedTags.length})` : ''}
+                        {showTags ? '▼' : '▶'} Filtra per Tags {selectedTags.length > 0 ? `〈${selectedTags.length}〉` : ''}
                     </p>
 
                     <RoundButton onClick={() => { setSelectedTags([]); setShowTags(false); }} />
@@ -174,18 +174,18 @@ export default function ProductsPage() {
 
             {/* TAGS LIST */}
             {showTags &&
-                <ul className="tagsList">
+                <div className="labelsList">
 
                     {tags.map((tag, index) => (
                         <Label
                             key={index}
                             item={tag}
-                            isSelectedList={selectedTags}
-                            setIsSelectedList={setSelectedTags}
                             action={true}
+                            isSelected={selectedTags}
+                            setIsSelected={setSelectedTags}
                         />
                     ))}
-                </ul>
+                </div>
             }
 
             {/* MODAL - REMOVE ALL FILTERS */}
@@ -206,13 +206,13 @@ export default function ProductsPage() {
             {productsList.map((p, index) =>
                 <ProductCard
                     key={index}
-                    name={p.name && p.name}
-                    description={p.description && p.description}
-                    category={p.category && p.category}
                     img={p.img && p.img}
-                    tags={p.tags && p.tags}
+                    name={p.name && p.name}
+                    category={p.category && p.category}
                     price={p.price && p.price}
                     available={p.name && p.name}
+                    tags={p.tags && p.tags}
+                    description={p.description && p.description}
                 />
             )}
         </div>

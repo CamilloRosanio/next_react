@@ -27,8 +27,9 @@ function SquarePicProduct({ path, defaultText }) {
             <>
                 {/* SQUARE PICTURE */}
                 <div className="squarePicContainer">
-
-                    <img src={path} alt={getFileName(path)} className="squarePic" />
+                    <div>
+                        <img src={path} alt={getFileName(path)} className="squarePic" />
+                    </div>
 
                 </div>
             </>

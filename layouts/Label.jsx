@@ -11,16 +11,16 @@ import { addRemove } from "../assets/utilityFunctions";
 
 
 // EXPORT
-function Label({ item, isSelectedList, setIsSelectedList, action }) {
+function Label({ item, action, isSelected, setIsSelected }) {
 
     return (
         <>
-            <li
-                className={`label ${(action && isSelectedList.includes(item)) ? "on" : ""}`}
-                onClick={() => { if (action) { addRemove(item, isSelectedList, setIsSelectedList); } }}
+            <div
+                className={`label ${(action && isSelected.includes(item)) ? "on" : ""}`}
+                onClick={() => { if (action) { addRemove(item, isSelected, setIsSelected); } }}
             >
                 # {item}
-            </li>
+            </div>
         </>
     );
 }

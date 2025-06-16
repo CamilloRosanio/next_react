@@ -13,9 +13,6 @@ import { useState, memo } from "react";
 import { switchBoolean } from "../assets/utilityFunctions";
 
 
-// SUPPORT
-
-
 // COMPONENTS
 import SquarePicProduct from "../layouts/SquarePicProduct";
 import Label from "../layouts/Label";

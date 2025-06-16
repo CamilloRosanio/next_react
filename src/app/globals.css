@@ -800,7 +800,7 @@ form .input {
   cursor: pointer;
   color: var(--color-primary);
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: var(--space-unit);
 }
 
@@ -815,6 +815,7 @@ form .input {
 }
 
 .checkboxText {
+  max-width: 90%;
   font-size: calc(var(--typo-small) *1.3);
   color: inherit;
 }
@@ -1187,6 +1188,12 @@ footer .flexLine :last-child {
 
   .gallery .squarePicContainer {
     flex: 0 0 100%;
+  }
+
+  /****************************************** ## CHECKBOX */
+
+  .checkboxText {
+    max-width: 100%;
   }
 
   /****************************************** ## CALL US */

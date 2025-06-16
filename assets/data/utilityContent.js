@@ -55,7 +55,7 @@ const utilityContent = {
             privacy1: 'Devi accettare la Normativa sulla Privacy per continuare',
         },
         callUs: {
-            allowedTime: 'Al momento non siamo disponibili. Richiamare negli orari indicati',
+            allowedTime: 'Al momento non siamo disponibili. Richiama negli orari indicati',
         },
     },
 };

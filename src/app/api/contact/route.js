@@ -1,39 +1,36 @@
-
-
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
 export async function POST(request) {
+    const { name, email, message } = await request.json();
+
+    const transporter = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        secure: false, // true per 465, false per altri
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+        },
+    });
+
     try {
-        const { name, email, message } = await request.json();
-
-        if (!name || !email || !message) {
-            return new Response(JSON.stringify({ message: "Missing fields" }), { status: 400 });
-        }
-
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_PASS,
-            },
+        await transporter.sendMail({
+            from: `"${name}" <${email}>`,
+            to: process.env.EMAIL_TO,
+            subject: 'Nuovo messaggio dal contact form',
+            text: message,
+            html: `<p><strong>Nome:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Messaggio:</strong><br/>${message}</p>`,
         });
 
-        const mailOptions = {
-            // SENDER
-            from: email,
-            // RECEIVER
-            to: process.env.RECEIVER_EMAIL,
-            // OBJECT
-            subject: `New contact form submission from ${name}`,
-            // MESSAGE
-            text: message,
-        };
-
-        await transporter.sendMail(mailOptions);
-
-        return new Response(JSON.stringify({ message: "Email sent successfully" }), { status: 200 });
+        return new Response(JSON.stringify({ success: true }), {
+            status: 200,
+        });
     } catch (error) {
-        console.error(error);
-        return new Response(JSON.stringify({ message: "Error sending email" }), { status: 500 });
+        console.error('Errore invio email:', error);
+        return new Response(JSON.stringify({ success: false, error: error.message }), {
+            status: 500,
+        });
     }
 }

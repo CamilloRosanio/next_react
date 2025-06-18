@@ -5,35 +5,6 @@
 // DATA
 const utilityContent = {
     listSymbol: '◤',
-    orariPubblico: {
-        // WARNING: il formato delle fasce orarie per il pubblico deve rispettare il formato HH:MM.
-        Lunedì: [
-            { start: '09:00', end: '13:00' },
-            { start: '14:00', end: '18:00' },
-        ],
-        Martedì: [
-            { start: '09:00', end: '13:00' },
-            { start: '14:00', end: '18:00' },
-        ],
-        Mercoledì: [
-            { start: '09:00', end: '13:00' },
-            { start: '14:00', end: '18:00' },
-        ],
-        Giovedì: [
-            { start: '09:00', end: '13:00' },
-            { start: '14:00', end: '18:00' },
-        ],
-        Venerdì: [
-            { start: '09:00', end: '13:00' },
-            { start: '14:00', end: '18:00' },
-        ],
-        Sabato: [
-            { start: '09:00', end: '12:00' },
-        ],
-        Domenica: [
-            { start: '09:00', end: '12:00' },
-        ],
-    },
     disclaimers: {
         Privacy1: '* Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base al D. Lgs. 196/2003 e al Regolamento UE 2016/679',
         Privacy2: 'Acconsento al trattamento dei dati per finalità di marketing, promozionali e commerciali.',
@@ -68,6 +39,36 @@ const utilityContent = {
             slotsDefinedOn: 'Siamo disponibili nelle seguenti fasce orarie:',
             callButton: 'CHIAMA ▶',
         },
+
+    },
+    orariPubblico: {
+        // WARNING: il formato delle fasce orarie per il pubblico deve rispettare il formato HH:MM.
+        Lunedì: [
+            { start: '09:00', end: '13:00' },
+            { start: '14:00', end: '18:00' },
+        ],
+        Martedì: [
+            { start: '09:00', end: '13:00' },
+            { start: '14:00', end: '18:00' },
+        ],
+        Mercoledì: [
+            { start: '09:00', end: '13:00' },
+            { start: '14:00', end: '18:00' },
+        ],
+        Giovedì: [
+            { start: '09:00', end: '13:00' },
+            { start: '14:00', end: '18:00' },
+        ],
+        Venerdì: [
+            { start: '09:00', end: '13:00' },
+            { start: '14:00', end: '18:00' },
+        ],
+        Sabato: [
+            { start: '09:00', end: '12:00' },
+        ],
+        Domenica: [
+            { start: '09:00', end: '12:00' },
+        ],
     },
     openMaps: {
         textContent: {

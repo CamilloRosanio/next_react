@@ -8,7 +8,7 @@ const utilityContent = {
     orariPubblico: {
         // WARNING: il formato delle fasce orarie per il pubblico deve rispettare il formato HH:MM.
         Lunedì: [
-            { start: '09:00', end: '13:00' },
+            { start: '11:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
         Martedì: [

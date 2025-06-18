@@ -27,7 +27,7 @@ function Navbar() {
     const { darkMode, switchMode, deviceType, hideMenu, setHideMenu } = useMainContext();
 
     // ## LANGUAGE
-    // const { languageOptions, language, setLanguage } = useMainContext();
+    const { languageOptions, language, setLanguage } = useMainContext();
 
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');
@@ -92,13 +92,13 @@ function Navbar() {
                     </div>
 
                     {/* ## LANGUAGE */}
-                    {/* {language &&
+                    {languageOptions.length > 1 &&
                         <div className='languageOptions'>
-                            {languageOptions.map((l, index) =>
-                                <p key={index} className={`languageOpt${language === l ? ' selected' : ''}`} onClick={() => setLanguage(l)}>{l}</p>
+                            {languageOptions.map((lang, index) =>
+                                <p key={index} className={`languageOpt${language === lang ? ' selected' : ''}`} onClick={() => setLanguage(lang)}>{lang}</p>
                             )}
                         </div>
-                    } */}
+                    }
 
                 </div>
 

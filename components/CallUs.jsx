@@ -6,10 +6,6 @@
 import { useState, memo } from 'react';
 
 
-// CONTEXTS
-import { useMainContext } from '../contexts/MainContext';
-
-
 // ASSETS
 import utilityContent from '../assets/data/utilityContent';
 import { isValidHours, getPhone, allowedTime } from '../assets/utilityFunctions';
@@ -23,10 +19,6 @@ import ErrorMsg from '../layouts/ErrorMsg';
 // EXPORT
 function CallUs({ info }) {
 
-    // DATA - CONTEXT
-    const { assets } = useMainContext();
-    const utilityContent = assets.utilityContent;
-
     // USE-STATE
     const [telTo, setTelTo] = useState(null);
     const [errorMsg, setErrorMsg] = useState('');
@@ -39,9 +31,17 @@ function CallUs({ info }) {
     // Call Now
     const callNow = () => {
 
+        // debug
+        // console.log(`
+        //     CALL INFO:\n
+        //     Phone ENC: ${info.encodePhone}\n
+        //     Phone: ${info.contactPhone}\n
+        //     Hours: ${info.orariPubblico}
+        // `);
+
         // DATA
         const phone = getPhone(info.contactPhone, info.encodePhone);
-        const authorization = allowedTime(info.orariPubblico, 0);
+        const authorization = allowedTime(info.orariPubblico, 1);
 
         // TEL
         if (authorization) {
@@ -50,8 +50,7 @@ function CallUs({ info }) {
             setTelTo(`tel:${phone}`);
         } else {
             setErrorMsg(utilityContent.errorMsg.callUs.allowedTime);
-            alert('fuori orario');
-            setTelTo(`tel:${phone}`);
+            setTelTo(null);
         }
     }
 

@@ -6,6 +6,10 @@
 import { useState, memo } from 'react';
 
 
+// CONTEXTS
+import { useMainContext } from '../contexts/MainContext';
+
+
 // ASSETS
 import utilityContent from '../assets/data/utilityContent';
 import { isValidHours, getPhone, allowedTime } from '../assets/utilityFunctions';
@@ -18,6 +22,10 @@ import ErrorMsg from '../layouts/ErrorMsg';
 
 // EXPORT
 function CallUs({ info }) {
+
+    // DATA - CONTEXT
+    const { assets } = useMainContext();
+    const utilityContent = assets.utilityContent;
 
     // USE-STATE
     const [telTo, setTelTo] = useState(null);

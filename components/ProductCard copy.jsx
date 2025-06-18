@@ -48,13 +48,6 @@ function ProductCard({ img, name, category, price, available, tags, description 
       {/* PRODUCT DETAILS */}
       <div className="productDetails">
 
-        {/* DROPDOWN ARROW */}
-        <div className="dropDownArrow" onClick={() => openDetails()}>
-          <p className={`${showDetails && 'open'}`}>
-            {showDetails ? '▲' : '▼'}
-          </p>
-        </div>
-
         <h4>{name}</h4>
 
         <ul className="list">
@@ -66,6 +59,8 @@ function ProductCard({ img, name, category, price, available, tags, description 
           <li>
             <p><strong>{listSymbol} Prezzo {listSymbolBetween} </strong>{price} €</p>
           </li>
+
+          <p className="label" onClick={() => openDetails()}>Più Informazioni {showDetails ? '▾' : '▸ . . .'} </p>
 
           {/* MORE INFO */}
           {showDetails &&

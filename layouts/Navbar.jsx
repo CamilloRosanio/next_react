@@ -26,6 +26,9 @@ function Navbar() {
     // DATA - CONTEXT
     const { darkMode, switchMode, deviceType, hideMenu, setHideMenu } = useMainContext();
 
+    // ## LANGUAGE
+    // const { languageOptions, language, setLanguage } = useMainContext();
+
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');
     const navContent = navLinks.filter(link => link.type == 'content');
@@ -87,6 +90,16 @@ function Navbar() {
                             iconDx='☾'
                         />
                     </div>
+
+                    {/* ## LANGUAGE */}
+                    {/* {language &&
+                        <div className='languageOptions'>
+                            {languageOptions.map((l, index) =>
+                                <p key={index} className={`languageOpt${language === l ? ' selected' : ''}`} onClick={() => setLanguage(l)}>{l}</p>
+                            )}
+                        </div>
+                    } */}
+
                 </div>
 
             </nav>
@@ -115,6 +128,16 @@ function Navbar() {
                             iconDx='☾'
                         />
                     </div>
+
+                    {/* ## LANGUAGE */}
+                    {/* {language &&
+                        <div className='languageOptions'>
+                            {languageOptions.map((l, index) =>
+                                <p key={index} className={`languageOpt${language === l ? ' selected' : ''}`} onClick={() => setLanguage(l)}>{l}</p>
+                            )}
+                        </div>
+                    } */}
+
                 </div>
             </nav>
 

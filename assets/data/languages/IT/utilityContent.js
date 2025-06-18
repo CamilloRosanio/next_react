@@ -104,6 +104,7 @@ export default utilityContent;
 // DATA EXPORT - DESTRUCTURED
 export const {
     listSymbol,
+    orariPubblico,
     disclaimers,
     contactForm,
     callUs,

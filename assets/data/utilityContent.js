@@ -23,6 +23,13 @@ const utilityContent = {
             sentThankYou: 'Grazie per averci contattato. Riceverai una risposta quanto prima alla Email o al Numero di Telefono da te indicato.',
             sentBackButton: 'TORNA AL FORM ▶',
         },
+        submitContent: {
+            loadingMsg: 'Invio in corso..',
+            emailSubject: 'WEBSITE | Contatto Organico:',
+            errorMsg: 'Errore durante l\'invio della Email',
+            successMsg: 'Email inviata con successo.',
+            networkErrorMsg: 'Errore di rete durante l\'invio.',
+        }
     },
     callUs: {
         textContent: {
@@ -55,7 +62,7 @@ const utilityContent = {
             privacy1: 'Devi accettare la Normativa sulla Privacy per continuare',
         },
         callUs: {
-            allowedTime: 'Al momento non siamo disponibili. Richiama negli orari indicati',
+            allowedTime: 'Chiamando al di fuori delle fasce indicate, potremmo non essere disponibili',
         },
     },
 };

@@ -5,7 +5,7 @@
 /* FONT FAMILY IMPORT */
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 
 * {
   box-sizing: border-box;
@@ -18,7 +18,7 @@
 
   /* FONT */
   /* font-family: "Roboto", sans-serif; */
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 button {
@@ -812,6 +812,7 @@ form .input {
   aspect-ratio: 1;
   border: 2px solid var(--color3);
   border-radius: 5px;
+  margin-top: calc(var(--space-unit-half) * 0.7);
 }
 
 .checkboxText {
@@ -822,7 +823,7 @@ form .input {
 
 .checkMark {
   color: inherit;
-  font-size: var(--typo-h4);
+  font-size: var(--typo-h5);
   line-height: var(--space-unit);
   rotate: 45deg;
 }

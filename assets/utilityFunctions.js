@@ -23,6 +23,19 @@ const switchBoolean = (setValue) => {
     setValue(prev => !prev);
 };
 
+// THROTTLER
+function throttler(action, delay) {
+    let lastCall = 0;
+
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            return action.apply(this, args);
+        }
+    };
+}
+
 
 
 /*******************************************************************
@@ -160,6 +173,7 @@ export {
     toTop,
     debounce,
     switchBoolean,
+    throttler,
     splitQuery,
     getUniqueValues,
     addRemove,

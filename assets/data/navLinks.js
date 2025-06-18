@@ -1,5 +1,5 @@
 // NOTES
-// DEPENDENCY: determina il map dei Link nella Navbar
+// DEPENDENCY: determina il map dei Link nella Navbar.
 
 
 // DATA
@@ -13,22 +13,22 @@ const navLinks = [
     {
         type: 'utility',
         page: 'Contatti',
-        path: '/contatti',
+        path: '/contacts',
     },
     {
         type: 'content',
         page: 'Prodotti',
-        path: '/prodotti',
+        path: '/products',
     },
     {
         type: 'content',
         page: 'Galleria',
-        path: '/galleria',
+        path: '/gallery',
     },
     {
         type: 'content',
         page: 'Chi siamo',
-        path: '/chi-siamo',
+        path: '/about',
     },
     {
         type: 'content',

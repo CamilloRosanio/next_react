@@ -26,22 +26,14 @@ function CallUs({ info }) {
     // SUPPORT
 
     // Data Cleaning
-    const validHours = info.orariPubblico && isValidHours(info.orariPubblico);
+    const validHours = info.orariPubblico && isValidHours(info.orariPubblico, 0);
 
     // Call Now
     const callNow = () => {
 
-        // debug
-        // console.log(`
-        //     CALL INFO:\n
-        //     Phone ENC: ${info.encodePhone}\n
-        //     Phone: ${info.contactPhone}\n
-        //     Hours: ${info.orariPubblico}
-        // `);
-
         // DATA
         const phone = getPhone(info.contactPhone, info.encodePhone);
-        const authorization = allowedTime(info.orariPubblico, 1);
+        const authorization = allowedTime(info.orariPubblico, 0);
 
         // TEL
         if (authorization) {
@@ -50,7 +42,8 @@ function CallUs({ info }) {
             setTelTo(`tel:${phone}`);
         } else {
             setErrorMsg(utilityContent.errorMsg.callUs.allowedTime);
-            setTelTo(null);
+            alert('fuori orario');
+            setTelTo(`tel:${phone}`);
         }
     }
 

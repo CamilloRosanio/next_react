@@ -8,7 +8,7 @@ import { useState, useEffect, memo } from 'react';
 
 // ASSETS
 import utilityContent from '../assets/data/utilityContent';
-import { toTop, getEmail } from '../assets/utilityFunctions';
+import { toTop, throttler } from '../assets/utilityFunctions';
 
 
 // COMPONENTS
@@ -22,6 +22,8 @@ import ErrorMsg from '../layouts/ErrorMsg';
 function ContactForm({ info }) {
 
     // Form Fields
+    const localStorageFields = JSON.parse(localStorage.getItem('formFields'));
+
     const fieldsDefault = {
         name: '',
         surname: '',
@@ -36,9 +38,10 @@ function ContactForm({ info }) {
     // USE-STATE
     const [errorMsg, setErrorMsg] = useState('');
     const [success, setSuccess] = useState(false);
-    const [fields, setFields] = useState(JSON.parse(localStorage.getItem('formFields')) || fieldsDefault);
+    const [fields, setFields] = useState(localStorageFields || fieldsDefault);
 
     // SUPPORT
+    const submitContent = utilityContent.contactForm.submitContent;
 
     // Field Length Limit
     const minLengthLimit = 3;
@@ -169,46 +172,86 @@ function ContactForm({ info }) {
         return true;
     };
 
-    // Handle Submit
-    const handleSubmit = (e) => {
+    // Send Email
+    const sendEmail = async (fields, setErrorMsg) => {
+        try {
+            setErrorMsg(submitContent.loadingMsg);
 
+            const response = await fetch('/api/nodemailer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(fields),
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                setErrorMsg(data?.error || submitContent.errorMsg);
+                return false;
+            }
+
+            setErrorMsg(submitContent.successMsg);
+            return true;
+        } catch (error) {
+            console.error(submitContent.errorMsg, error);
+            setErrorMsg(submitContent.networkErrorMsg);
+            return false;
+        }
+    };
+
+    // Handle Submit
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // VALIDATION
+        // Fields Validation Check
         const dataOk = dataValidation();
 
-        // POSITIVE VALIDATION
         if (dataOk) {
 
-            // DEBUG
-            alert(`
-                FORM INFO:\n
-                Nome: ${fields.name}\n
-                Cognome: ${fields.surname}\n
-                Email: ${fields.email}\n
-                Telefono: ${fields.phone}\n
-                Messaggio: ${fields.message}\n
-                Privacy1: ${fields.privacy1}\n
-                Privacy2: ${fields.privacy2}\n
-                Privacy3: ${fields.privacy3}\n
-            `);
+            // debug
+            // alert(`
+            //     FORM INFO:\n
+            //     Nome: ${fields.name}\n
+            //     Cognome: ${fields.surname}\n
+            //     Email: ${fields.email}\n
+            //     Telefono: ${fields.phone}\n
+            //     Messaggio: ${fields.message}\n
+            //     Privacy1: ${fields.privacy1}\n
+            //     Privacy2: ${fields.privacy2}\n
+            //     Privacy3: ${fields.privacy3}\n
+            // `);
 
-            // EMAIL JS
-            getEmail(info.contactEmail, info.encodeEmail);
+            // Send Email
+            const success = await sendEmail(fields, setErrorMsg);
 
-            // RESET
-            setFields(fieldsDefault);
-            setErrorMsg('');
-            setSuccess(true);
-            toTop();
+            if (success) {
+                setFields(fieldsDefault);
+                setErrorMsg('');
+                setSuccess(true);
+                toTop();
+            }
         }
-    }
+    };
+
+    // Throttled Submit
+    const throttledSubmit = throttler(handleSubmit, 3000);
 
     // USE-EFFECT
     useEffect(() => {
         // Aggiornamento Fields su Local Storage
         localStorage.setItem("formFields", JSON.stringify(fields));
     }, [fields])
+
+    // INIT USE-EFFECT
+    useEffect(() => {
+
+        // Privacy Default Reset
+        setFields({
+            ...fields,
+            privacy1: false,
+            privacy2: false,
+            privacy3: false,
+        })
+    }, [])
 
     return <>
 
@@ -224,7 +267,7 @@ function ContactForm({ info }) {
                         < form
                             action=""
                             className='contactForm'
-                            onSubmit={handleSubmit}
+                            onSubmit={throttledSubmit}
                             autoComplete='on'
                         >
 
@@ -308,7 +351,7 @@ function ContactForm({ info }) {
                                 <div className='flexLine'>
                                     {/* PHONE */}
                                     <input
-                                        type="number"
+                                        type="text"
                                         name='phone'
                                         id='fieldPhone'
                                         placeholder={utilityContent.contactForm.textContent.phone}

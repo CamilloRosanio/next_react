@@ -95,6 +95,13 @@ const utilityContent = {
             allowedTime: 'Chiamando al di fuori delle fasce indicate, potremmo non essere disponibili',
         },
     },
+    bottomButtons: {
+        toContactsText: 'Contattaci ▶',
+    },
+    modal: {
+        confirmText: 'CONFERMA',
+        cancelText: 'ANNULLA',
+    }
 };
 
 

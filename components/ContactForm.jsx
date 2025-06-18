@@ -6,9 +6,14 @@
 import { useState, useEffect, memo } from 'react';
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
 // ASSETS
-import utilityContent from '../assets/data/utilityContent';
 import { toTop, throttler } from '../assets/utilityFunctions';
+import utilityContent from '../assets/data/utilityContent';
 
 
 // COMPONENTS
@@ -20,6 +25,10 @@ import ErrorMsg from '../layouts/ErrorMsg';
 
 // EXPORT
 function ContactForm({ info }) {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
 
     // Form Fields
     const localStorageFields = JSON.parse(localStorage.getItem('formFields'));

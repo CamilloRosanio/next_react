@@ -6,9 +6,14 @@
 import { useState, memo } from 'react';
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
 // ASSETS
-import utilityContent from '../assets/data/utilityContent';
 import { isValidHours, getPhone, allowedTime } from '../assets/utilityFunctions';
+import utilityContent from '../assets/data/utilityContent';
 
 
 // COMPONENTS
@@ -19,6 +24,10 @@ import ErrorMsg from '../layouts/ErrorMsg';
 // EXPORT
 function CallUs({ info }) {
 
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
+
     // USE-STATE
     const [telTo, setTelTo] = useState(null);
     const [errorMsg, setErrorMsg] = useState('');
@@ -26,7 +35,7 @@ function CallUs({ info }) {
     // SUPPORT
 
     // Data Cleaning
-    const validHours = info.orariPubblico && isValidHours(info.orariPubblico, 0);
+    const validHours = utilityContent.orariPubblico && isValidHours(utilityContent.orariPubblico, 0);
 
     // Call Now
     const callNow = () => {
@@ -36,12 +45,12 @@ function CallUs({ info }) {
         //     CALL INFO:\n
         //     Phone ENC: ${info.encodePhone}\n
         //     Phone: ${info.contactPhone}\n
-        //     Hours: ${info.orariPubblico}
+        //     Hours: ${utilityContent.orariPubblico}
         // `);
 
         // DATA
         const phone = getPhone(info.contactPhone, info.encodePhone);
-        const authorization = allowedTime(info.orariPubblico, 1);
+        const authorization = allowedTime(utilityContent.orariPubblico, 1);
 
         // TEL
         if (authorization) {
@@ -59,6 +68,7 @@ function CallUs({ info }) {
         {info.contactPhone &&
 
             <div>
+
                 <h3 className='space1'><span className='listSymbol'>{utilityContent.listSymbol} </span>{utilityContent.callUs.textContent.title}</h3>
 
                 <div className='card space2'>

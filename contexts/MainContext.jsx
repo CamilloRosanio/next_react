@@ -1,8 +1,3 @@
-// NOTES
-// ## LANGUAGE
-// [ Language ]: le opzioni per il cambio di lingua dei contenuti sono inizialmente non attive (commentate).
-
-
 // READY FOR CLIENT SIDE
 "use client";
 
@@ -16,42 +11,45 @@ const MainContext = createContext();
 
 
 // ASSETS
-import businessInfo from '../assets/data/businessInfo.js';
-import { galleryPaths } from '../assets/data/galleryPaths.js';
-import socialInfo from '../assets/data/socialInfo.js';
 import { switchBoolean, getUniqueValues } from '../assets/utilityFunctions.js';
+import products from '../assets/data/products.js';
 
+// ## LANGUAGE
 // Import statico dei valori di DEFAULT dei contenuti
-import navLinksDefault from '../assets/data/languages/IT/navLinks.js';
-import productsDefault from '../assets/data/languages/IT/products.js';
-import utilityContentDefault from '../assets/data/languages/IT/utilityContent.js';
+// import navLinks from '../assets/data/languages/IT/navLinks.js';
+// import products from '../assets/data/languages/IT/products.js';
+// import utilityContent from '../assets/data/languages/IT/utilityContent.js';
 
 
 // PROVIDER EXPORT
 export const MainContextProvider = ({ children }) => {
 
     // ## LANGUAGE
-    const languageOptions = ['IT',]
+    // const languageOptions = ['IT',]
 
     // USE-STATE
-    const [loading, setLoading] = useState(false);
     const [darkMode, setDarkMode] = useState(true);
     const [windowWidth, setWindowWidth] = useState(570);
     const [deviceType, setDeviceType] = useState('');
     const [hideMenu, setHideMenu] = useState(true);
-    const [language, setLanguage] = useState(languageOptions[0]);
-    const [assets, setAssets] = useState({
-        businessInfo,
-        galleryPaths,
-        socialInfo,
-        navLinks: navLinksDefault,
-        products: productsDefault,
-        utilityContent: utilityContentDefault,
-    });
+    // ## LANGUAGE
+    // const [language, setLanguage] = useState(languageOptions[0]);
+    // const [loading, setLoading] = useState(false);
+    // const [assets, setAssets] = useState({
+    //     businessInfo,
+    //     galleryPaths,
+    //     socialInfo,
+    //     navLinks: navLinks,
+    //     products: products,
+    //     utilityContent: utilityContent,
+    // });
 
     // SUPPORT
-    const categories = getUniqueValues('category', assets.products || []);
-    const tags = getUniqueValues('tags', assets.products || []);
+    const categories = getUniqueValues('category', products || []);
+    const tags = getUniqueValues('tags', products || []);
+    // ## LANGUAGE
+    // const categories = getUniqueValues('category', assets.products || []);
+    // const tags = getUniqueValues('tags', assets.products || []);
 
     // Mode Switch
     function switchMode() { switchBoolean(setDarkMode); }
@@ -81,47 +79,49 @@ export const MainContextProvider = ({ children }) => {
     };
 
     // ## LANGUAGE
-    const switchLanguage = async (lang) => {
-        setLoading(true);
-        try {
-            const [navLinks, products, utilityContent] = await Promise.all([
-                import(`../assets/data/languages/${lang}/navLinks.js`),
-                import(`../assets/data/languages/${lang}/products.js`),
-                import(`../assets/data/languages/${lang}/utilityContent.js`),
-            ]);
-            setAssets((prev) => ({
-                ...prev,
-                navLinks: navLinks.default,
-                products: products.default,
-                utilityContent: utilityContent.default,
-            }));
-        } catch (error) {
-            console.error(`Errore nel caricamento della lingua ${lang}:`, error);
-            // fallback a oggetti/array vuoti per evidenziare errore dati
-            setAssets((prev) => ({
-                ...prev,
-                navLinks: {},
-                products: [],
-                utilityContent: {},
-            }));
-        } finally {
-            setLoading(false);
-        }
-    };
+    // const switchLanguage = async (lang) => {
+    //     setLoading(true);
+    //     try {
+    //         const [navLinks, products, utilityContent] = await Promise.all([
+    //             import(`../assets/data/languages/${lang}/navLinks.js`),
+    //             import(`../assets/data/languages/${lang}/products.js`),
+    //             import(`../assets/data/languages/${lang}/utilityContent.js`),
+    //         ]);
+    //         setAssets((prev) => ({
+    //             ...prev,
+    //             navLinks: navLinks.default,
+    //             products: products.default,
+    //             utilityContent: utilityContent.default,
+    //         }));
+    //     } catch (error) {
+    //         console.error(`Errore nel caricamento della lingua ${lang}:`, error);
+    //         setAssets((prev) => ({
+    //             ...prev,
+    //             navLinks: {},
+    //             products: [],
+    //             utilityContent: {},
+    //         }));
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     // USE-EFFECT
-    useEffect(() => {
-        switchLanguage(language);
-    }, [language]);
+    // ## LANGUAGE
+    // useEffect(() => {
+    //     switchLanguage(language);
+    // }, [language]);
 
     // INIT USE-EFFECT
     useEffect(() => {
-        setAssets({
-            ...assets,
-            navLinks: navLinksDefault,
-            products: productsDefault,
-            utilityContent: utilityContentDefault,
-        })
+
+        // ## LANGUAGE
+        // setAssets({
+        //     ...assets,
+        //     navLinks: navLinks,
+        //     products: products,
+        //     utilityContent: utilityContent,
+        // })
 
         handleWindowResize();
         window.addEventListener('resize', handleWindowResize);
@@ -133,9 +133,11 @@ export const MainContextProvider = ({ children }) => {
     // console.log('CONTEXT | CATEGORIES:', categories);
     // console.log('CONTEXT | TAGS:', tags);
 
-    if (loading) return null;
+    // ## LANGUAGE
+    // if (loading) return null;
 
     return <>
+
         <MainContext.Provider value={{
             darkMode,
             switchMode,
@@ -143,9 +145,25 @@ export const MainContextProvider = ({ children }) => {
             deviceType,
             hideMenu,
             setHideMenu,
-            languageOptions,
-            language,
-            setLanguage,
+            products,
+            categories,
+            tags,
+        }}>
+            {children}
+        </MainContext.Provider>
+
+        {/* ## LANGUAGE */}
+        {/* <MainContext.Provider value={{
+            darkMode,
+            switchMode,
+            windowWidth,
+            deviceType,
+            hideMenu,
+            setHideMenu,
+            // # LANGUAGE
+            // languageOptions,
+            // language,
+            // setLanguage,
             navLinks: assets.navLinks,
             products: assets.products,
             categories,
@@ -153,7 +171,7 @@ export const MainContextProvider = ({ children }) => {
             utilityContent: assets.utilityContent,
         }}>
             {children}
-        </MainContext.Provider>
+        </MainContext.Provider> */}
     </>
 }
 

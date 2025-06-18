@@ -12,7 +12,6 @@ import { useMainContext } from "../contexts/MainContext";
 
 // ASSETS
 import utilityContent from '../assets/data/utilityContent';
-import { listSymbol } from '../assets/data/utilityContent';
 
 
 // COMPONENTS
@@ -23,7 +22,10 @@ import Button from '../layouts/Button';
 function OpenMaps({ info }) {
 
     // DATA - CONTEXT
-    const mainContext = useMainContext();
+    const { deviceType } = useMainContext();
+    // ## LANGUAGE
+    // const { deviceType, utilityContent } = useMainContext();
+    // const { listSymbol } = utilityContent;
 
     // USE-STATE
     const [mapSettings, setMapSettings] = useState({
@@ -45,7 +47,7 @@ function OpenMaps({ info }) {
         {info.coordinateSede &&
 
             <div className='mapSection'>
-                <h3 className='space1'><span className='listSymbol'>{listSymbol}</span> {utilityContent.openMaps.textContent.title}</h3>
+                <h3 className='space1'><span className='listSymbol'>{utilityContent.listSymbol}</span> {utilityContent.openMaps.textContent.title}</h3>
 
                 <div className="card">
                     <div className='mapContainer'>
@@ -55,7 +57,7 @@ function OpenMaps({ info }) {
 
                             <a
                                 target='_blank'
-                                href={`${mainContext.deviceType == 'desktop' ? mapSettings.mapRootDesktop : mapSettings.mapRootMobile}${mapSettings.coordinates}`}
+                                href={`${deviceType == 'desktop' ? mapSettings.mapRootDesktop : mapSettings.mapRootMobile}${mapSettings.coordinates}`}
                                 className='hyperlink'
                             >
                                 <div className='buttonContainerContacts'>

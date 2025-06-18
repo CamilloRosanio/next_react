@@ -6,12 +6,22 @@
 import { memo } from "react";
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
 // ASSETS
 import { listSymbol } from "../assets/data/utilityContent";
 
 
 // EXPORT
 function Section({ children, title }) {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
+    // const listSymbol = utilityContent.listSymbol;
 
     return <>
 

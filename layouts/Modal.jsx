@@ -2,12 +2,18 @@
 "use client";
 
 
-// REACT
-import { useEffect } from "react";
-
-
 // UTILITY
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
+
+
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
+// ASSETS
+import utilityContent from "../assets/data/utilityContent";
 
 
 // COMPONENTS
@@ -16,6 +22,10 @@ import Button from "./Button";
 
 // EXPORT
 export default function Modal({ closeModal, text, confirm }) {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
 
     // INIT USE-EFFECT
     useEffect(() => {
@@ -37,7 +47,7 @@ export default function Modal({ closeModal, text, confirm }) {
                 {/* BUTTONS */}
                 <div className="modalButtonsContainer">
                     <Button
-                        text='CONFERMA'
+                        text={utilityContent.modal.confirmText}
                         onClick={() => {
                             confirm();
                             closeModal();
@@ -46,7 +56,7 @@ export default function Modal({ closeModal, text, confirm }) {
                     />
 
                     <Button
-                        text='ANNULLA'
+                        text={utilityContent.modal.cancelText}
                         onClick={() => closeModal()}
                         extraClass='closeModal'
                     />

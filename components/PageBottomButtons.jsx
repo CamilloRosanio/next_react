@@ -6,16 +6,26 @@
 import { memo } from "react";
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
 // ASSETS
+import utilityContent from "../assets/data/utilityContent";
 import { toTop } from "../assets/utilityFunctions";
 
 
-// COMPONENTS+
+// COMPONENTS
 import Button from "../layouts/Button";
 
 
 // EXPORT
 function PageBottomButtons({ toContacts }) {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
 
     return <>
 
@@ -30,7 +40,7 @@ function PageBottomButtons({ toContacts }) {
 
             {toContacts &&
                 < Button
-                    text='Contattaci ▶'
+                    text={utilityContent.bottomButtons.toContactsText}
                     path='/contacts'
                     extraClass={'buttonSolid1'}
                 />

@@ -18,7 +18,7 @@
 
   /* FONT */
   /* font-family: "Roboto", sans-serif; */
-  /* font-family: "Poppins", sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -78,7 +78,7 @@ select {
   --color2: rgb(237, 13, 137);
   --color3: rgb(0, 255, 234);
   --hover-color: rgb(0, 255, 234);
-  --hover-transition: all 0.7s ease;
+  --hover-transition: all 0.5s ease;
 
   --color-warning: rgb(226, 43, 67);
   --color-success: rgb(28, 143, 89);
@@ -695,11 +695,11 @@ option:hover {
 .productDetails .dropDownArrow p {
   font-size: calc(var(--typo-size) * 0.6);
   text-align: center;
-  padding-top: calc(var(--typo-size) * 0.15);
 }
 
 .productDetails .dropDownArrow p.open {
   padding-top: 0;
+  padding-bottom: calc(var(--typo-size) * 0.10);
 }
 
 .productCard .list {
@@ -837,6 +837,10 @@ form .input {
 .charCounter .counter {
   margin-left: auto;
   font-weight: 400;
+}
+
+.contactForm .checkboxText {
+  font-size: var(--typo-small);
 }
 
 

@@ -4,17 +4,17 @@
 
 // DATA
 const utilityContent = {
-    listSymbol: '◤',
+    listSymbol: 'english',
     disclaimers: {
-        Privacy1: '* Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base al D. Lgs. 196/2003 e al Regolamento UE 2016/679',
-        Privacy2: 'Acconsento al trattamento dei dati per finalità di marketing, promozionali e commerciali.',
-        Privacy3: 'Acconsento alla comunicazione dei dati a terzi per finalità di marketing, promozionali e commerciali.',
+        Privacy1: 'english',
+        Privacy2: 'english',
+        Privacy3: 'english',
     },
     contactForm: {
         textContent: {
-            title: 'Scrivici',
-            name: '* il tuo nome',
-            surname: '* il tuo cognome',
+            title: 'english',
+            name: 'english',
+            surname: 'english',
             email: '* la tua email',
             phone: '* il tuo telefono',
             message: 'Lascia un messaggio..',
@@ -24,7 +24,7 @@ const utilityContent = {
             sentBackButton: 'TORNA AL FORM ▶',
         },
         submitContent: {
-            loadingMsg: 'Invio in corso..',
+            loadingMsg: 'english',
             emailSubject: 'WEBSITE | Contatto Organico:',
             errorMsg: 'Errore durante l\'invio della Email',
             successMsg: 'Email inviata con successo.',
@@ -33,37 +33,37 @@ const utilityContent = {
     },
     callUs: {
         textContent: {
-            title: 'Chiamaci',
-            subTitle: 'Parla direttamente con noi',
-            slotsDefinedOff: 'Restiamo a tua disposizione.',
-            slotsDefinedOn: 'Siamo disponibili nelle seguenti fasce orarie:',
-            callButton: 'CHIAMA ▶',
+            title: 'English CALL',
+            subTitle: 'Talk with us',
+            slotsDefinedOff: 'We ar ehere for you.',
+            slotsDefinedOn: 'You can call us at those hours:',
+            callButton: 'CALL ▶',
         },
 
     },
     orariPubblico: {
         // WARNING: il formato delle fasce orarie per il pubblico deve rispettare il formato HH:MM.
-        Lunedì: [
+        Monday: [
             { start: '09:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
-        Martedì: [
+        Tuesday: [
             { start: '09:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
-        Mercoledì: [
+        Wednesday: [
             { start: '09:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
-        Giovedì: [
+        Thursday: [
             { start: '09:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
-        Venerdì: [
+        Friday: [
             { start: '09:00', end: '13:00' },
             { start: '14:00', end: '18:00' },
         ],
-        Sabato: [
+        Saturday: [
             { start: '09:00', end: '12:00' },
         ],
         Domenica: [
@@ -72,21 +72,21 @@ const utilityContent = {
     },
     openMaps: {
         textContent: {
-            title: 'Vieni a trovarci',
-            subTitle: 'La nostra sede',
+            title: 'english',
+            subTitle: 'english',
             paragraph: 'Parla direttamente con noi e scopri tutti i servizi dedicati ai nostri clienti.',
-            mapButton: 'INDICAZIONI ▶',
+            mapButton: 'english',
         },
     },
     errorMsg: {
-        requiredField: 'Campo obbligatorio',
+        requiredField: 'english',
         contactForm: {
-            nameShort: 'Nome troppo corto. Sono accettati minimo 2 caratteri',
+            nameShort: 'english',
             nameLong: 'Nome troppo lungo. Sono accettati massimo 70 caratteri',
             surnameShort: 'Cognome troppo corto. Sono accettati minimo 2 caratteri',
             surnameLong: 'Cognome troppo lungo. Sono accettati massimo 70 caratteri',
             email: 'Errore nella Email, controlla e riprova',
-            phoneShort: 'Numero di Telefono troppo corto. Sono accettati minimo 7 caratteri',
+            phoneShort: 'english',
             phoneLong: 'Numero di Telefono troppo lungo. Sono accettati massimo 25 caratteri',
             message: 'Messaggio troppo lungo. Sono accettati massimo 600 caratteri',
             privacy1: 'Devi accettare la Normativa sulla Privacy per continuare',
@@ -96,11 +96,7 @@ const utilityContent = {
         },
     },
     bottomButtons: {
-        toContactsText: 'Contattaci ▶',
-    },
-    modal: {
-        confirmText: 'CONFERMA',
-        cancelText: 'ANNULLA',
+        toContactsText: 'english',
     }
 };
 

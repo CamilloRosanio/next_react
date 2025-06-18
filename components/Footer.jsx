@@ -6,8 +6,13 @@
 import { memo } from "react";
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from "../contexts/MainContext";
+
+
 // ASSETS
-import navLinks from '../assets/data/navLinks';
+import navLinks from "../assets/data/navLinks";
 
 
 // COMPONENTS
@@ -16,6 +21,10 @@ import SocialMedia from './SocialMedia';
 
 // EXPORT
 function Footer() {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { navLinks } = useMainContext();
 
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');

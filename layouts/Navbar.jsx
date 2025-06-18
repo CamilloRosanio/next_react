@@ -13,7 +13,7 @@ import { useMainContext } from "../contexts/MainContext.jsx";
 
 // ASSETS
 import navLinks from '../assets/data/navLinks.js';
-import { listSymbol } from '../assets/data/utilityContent.js';
+import utilityContent from '../assets/data/utilityContent.js';
 
 
 // COMPONENTS
@@ -24,10 +24,11 @@ import Toggle from './Toggle';
 function Navbar() {
 
     // DATA - CONTEXT
-    const { darkMode, switchMode, deviceType, hideMenu, setHideMenu } = useMainContext();
+    const { darkMode, switchMode, deviceType, hideMenu, setHideMenu, } = useMainContext();
+    const listSymbol = utilityContent.listSymbol;
 
     // ## LANGUAGE
-    const { languageOptions, language, setLanguage } = useMainContext();
+    // const { languageOptions, language, setLanguage, navLinks, utilityContent } = useMainContext();
 
     // SUPPORT
     const navUtility = navLinks.filter(link => link.type == 'utility');
@@ -92,13 +93,13 @@ function Navbar() {
                     </div>
 
                     {/* ## LANGUAGE */}
-                    {languageOptions.length > 1 &&
+                    {/* {languageOptions.length > 1 &&
                         <div className='languageOptions'>
                             {languageOptions.map((lang, index) =>
                                 <p key={index} className={`languageOpt${language === lang ? ' selected' : ''}`} onClick={() => setLanguage(lang)}>{lang}</p>
                             )}
                         </div>
-                    }
+                    } */}
 
                 </div>
 

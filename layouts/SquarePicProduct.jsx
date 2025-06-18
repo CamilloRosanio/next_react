@@ -37,7 +37,7 @@ function SquarePicProduct({ path, defaultText }) {
             <div className="squarePicContainer">
                 {/* DEFAULT IMG */}
                 < div className="squarePicDefault">
-                    <h5>{defaultText || 'immagine'}</h5>
+                    <h5>{defaultText || 'picture'}</h5>
                 </div >
             </div>
         }

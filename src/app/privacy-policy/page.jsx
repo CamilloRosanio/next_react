@@ -6,6 +6,11 @@
 import { useState, memo } from 'react';
 
 
+// ## LANGUAGE
+// CONTEXTS
+// import { useMainContext } from '../../../contexts/MainContext.jsx';
+
+
 // ASSETS
 import businessInfo from '../../../assets/data/businessInfo.js';
 import { listSymbol } from '../../../assets/data/utilityContent.js';
@@ -19,6 +24,11 @@ import PageBottomButtons from '../../../components/PageBottomButtons.jsx';
 
 // EXPORT
 function PrivacyPolicyPage() {
+
+    // ## LANGUAGE
+    // DATA - CONTEXT
+    // const { utilityContent } = useMainContext();
+    // const listSymbol = utilityContent.listSymbol
 
     // USE-STATE
     const [showEmail, setShowEmail] = useState(false);
